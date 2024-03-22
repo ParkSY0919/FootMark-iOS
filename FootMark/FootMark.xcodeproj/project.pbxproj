@@ -49,7 +49,6 @@
 		9E3871662BAC1BCD007451F8 /* UIStackView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38714E2BAC1BCC007451F8 /* UIStackView++.swift */; };
 		9E3871672BAC1BCD007451F8 /* UIButton++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38714F2BAC1BCC007451F8 /* UIButton++.swift */; };
 		9E3871682BAC1BCD007451F8 /* NSObject++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3871502BAC1BCC007451F8 /* NSObject++.swift */; };
-		9E3871692BAC1BCD007451F8 /* UISegmented++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3871512BAC1BCC007451F8 /* UISegmented++.swift */; };
 		9E38716A2BAC1BCD007451F8 /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3871522BAC1BCC007451F8 /* UIView++.swift */; };
 		9E38716B2BAC1BCD007451F8 /* UITextField++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3871532BAC1BCC007451F8 /* UITextField++.swift */; };
 		9E38716C2BAC1BCD007451F8 /* UIColor++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3871542BAC1BCC007451F8 /* UIColor++.swift */; };
@@ -118,7 +117,6 @@
 		9E38714E2BAC1BCC007451F8 /* UIStackView++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView++.swift"; sourceTree = "<group>"; };
 		9E38714F2BAC1BCC007451F8 /* UIButton++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton++.swift"; sourceTree = "<group>"; };
 		9E3871502BAC1BCC007451F8 /* NSObject++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject++.swift"; sourceTree = "<group>"; };
-		9E3871512BAC1BCC007451F8 /* UISegmented++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISegmented++.swift"; sourceTree = "<group>"; };
 		9E3871522BAC1BCC007451F8 /* UIView++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
 		9E3871532BAC1BCC007451F8 /* UITextField++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField++.swift"; sourceTree = "<group>"; };
 		9E3871542BAC1BCC007451F8 /* UIColor++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor++.swift"; sourceTree = "<group>"; };
@@ -367,7 +365,6 @@
 				9E38714E2BAC1BCC007451F8 /* UIStackView++.swift */,
 				9E38714F2BAC1BCC007451F8 /* UIButton++.swift */,
 				9E3871502BAC1BCC007451F8 /* NSObject++.swift */,
-				9E3871512BAC1BCC007451F8 /* UISegmented++.swift */,
 				9E3871522BAC1BCC007451F8 /* UIView++.swift */,
 				9E3871532BAC1BCC007451F8 /* UITextField++.swift */,
 				9E3871542BAC1BCC007451F8 /* UIColor++.swift */,
@@ -577,7 +574,6 @@
 			files = (
 				9E3871742BAC1BCD007451F8 /* Image.swift in Sources */,
 				9E3870512BAC1872007451F8 /* AFLogger.swift in Sources */,
-				9E3871692BAC1BCD007451F8 /* UISegmented++.swift in Sources */,
 				9E3871682BAC1BCD007451F8 /* NSObject++.swift in Sources */,
 				9E38705E2BAC1872007451F8 /* API.swift in Sources */,
 				9E386FA22BAC0C06007451F8 /* MainViewController.swift in Sources */,
@@ -780,10 +776,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A95XXD5WT7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FootMark/Info.plist;
+				INFOPLIST_FILE = FootMark/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -808,10 +804,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A95XXD5WT7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FootMark/Info.plist;
+				INFOPLIST_FILE = FootMark/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
