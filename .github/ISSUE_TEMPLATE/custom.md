@@ -1,7 +1,7 @@
 ---
 name: Custom issue template
 about: 위 이슈 생성 템플렛을 사용하여 이슈를 생성하고, 작성해주세요.
-title: "[Label 이름] - [issue title에 들어갈 내용]"
+title: "[convention prefix] - issue title에 들어갈 내용"
 labels: ''
 assignees: ''
 
