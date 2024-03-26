@@ -1,5 +1,5 @@
 //
-//  MonthlyReviewViewController.swift
+//  CategoryViewController.swift
 //  FootMark
 //
 //  Created by 박신영 on 3/26/24.
@@ -10,7 +10,7 @@ import SnapKit
 import Then
 
 
-class MonthlyReviewViewController: BaseViewController {
+class CategoryViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class MonthlyReviewViewController: BaseViewController {
     let sdieBar: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .white
-        imageView.image = UIImage(named: "MonthlyReview3")
+        imageView.image = UIImage(named: "Category2")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

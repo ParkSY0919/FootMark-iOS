@@ -59,6 +59,8 @@
 		9E5AF8392BB2795700284CF5 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AF8382BB2795700284CF5 /* SideBarViewController.swift */; };
 		9E5AF83B2BB2ABD300284CF5 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AF83A2BB2ABD300284CF5 /* MyProfileViewController.swift */; };
 		9E5AF83D2BB2ACCA00284CF5 /* MonthlyReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AF83C2BB2ACCA00284CF5 /* MonthlyReviewViewController.swift */; };
+		9E5AF83F2BB2B34100284CF5 /* DiaryView1Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AF83E2BB2B34100284CF5 /* DiaryView1Controller.swift */; };
+		9E5AF8412BB2B6C600284CF5 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AF8402BB2B6C600284CF5 /* CategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +134,8 @@
 		9E5AF8382BB2795700284CF5 /* SideBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		9E5AF83A2BB2ABD300284CF5 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		9E5AF83C2BB2ACCA00284CF5 /* MonthlyReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReviewViewController.swift; sourceTree = "<group>"; };
+		9E5AF83E2BB2B34100284CF5 /* DiaryView1Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView1Controller.swift; sourceTree = "<group>"; };
+		9E5AF8402BB2B6C600284CF5 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,6 +445,8 @@
 				9E5AF8382BB2795700284CF5 /* SideBarViewController.swift */,
 				9E5AF83A2BB2ABD300284CF5 /* MyProfileViewController.swift */,
 				9E5AF83C2BB2ACCA00284CF5 /* MonthlyReviewViewController.swift */,
+				9E5AF83E2BB2B34100284CF5 /* DiaryView1Controller.swift */,
+				9E5AF8402BB2B6C600284CF5 /* CategoryViewController.swift */,
 			);
 			path = Simulator;
 			sourceTree = "<group>";
@@ -610,6 +616,8 @@
 				9E3871282BAC1A03007451F8 /* BaseView.swift in Sources */,
 				9E3870532BAC1872007451F8 /* ImageUploader.swift in Sources */,
 				9E3871662BAC1BCD007451F8 /* UIStackView++.swift in Sources */,
+				9E5AF83F2BB2B34100284CF5 /* DiaryView1Controller.swift in Sources */,
+				9E5AF8412BB2B6C600284CF5 /* CategoryViewController.swift in Sources */,
 				9E5AF83B2BB2ABD300284CF5 /* MyProfileViewController.swift in Sources */,
 				9E5AF8392BB2795700284CF5 /* SideBarViewController.swift in Sources */,
 				9E3871292BAC1A03007451F8 /* BaseViewController.swift in Sources */,

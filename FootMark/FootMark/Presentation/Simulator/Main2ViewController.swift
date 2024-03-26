@@ -17,6 +17,7 @@ class Main2ViewController: BaseViewController {
         
         setupGesture()
     }
+   var count = 0
     
     let mainView: UIImageView = {
         let imageView = UIImageView()
@@ -46,9 +47,17 @@ class Main2ViewController: BaseViewController {
     }
     
     @objc private func handleTap(_ sender: UITapGestureRecognizer) {
-       let sideBar = SideBarViewController()
-       sideBar.navigationItem.hidesBackButton = true
-       navigationController?.pushViewController(sideBar, animated: true)
+       if count == 0 {
+          let diary = DiaryView1Controller()
+          diary.navigationItem.hidesBackButton = false
+          navigationController?.pushViewController(diary, animated: true)
+       } else {
+          let sideBar = SideBarViewController()
+          sideBar.navigationItem.hidesBackButton = true
+          navigationController?.pushViewController(sideBar, animated: true)
+       }
+       
+       count += 1
     }
    
 }

@@ -56,6 +56,12 @@ class SideBarViewController: BaseViewController {
           let monthlyReview = MonthlyReviewViewController()
           monthlyReview.navigationItem.hidesBackButton = false
           navigationController?.pushViewController(monthlyReview, animated: true)
+       } else if count == 3 {
+          let category = CategoryViewController()
+          category.navigationItem.hidesBackButton = false
+          navigationController?.pushViewController(category, animated: true)
+       } else {
+          print("아 다 둘러봤다!")
        }
        
        count += 1
