@@ -12,7 +12,7 @@
 		9E23C4BC2BACA30200BB7D18 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 9E23C4BB2BACA30200BB7D18 /* Then */; };
 		9E386F9E2BAC0C06007451F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E386F9D2BAC0C06007451F8 /* AppDelegate.swift */; };
 		9E386FA02BAC0C06007451F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E386F9F2BAC0C06007451F8 /* SceneDelegate.swift */; };
-		9E386FA22BAC0C06007451F8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E386FA12BAC0C06007451F8 /* MainViewController.swift */; };
+		9E386FA22BAC0C06007451F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E386FA12BAC0C06007451F8 /* ViewController.swift */; };
 		9E386FA72BAC0C07007451F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E386FA62BAC0C07007451F8 /* Assets.xcassets */; };
 		9E386FAA2BAC0C07007451F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E386FA82BAC0C07007451F8 /* LaunchScreen.storyboard */; };
 		9E386FB52BAC0C07007451F8 /* FootMarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E386FB42BAC0C07007451F8 /* FootMarkTests.swift */; };
@@ -54,6 +54,11 @@
 		9E38716C2BAC1BCD007451F8 /* UIColor++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3871542BAC1BCC007451F8 /* UIColor++.swift */; };
 		9E3871712BAC1BCD007451F8 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38715A2BAC1BCC007451F8 /* BaseNavigationController.swift */; };
 		9E3871742BAC1BCD007451F8 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38715E2BAC1BCC007451F8 /* Image.swift */; };
+		9E5AF8352BB26D4100284CF5 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AF8342BB26D4100284CF5 /* SignViewController.swift */; };
+		9E5AF8372BB2759300284CF5 /* Main2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AF8362BB2759300284CF5 /* Main2ViewController.swift */; };
+		9E5AF8392BB2795700284CF5 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AF8382BB2795700284CF5 /* SideBarViewController.swift */; };
+		9E5AF83B2BB2ABD300284CF5 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AF83A2BB2ABD300284CF5 /* MyProfileViewController.swift */; };
+		9E5AF83D2BB2ACCA00284CF5 /* MonthlyReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AF83C2BB2ACCA00284CF5 /* MonthlyReviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +82,7 @@
 		9E386F9A2BAC0C06007451F8 /* FootMark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootMark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E386F9D2BAC0C06007451F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E386F9F2BAC0C06007451F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9E386FA12BAC0C06007451F8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9E386FA12BAC0C06007451F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E386FA62BAC0C07007451F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E386FA92BAC0C07007451F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E386FAB2BAC0C07007451F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,6 +127,11 @@
 		9E3871542BAC1BCC007451F8 /* UIColor++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor++.swift"; sourceTree = "<group>"; };
 		9E38715A2BAC1BCC007451F8 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		9E38715E2BAC1BCC007451F8 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		9E5AF8342BB26D4100284CF5 /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
+		9E5AF8362BB2759300284CF5 /* Main2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main2ViewController.swift; sourceTree = "<group>"; };
+		9E5AF8382BB2795700284CF5 /* SideBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
+		9E5AF83A2BB2ABD300284CF5 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		9E5AF83C2BB2ACCA00284CF5 /* MonthlyReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +281,7 @@
 		9E3870682BAC1A02007451F8 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9E5AF8332BB26CF100284CF5 /* Simulator */,
 				9E3871792BAC1C86007451F8 /* Main */,
 				9E3870D22BAC1A02007451F8 /* Base */,
 			);
@@ -417,9 +428,21 @@
 		9E38717B2BAC1D44007451F8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9E386FA12BAC0C06007451F8 /* MainViewController.swift */,
+				9E386FA12BAC0C06007451F8 /* ViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9E5AF8332BB26CF100284CF5 /* Simulator */ = {
+			isa = PBXGroup;
+			children = (
+				9E5AF8342BB26D4100284CF5 /* SignViewController.swift */,
+				9E5AF8362BB2759300284CF5 /* Main2ViewController.swift */,
+				9E5AF8382BB2795700284CF5 /* SideBarViewController.swift */,
+				9E5AF83A2BB2ABD300284CF5 /* MyProfileViewController.swift */,
+				9E5AF83C2BB2ACCA00284CF5 /* MonthlyReviewViewController.swift */,
+			);
+			path = Simulator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -576,9 +599,10 @@
 				9E3870512BAC1872007451F8 /* AFLogger.swift in Sources */,
 				9E3871682BAC1BCD007451F8 /* NSObject++.swift in Sources */,
 				9E38705E2BAC1872007451F8 /* API.swift in Sources */,
-				9E386FA22BAC0C06007451F8 /* MainViewController.swift in Sources */,
+				9E386FA22BAC0C06007451F8 /* ViewController.swift in Sources */,
 				9E3870622BAC1872007451F8 /* BaseRouter.swift in Sources */,
 				9E38713C2BAC1AA3007451F8 /* Colors.swift in Sources */,
+				9E5AF8352BB26D4100284CF5 /* SignViewController.swift in Sources */,
 				9E38704C2BAC1872007451F8 /* DTO.swift in Sources */,
 				9E3870542BAC1872007451F8 /* BaseResponse.swift in Sources */,
 				9E3871652BAC1BCD007451F8 /* UIResponder++.swift in Sources */,
@@ -586,14 +610,18 @@
 				9E3871282BAC1A03007451F8 /* BaseView.swift in Sources */,
 				9E3870532BAC1872007451F8 /* ImageUploader.swift in Sources */,
 				9E3871662BAC1BCD007451F8 /* UIStackView++.swift in Sources */,
+				9E5AF83B2BB2ABD300284CF5 /* MyProfileViewController.swift in Sources */,
+				9E5AF8392BB2795700284CF5 /* SideBarViewController.swift in Sources */,
 				9E3871292BAC1A03007451F8 /* BaseViewController.swift in Sources */,
 				9E3870572BAC1872007451F8 /* NetworkResult.swift in Sources */,
+				9E5AF8372BB2759300284CF5 /* Main2ViewController.swift in Sources */,
 				9E3870522BAC1872007451F8 /* BaseTargetType.swift in Sources */,
 				9E38716C2BAC1BCD007451F8 /* UIColor++.swift in Sources */,
 				9E386F9E2BAC0C06007451F8 /* AppDelegate.swift in Sources */,
 				9E38716A2BAC1BCD007451F8 /* UIView++.swift in Sources */,
 				9E38716B2BAC1BCD007451F8 /* UITextField++.swift in Sources */,
 				9E3871452BAC1AA3007451F8 /* Font.swift in Sources */,
+				9E5AF83D2BB2ACCA00284CF5 /* MonthlyReviewViewController.swift in Sources */,
 				9E3871632BAC1BCD007451F8 /* UIViewController++.swift in Sources */,
 				9E3870562BAC1872007451F8 /* URLConst.swift in Sources */,
 				9E3871642BAC1BCD007451F8 /* UIImage++.swift in Sources */,
