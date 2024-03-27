@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E092D3A2BB3BB0000B146A9 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E092D392BB3BB0000B146A9 /* SignViewController.swift */; };
+		9E092D3C2BB3BC0800B146A9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E092D3B2BB3BC0800B146A9 /* LoginView.swift */; };
+		9E092D3E2BB3BC1800B146A9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E092D3D2BB3BC1800B146A9 /* SignUpView.swift */; };
 		9E23C4B62BACA2C800BB7D18 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9E23C4B52BACA2C800BB7D18 /* Alamofire */; };
 		9E23C4B92BACA2F600BB7D18 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9E23C4B82BACA2F600BB7D18 /* SnapKit */; };
 		9E23C4BC2BACA30200BB7D18 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 9E23C4BB2BACA30200BB7D18 /* Then */; };
@@ -78,6 +81,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E092D392BB3BB0000B146A9 /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
+		9E092D3B2BB3BC0800B146A9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9E092D3D2BB3BC1800B146A9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		9E386F9A2BAC0C06007451F8 /* FootMark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootMark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E386F9D2BAC0C06007451F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E386F9F2BAC0C06007451F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +166,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E092D362BB3BADC00B146A9 /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				9E092D382BB3BAEF00B146A9 /* View */,
+				9E092D372BB3BAE700B146A9 /* ViewController */,
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
+		9E092D372BB3BAE700B146A9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9E092D392BB3BB0000B146A9 /* SignViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9E092D382BB3BAEF00B146A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E092D3B2BB3BC0800B146A9 /* LoginView.swift */,
+				9E092D3D2BB3BC1800B146A9 /* SignUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9E386F912BAC0C06007451F8 = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +312,7 @@
 		9E3870682BAC1A02007451F8 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9E092D362BB3BADC00B146A9 /* Sign */,
 				C1482DEA2BAFD90F005177F7 /* Diary */,
 				9E3871792BAC1C86007451F8 /* Main */,
 				9E3870D22BAC1A02007451F8 /* Base */,
@@ -625,6 +658,7 @@
 				9E386FA22BAC0C06007451F8 /* MainViewController.swift in Sources */,
 				9E3870622BAC1872007451F8 /* BaseRouter.swift in Sources */,
 				9E38713C2BAC1AA3007451F8 /* Colors.swift in Sources */,
+				9E092D3A2BB3BB0000B146A9 /* SignViewController.swift in Sources */,
 				9E38704C2BAC1872007451F8 /* DTO.swift in Sources */,
 				9E3870542BAC1872007451F8 /* BaseResponse.swift in Sources */,
 				9E3871652BAC1BCD007451F8 /* UIResponder++.swift in Sources */,
@@ -640,11 +674,13 @@
 				9E386F9E2BAC0C06007451F8 /* AppDelegate.swift in Sources */,
 				9E38716A2BAC1BCD007451F8 /* UIView++.swift in Sources */,
 				9E38716B2BAC1BCD007451F8 /* UITextField++.swift in Sources */,
+				9E092D3C2BB3BC0800B146A9 /* LoginView.swift in Sources */,
 				9E3871452BAC1AA3007451F8 /* Font.swift in Sources */,
 				9E3871632BAC1BCD007451F8 /* UIViewController++.swift in Sources */,
 				9E3870562BAC1872007451F8 /* URLConst.swift in Sources */,
 				9E3871642BAC1BCD007451F8 /* UIImage++.swift in Sources */,
 				9E3871712BAC1BCD007451F8 /* BaseNavigationController.swift in Sources */,
+				9E092D3E2BB3BC1800B146A9 /* SignUpView.swift in Sources */,
 				9E386FA02BAC0C06007451F8 /* SceneDelegate.swift in Sources */,
 				9E3870552BAC1872007451F8 /* BaseAPI.swift in Sources */,
 				C1482DF02BAFDAC8005177F7 /* DiaryView.swift in Sources */,
