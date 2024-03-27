@@ -20,6 +20,17 @@ class DiaryViewController: BaseViewController, ElegantEmojiPickerDelegate {
         diaryView.emojiPickerHandler = { [weak self] in
             self?.PresentEmojiPicker()
         }
+        
+        let categorySource: [String] = ["운동하기", "약속", "공부하기"]
+        let actionClosure: (UIAction) -> Void = { action in
+            print(action.title)
+        }
+        
+        diaryView.categoryButton.menu = UIMenu(children: categorySource.map { category in
+            UIAction(title: category, handler: actionClosure)
+        })
+        diaryView.categoryButton.showsMenuAsPrimaryAction = true
+        diaryView.categoryButton.changesSelectionAsPrimaryAction = true
     }
     
     override func setUI() {
