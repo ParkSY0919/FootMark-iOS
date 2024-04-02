@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SnapKit
+import DropDown
 
 class DiaryView: BaseView {
     
@@ -23,23 +23,33 @@ class DiaryView: BaseView {
         $0.setPretendardFont(text: "2023.03.24 (일)", size: 20, weight: .regular, letterSpacing: 1.25)
     }
     
-    lazy var categoryButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("카테고리 선택", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 30, weight: .bold)
-        button.tintColor = .label
-        return button
-    }()
+    let categoryLabel = UILabel().then {
+        $0.setPretendardFont(text: "운동하기", size: 30, weight: .regular, letterSpacing: 1.25)
+    }
+    
+    let categoryButton = UIButton().then {
+        $0.setTitle("카테고리", for: .normal)
+        $0.setTitleColor(.black, for: .normal)
+        $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+        
+//        $0.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+//        $0.semanticContentAttribute = .forceRightToLeft // 이미지를 텍스트 오른쪽으로 이동
+//        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: categoryButton.bounds.width - 24, bottom: 0, right: 0) // 이미지 위치 조정
+
+    }
+    
+    let dropDown = DropDown()
     
     let todoLabel = UILabel().then {
         $0.setPretendardFont(text: "수영, 산책, 천국의 계단", size: 17, weight: .regular, letterSpacing: 1.25)
     }
     
     override func setUI() {
-//        addSubviews(emojiLabel)
+        super.setUI()
         
         container.addSubview(emojiLabel)
         container.addSubview(dateLabel)
+        container.addSubview(categoryLabel)
         container.addSubview(categoryButton)
         container.addSubview(todoLabel)
         
@@ -47,7 +57,11 @@ class DiaryView: BaseView {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(emojiLabelTapped))
         emojiLabel.addGestureRecognizer(tapGesture)
+        categoryButton.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
+        
+        setupDropDown()
     }
+    
     
     override func setLayout() {
         emojiLabel.snp.makeConstraints {
@@ -56,17 +70,24 @@ class DiaryView: BaseView {
         }
         
         dateLabel.snp.makeConstraints {
-            $0.top.equalTo(self.emojiLabel.snp.bottom).offset(20)
-            $0.centerX.equalToSuperview()
+            $0.top.equalTo(self.emojiLabel.snp.bottom).offset(40)
+            $0.leading.equalToSuperview().inset(10)
         }
         
-        categoryButton.snp.makeConstraints {
+        categoryLabel.snp.makeConstraints {
             $0.top.equalTo(self.dateLabel.snp.bottom).offset(50)
             $0.leading.equalToSuperview().inset(10)
         }
         
+        categoryButton.snp.makeConstraints {
+            $0.top.equalTo(self.emojiLabel.snp.bottom).offset(30)
+            $0.leading.equalTo(dateLabel.snp.trailing).offset(50)
+            $0.width.equalTo(100)
+            $0.height.equalTo(50)
+        }
+        
         todoLabel.snp.makeConstraints {
-            $0.top.equalTo(self.categoryButton.snp.bottom).offset(10)
+            $0.top.equalTo(self.categoryLabel.snp.bottom).offset(10)
             $0.leading.equalToSuperview().inset(10)
         }
         
@@ -75,21 +96,27 @@ class DiaryView: BaseView {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(20)
         }
-        
-//        let labelsStackView = UIStackView(arrangedSubviews: [dateLabel, categoryButton])
-//        labelsStackView.axis = .horizontal
-//        labelsStackView.spacing = 8
-//        labelsStackView.alignment = .center
-//        container.addSubview(labelsStackView)
-//        
-//        labelsStackView.snp.makeConstraints {
-//            $0.top.equalToSuperview().offset(16)
-//            $0.leading.trailing.equalToSuperview().inset(16)
-//        }
     }
     
     @objc func emojiLabelTapped() {
         emojiPickerHandler?()
     }
+    
+    func setupDropDown() {
+        dropDown.anchorView = categoryButton
+        dropDown.topOffset = CGPoint(x: 0, y: categoryButton.bounds.height)
+        dropDown.dataSource = ["운동", "약속", "공부"]
+        
+        dropDown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.categoryButton.setTitle(item, for: .normal)
+            self?.categoryLabel.text = item
+        }
+        
+    }
+    
+    
+    @objc func categoryButtonTapped() {
+        dropDown.show() // 드롭다운 메뉴 표시
+        print("😀😀😀😀😀😀😀")
+    }
 }
-

@@ -57,6 +57,7 @@
 		C1482DEE2BAFD9B9005177F7 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1482DED2BAFD9B9005177F7 /* DiaryViewController.swift */; };
 		C1482DF02BAFDAC8005177F7 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1482DEF2BAFDAC8005177F7 /* DiaryView.swift */; };
 		C1482DF72BB05D0F005177F7 /* ElegantEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = C1482DF62BB05D0F005177F7 /* ElegantEmojiPicker */; };
+		C1482E0E2BBC6615005177F7 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = C1482E0D2BBC6615005177F7 /* DropDown */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1482DF72BB05D0F005177F7 /* ElegantEmojiPicker in Frameworks */,
+				C1482E0E2BBC6615005177F7 /* DropDown in Frameworks */,
 				9E23C4B62BACA2C800BB7D18 /* Alamofire in Frameworks */,
 				9E23C4BC2BACA30200BB7D18 /* Then in Frameworks */,
 				9E23C4B92BACA2F600BB7D18 /* SnapKit in Frameworks */,
@@ -165,6 +167,7 @@
 				9E386FB32BAC0C07007451F8 /* FootMarkTests */,
 				9E386FBD2BAC0C07007451F8 /* FootMarkUITests */,
 				9E386F9B2BAC0C06007451F8 /* Products */,
+				C1482E0A2BBC5875005177F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -454,6 +457,13 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		C1482E0A2BBC5875005177F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -475,6 +485,7 @@
 				9E23C4B82BACA2F600BB7D18 /* SnapKit */,
 				9E23C4BB2BACA30200BB7D18 /* Then */,
 				C1482DF62BB05D0F005177F7 /* ElegantEmojiPicker */,
+				C1482E0D2BBC6615005177F7 /* DropDown */,
 			);
 			productName = FootMark;
 			productReference = 9E386F9A2BAC0C06007451F8 /* FootMark.app */;
@@ -553,6 +564,7 @@
 				9E23C4B72BACA2F600BB7D18 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				9E23C4BA2BACA30200BB7D18 /* XCRemoteSwiftPackageReference "Then" */,
 				C1482DF52BB05D0F005177F7 /* XCRemoteSwiftPackageReference "Elegant-Emoji-Picker" */,
+				C1482E0C2BBC6615005177F7 /* XCRemoteSwiftPackageReference "DropDown" */,
 			);
 			productRefGroup = 9E386F9B2BAC0C06007451F8 /* Products */;
 			projectDirPath = "";
@@ -1007,6 +1019,14 @@
 				kind = branch;
 			};
 		};
+		C1482E0C2BBC6615005177F7 /* XCRemoteSwiftPackageReference "DropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AssistoLab/DropDown";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1029,6 +1049,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C1482DF52BB05D0F005177F7 /* XCRemoteSwiftPackageReference "Elegant-Emoji-Picker" */;
 			productName = ElegantEmojiPicker;
+		};
+		C1482E0D2BBC6615005177F7 /* DropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1482E0C2BBC6615005177F7 /* XCRemoteSwiftPackageReference "DropDown" */;
+			productName = DropDown;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
