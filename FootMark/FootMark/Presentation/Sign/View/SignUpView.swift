@@ -43,42 +43,31 @@ class SignUpView: BaseView {
         return textField
     }()
     
-    // MARK: - Initialization
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        setupViews()
-//    }
-//    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
-    // MARK: - Private Methods
-    
-    private func setupViews() {
-        addSubview(idTextField)
-        addSubview(passwordTextField)
-        addSubview(confirmPasswordTextField)
-        addSubview(locationTextField)
-        
-        idTextField.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
-        }
-        
-        passwordTextField.snp.makeConstraints {
-            $0.top.equalTo(idTextField.snp.bottom).offset(16)
-            $0.leading.trailing.equalToSuperview()
-        }
-        
-        confirmPasswordTextField.snp.makeConstraints {
-            $0.top.equalTo(passwordTextField.snp.bottom).offset(16)
-            $0.leading.trailing.equalToSuperview()
-        }
-        
-        locationTextField.snp.makeConstraints {
-            $0.top.equalTo(confirmPasswordTextField.snp.bottom).offset(16)
-            $0.leading.trailing.equalToSuperview()
-        }
-    }
+   
+   override func setLayout() {
+      addSubview(idTextField)
+      addSubview(passwordTextField)
+      addSubview(confirmPasswordTextField)
+      addSubview(locationTextField)
+      
+      idTextField.snp.makeConstraints {
+          $0.top.leading.trailing.equalToSuperview()
+      }
+      
+      passwordTextField.snp.makeConstraints {
+          $0.top.equalTo(idTextField.snp.bottom).offset(16)
+          $0.leading.trailing.equalToSuperview()
+      }
+      
+      confirmPasswordTextField.snp.makeConstraints {
+          $0.top.equalTo(passwordTextField.snp.bottom).offset(16)
+          $0.leading.trailing.equalToSuperview()
+      }
+      
+      locationTextField.snp.makeConstraints {
+          $0.top.equalTo(confirmPasswordTextField.snp.bottom).offset(16)
+          $0.leading.trailing.equalToSuperview()
+      }
+   }
+   
 }
