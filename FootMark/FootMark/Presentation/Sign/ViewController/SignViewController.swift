@@ -13,7 +13,7 @@ class SignViewController: BaseViewController {
     
     // MARK: - Properties
     
-    private let segmentedControl: UISegmentedControl = {
+    private lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Login", "Sign Up"])
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
@@ -28,6 +28,7 @@ class SignViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+//       view.backgroundColor = .red
        print("뷰 로드")
     }
     

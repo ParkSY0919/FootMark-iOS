@@ -28,22 +28,11 @@ class LoginView: BaseView {
         return textField
     }()
     
-    // MARK: - Initialization
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        setupViews()
-//    }
-//    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
     // MARK: - Private Methods
     
-    private func setupViews() {
-        addSubview(idTextField)
-        addSubview(passwordTextField)
+   override func setLayout() {
+        addSubviews(idTextField, passwordTextField)
+
         
         idTextField.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
