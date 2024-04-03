@@ -403,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				9E38714B2BAC1BCC007451F8 /* UIViewController++.swift */,
+				9E6090022BBCF2F900D018B2 /* UISegmented++.swift */,
 				9E38714C2BAC1BCC007451F8 /* UIImage++.swift */,
 				9E38714D2BAC1BCC007451F8 /* UIResponder++.swift */,
 				9E38714E2BAC1BCC007451F8 /* UIStackView++.swift */,
@@ -651,6 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E6090032BBCF2F900D018B2 /* UISegmented++.swift in Sources */,
 				9E3871742BAC1BCD007451F8 /* Image.swift in Sources */,
 				9E3870512BAC1872007451F8 /* AFLogger.swift in Sources */,
 				9E3871682BAC1BCD007451F8 /* NSObject++.swift in Sources */,
