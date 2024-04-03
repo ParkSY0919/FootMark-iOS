@@ -10,6 +10,9 @@ import DropDown
 
 class DiaryView: BaseView {
     
+    let topContainer = UIView()
+    let todoContainer = UIView()
+    
     let emojiLabel = UILabel().then {
         $0.setPretendardFont(text: "🫥", size: 50, weight: .bold, letterSpacing: 1.25)
         $0.isUserInteractionEnabled = true
@@ -44,28 +47,57 @@ class DiaryView: BaseView {
         $0.setPretendardFont(text: "수영, 산책, 천국의 계단", size: 17, weight: .regular, letterSpacing: 1.25)
     }
     
+    let todoTextView: UITextView = {
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.font = UIFont.systemFont(ofSize: 16)
+        textView.isScrollEnabled = false
+        textView.layer.borderColor = UIColor.gray.cgColor // 테두리 색상 설정
+        textView.layer.borderWidth = 1.0 // 테두리 두께 설정
+        textView.layer.cornerRadius = 5.0 // 모서리 둥글기 설정
+        return textView
+    }()
+    
+//    var todoTextField = UITextField().then {
+//        $0.placeholder = "여기에 입력하세요"
+//        $0.keyboardType = .default
+//        $0.borderStyle = .roundedRect
+//        $0.autocorrectionType = .no
+//        $0.spellCheckingType = .no
+//        $0.autocapitalizationType = .none
+//        
+//        $0.returnKeyType = .done
+//        $0.becomeFirstResponder()
+//        $0.resignFirstResponder()
+//    }
+
     override func setUI() {
         super.setUI()
         
-        container.addSubview(emojiLabel)
-        container.addSubview(dateLabel)
-        container.addSubview(categoryLabel)
-        container.addSubview(categoryButton)
-        container.addSubview(todoLabel)
+        topContainer.addSubview(emojiLabel)
+        topContainer.addSubview(dateLabel)
+        topContainer.addSubview(categoryButton)
         
-        addSubview(container)
+        todoContainer.addSubview(categoryLabel)
+        todoContainer.addSubview(todoLabel)
+//        todoContainer.addSubview(todoTextField)
+        todoContainer.addSubview(todoTextView)
+        
+        addSubview(topContainer)
+        addSubview(todoContainer)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(emojiLabelTapped))
         emojiLabel.addGestureRecognizer(tapGesture)
+        
         categoryButton.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
         
         setupDropDown()
     }
     
-    
     override func setLayout() {
+        
         emojiLabel.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(30)
+            $0.top.equalToSuperview()
             $0.centerX.equalToSuperview()
         }
         
@@ -73,12 +105,7 @@ class DiaryView: BaseView {
             $0.top.equalTo(self.emojiLabel.snp.bottom).offset(40)
             $0.leading.equalToSuperview().inset(10)
         }
-        
-        categoryLabel.snp.makeConstraints {
-            $0.top.equalTo(self.dateLabel.snp.bottom).offset(50)
-            $0.leading.equalToSuperview().inset(10)
-        }
-        
+    
         categoryButton.snp.makeConstraints {
             $0.top.equalTo(self.emojiLabel.snp.bottom).offset(30)
             $0.leading.equalTo(dateLabel.snp.trailing).offset(50)
@@ -86,18 +113,43 @@ class DiaryView: BaseView {
             $0.height.equalTo(50)
         }
         
+        topContainer.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(20)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalTo(categoryButton.snp.bottom)
+        }
+        
+        categoryLabel.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().inset(10)
+        }
+        
         todoLabel.snp.makeConstraints {
             $0.top.equalTo(self.categoryLabel.snp.bottom).offset(10)
             $0.leading.equalToSuperview().inset(10)
         }
         
-        container.snp.makeConstraints {
-            $0.top.equalTo(emojiLabel.snp.bottom).offset(20)
+        todoTextView.snp.makeConstraints {
+            $0.top.equalTo(self.todoLabel.snp.bottom).offset(20)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(350)
+            $0.height.equalTo(400)
+        }
+        
+//        todoTextField.snp.makeConstraints {
+//            $0.top.equalTo(self.todoLabel.snp.bottom).offset(20)
+//            $0.centerX.equalToSuperview()
+//            $0.width.equalTo(350)
+//            $0.height.equalTo(400)
+//        }
+        
+        todoContainer.snp.makeConstraints {
+            $0.top.equalTo(topContainer.snp.bottom).offset(30)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().inset(20)
+            $0.bottom.equalTo(todoTextView.snp.bottom).offset(20)
         }
     }
-    
+
     @objc func emojiLabelTapped() {
         emojiPickerHandler?()
     }
@@ -111,12 +163,10 @@ class DiaryView: BaseView {
             self?.categoryButton.setTitle(item, for: .normal)
             self?.categoryLabel.text = item
         }
-        
     }
     
-    
     @objc func categoryButtonTapped() {
-        dropDown.show() // 드롭다운 메뉴 표시
+        dropDown.show()
         print("😀😀😀😀😀😀😀")
     }
 }
