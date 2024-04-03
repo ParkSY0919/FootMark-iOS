@@ -57,6 +57,7 @@
 		9E38716C2BAC1BCD007451F8 /* UIColor++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3871542BAC1BCC007451F8 /* UIColor++.swift */; };
 		9E3871712BAC1BCD007451F8 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38715A2BAC1BCC007451F8 /* BaseNavigationController.swift */; };
 		9E3871742BAC1BCD007451F8 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38715E2BAC1BCC007451F8 /* Image.swift */; };
+		9E6090032BBCF2F900D018B2 /* UISegmented++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6090022BBCF2F900D018B2 /* UISegmented++.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		9E3871542BAC1BCC007451F8 /* UIColor++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor++.swift"; sourceTree = "<group>"; };
 		9E38715A2BAC1BCC007451F8 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		9E38715E2BAC1BCC007451F8 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		9E6090022BBCF2F900D018B2 /* UISegmented++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISegmented++.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				9E38714B2BAC1BCC007451F8 /* UIViewController++.swift */,
+				9E6090022BBCF2F900D018B2 /* UISegmented++.swift */,
 				9E38714C2BAC1BCC007451F8 /* UIImage++.swift */,
 				9E38714D2BAC1BCC007451F8 /* UIResponder++.swift */,
 				9E38714E2BAC1BCC007451F8 /* UIStackView++.swift */,
@@ -605,6 +608,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E6090032BBCF2F900D018B2 /* UISegmented++.swift in Sources */,
 				9E3871742BAC1BCD007451F8 /* Image.swift in Sources */,
 				9E3870512BAC1872007451F8 /* AFLogger.swift in Sources */,
 				9E3871682BAC1BCD007451F8 /* NSObject++.swift in Sources */,
