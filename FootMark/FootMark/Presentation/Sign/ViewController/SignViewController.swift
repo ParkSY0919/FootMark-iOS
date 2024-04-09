@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class SignViewController: BaseViewController {
+class SignViewController: BaseViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     
@@ -47,8 +47,8 @@ class SignViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-//       view.backgroundColor = .red
        print("뷰 로드")
+       loginView.idTextField.delegate = self
     }
     
     // MARK: - Private Methods
@@ -83,4 +83,11 @@ class SignViewController: BaseViewController {
         loginView.isHidden = sender.selectedSegmentIndex != 0
         signUpView.isHidden = sender.selectedSegmentIndex != 1
     }
+   
+   
+   func textFieldDidChangeSelection(_ textField: UITextField) {
+           if textField == loginView.idTextField {
+               print("idTextField 텍스트 변경: \(textField.text ?? "")")
+           }
+       }
 }
