@@ -13,7 +13,7 @@ class LoginView: BaseView {
     
     // MARK: - Properties
     
-    private let idTextField: UITextField = {
+   let idTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "ID"
         textField.borderStyle = .roundedRect
