@@ -36,9 +36,17 @@ class DiaryViewController: BaseViewController, ElegantEmojiPickerDelegate, UITex
     override func setLayout() {
         
         diaryView.snp.makeConstraints {
-            $0.top.leading.trailing.bottom.equalToSuperview()
-            $0.centerX.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
+    }
+    
+    override func setAddTarget() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(emojiLabelTapped))
+        diaryView.emojiLabel.addGestureRecognizer(tapGesture)
+        
+        diaryView.categoryButton.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
+        
+        setupDropDown()
     }
     
     func PresentEmojiPicker () {
@@ -64,6 +72,25 @@ class DiaryViewController: BaseViewController, ElegantEmojiPickerDelegate, UITex
             }
             return true
         }
+    
+    @objc func emojiLabelTapped() {
+        diaryView.emojiPickerHandler?()
+    }
+    
+    func setupDropDown() {
+        diaryView.dropDown.anchorView = diaryView.categoryButton
+        diaryView.dropDown.topOffset = CGPoint(x: 0, y: diaryView.categoryButton.bounds.height)
+        diaryView.dropDown.dataSource = ["운동", "약속", "공부"]
+        
+        diaryView.dropDown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.diaryView.categoryButton.setTitle(item, for: .normal)
+            self?.diaryView.categoryLabel.text = item
+        }
+    }
+    
+    @objc func categoryButtonTapped() {
+        diaryView.dropDown.show()
+    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         print("텍스트 필드 편집 시작")
