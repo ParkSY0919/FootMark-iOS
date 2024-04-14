@@ -84,6 +84,19 @@ class DiaryView: BaseView {
         $0.layer.cornerRadius = 5.0
     }
     
+    let bestLabel = UILabel().then {
+        $0.setPretendardFont(text: "가장 좋았던 일", size: 30, weight: .regular, letterSpacing: 1.25)
+    }
+    
+    let bestTextView = UITextView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.systemFont(ofSize: 16)
+        $0.isScrollEnabled = true
+        $0.layer.borderColor = UIColor.gray.cgColor
+        $0.layer.borderWidth = 1.0
+        $0.layer.cornerRadius = 5.0
+    }
+    
     override func setLayout() {
         addSubview(scrollView)
         
@@ -99,6 +112,9 @@ class DiaryView: BaseView {
         
         contentView.addSubview(thankfulLabel)
         contentView.addSubview(thankfulTextView)
+        
+        contentView.addSubview(bestLabel)
+        contentView.addSubview(bestTextView)
         
         emojiLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(30)
@@ -146,10 +162,22 @@ class DiaryView: BaseView {
             $0.height.equalTo(200)
         }
         
+        bestLabel.snp.makeConstraints {
+            $0.top.equalTo(self.thankfulTextView.snp.bottom).offset(30)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        bestTextView.snp.makeConstraints {
+            $0.top.equalTo(self.bestLabel.snp.bottom).offset(20)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(350)
+            $0.height.equalTo(200)
+        }
+        
         contentView.snp.makeConstraints {
             $0.edges.equalTo(scrollView)
             $0.width.equalTo(scrollView)
-            $0.bottom.equalTo(thankfulTextView.snp.bottom).offset(50)
+            $0.bottom.equalTo(bestTextView.snp.bottom).offset(50)
         }
         
         scrollView.snp.makeConstraints {
