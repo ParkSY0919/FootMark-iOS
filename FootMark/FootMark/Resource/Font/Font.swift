@@ -38,6 +38,21 @@ extension UIFont {
         let font = UIFont(name: "\(familyName)-\(weightString)", size: fontSize) ?? .systemFont(ofSize: fontSize, weight: weight)
         return font
     }
+   
+   static func viga(size fontSize: CGFloat, weight: UIFont.Weight) -> UIFont {
+       let familyName = "Pretendard"
+       
+       var weightString: String
+       switch weight {
+       case .black:
+           weightString = "Regular"
+       default:
+           weightString = "Regular"
+       }
+       
+       let font = UIFont(name: "\(familyName)-\(weightString)", size: fontSize) ?? .systemFont(ofSize: fontSize, weight: weight)
+       return font
+   }
 }
 
 extension UILabel {
