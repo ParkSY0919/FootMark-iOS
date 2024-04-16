@@ -8,7 +8,15 @@
 import UIKit
 import DropDown
 
+protocol diaryViewDelegate: AnyObject {
+    func saveButtonTapped()
+}
+
 class DiaryView: BaseView {
+    
+    weak var delegate: diaryViewDelegate?
+    
+    var emojiPickerHandler: (() -> Void)?
     
     let scrollView = UIScrollView().then {
         $0.layer.borderColor = UIColor.red.cgColor
@@ -27,8 +35,6 @@ class DiaryView: BaseView {
         $0.isUserInteractionEnabled = true
     }
     
-    var emojiPickerHandler: (() -> Void)?
-    
     let container = UIView()
     
     let dateLabel = UILabel().then {
@@ -40,22 +46,25 @@ class DiaryView: BaseView {
         $0.setTitleColor(.black, for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         
-//        $0.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-//        $0.semanticContentAttribute = .forceRightToLeft
-//        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: categoryButton.bounds.width - 24, bottom: 0, right: 0)
-
+        $0.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        $0.semanticContentAttribute = .forceRightToLeft
+        //        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: categoryButton.bounds.width - 24, bottom: 0, right: 0)
+        
+        $0.layer.borderColor = UIColor.gray.cgColor
+        $0.layer.borderWidth = 1.0
+        $0.layer.cornerRadius = 5.0
     }
     
     let dropDown = DropDown()
     
-    let cateogryVIew = UIView().then {
+    let cateogryView = UIView().then {
         $0.layer.borderColor = UIColor.gray.cgColor
         $0.layer.borderWidth = 1.0
         $0.layer.cornerRadius = 5.0
     }
     
     let categoryLabel = UILabel().then {
-        $0.setPretendardFont(text: "운동하기", size: 30, weight: .regular, letterSpacing: 1.25)
+        $0.setPretendardFont(text: "운동", size: 30, weight: .regular, letterSpacing: 1.25)
     }
     
     let todoLabel = UILabel().then {
@@ -63,9 +72,12 @@ class DiaryView: BaseView {
     }
     
     let todoTextView = UITextView().then {
-        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = UIFont.systemFont(ofSize: 16)
         $0.isScrollEnabled = true
+        
+        $0.autocorrectionType = .no
+        $0.spellCheckingType = .no
+        
         $0.layer.borderColor = UIColor.gray.cgColor
         $0.layer.borderWidth = 1.0
         $0.layer.cornerRadius = 5.0
@@ -76,9 +88,12 @@ class DiaryView: BaseView {
     }
     
     let thankfulTextView = UITextView().then {
-        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = UIFont.systemFont(ofSize: 16)
         $0.isScrollEnabled = true
+        
+        $0.autocorrectionType = .no
+        $0.spellCheckingType = .no
+        
         $0.layer.borderColor = UIColor.gray.cgColor
         $0.layer.borderWidth = 1.0
         $0.layer.cornerRadius = 5.0
@@ -89,9 +104,17 @@ class DiaryView: BaseView {
     }
     
     let bestTextView = UITextView().then {
-        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = UIFont.systemFont(ofSize: 16)
         $0.isScrollEnabled = true
+        $0.layer.borderColor = UIColor.gray.cgColor
+        $0.layer.borderWidth = 1.0
+        $0.layer.cornerRadius = 5.0
+    }
+    
+    let saveButton = UIButton().then {
+        $0.setTitle("저장", for: .normal)
+        $0.setTitleColor(.black, for: .normal)
+        $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         $0.layer.borderColor = UIColor.gray.cgColor
         $0.layer.borderWidth = 1.0
         $0.layer.cornerRadius = 5.0
@@ -116,6 +139,8 @@ class DiaryView: BaseView {
         contentView.addSubview(bestLabel)
         contentView.addSubview(bestTextView)
         
+        contentView.addSubview(saveButton)
+        
         emojiLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(30)
             $0.centerX.equalToSuperview()
@@ -128,60 +153,71 @@ class DiaryView: BaseView {
         
         categoryButton.snp.makeConstraints {
             $0.top.equalTo(self.emojiLabel.snp.bottom).offset(30)
-            $0.leading.equalTo(dateLabel.snp.trailing).offset(50)
-            $0.width.equalTo(100)
+            $0.leading.equalTo(dateLabel.snp.trailing).offset(40)
+            $0.width.equalTo(150)
             $0.height.equalTo(50)
         }
-
+        
         categoryLabel.snp.makeConstraints {
             $0.top.equalTo(self.dateLabel.snp.bottom).offset(30)
-            $0.leading.equalToSuperview().inset(20)
+            $0.leading.equalToSuperview().inset(30)
         }
         
         todoLabel.snp.makeConstraints {
             $0.top.equalTo(self.categoryLabel.snp.bottom).offset(10)
-            $0.leading.equalToSuperview().inset(20)
+            $0.leading.equalToSuperview().inset(30)
         }
         
         todoTextView.snp.makeConstraints {
             $0.top.equalTo(self.todoLabel.snp.bottom).offset(20)
-            $0.centerX.equalToSuperview()
+            $0.centerX.equalToSuperview().inset(30)
             $0.width.equalTo(350)
             $0.height.equalTo(300)
         }
-
+        
         thankfulLabel.snp.makeConstraints {
             $0.top.equalTo(self.todoTextView.snp.bottom).offset(30)
-            $0.leading.equalToSuperview().inset(20)
+            $0.leading.equalToSuperview().inset(30)
         }
         
         thankfulTextView.snp.makeConstraints {
             $0.top.equalTo(self.thankfulLabel.snp.bottom).offset(20)
-            $0.centerX.equalToSuperview()
+            $0.centerX.equalToSuperview().inset(30)
             $0.width.equalTo(350)
             $0.height.equalTo(200)
         }
         
         bestLabel.snp.makeConstraints {
             $0.top.equalTo(self.thankfulTextView.snp.bottom).offset(30)
-            $0.leading.equalToSuperview().inset(20)
+            $0.leading.equalToSuperview().inset(30)
         }
         
         bestTextView.snp.makeConstraints {
             $0.top.equalTo(self.bestLabel.snp.bottom).offset(20)
-            $0.centerX.equalToSuperview()
+            $0.centerX.equalToSuperview().inset(30)
             $0.width.equalTo(350)
             $0.height.equalTo(200)
+        }
+        
+        saveButton.snp.makeConstraints {
+            $0.top.equalTo(self.bestTextView.snp.bottom).offset(100)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(350)
+            $0.height.equalTo(50)
         }
         
         contentView.snp.makeConstraints {
             $0.edges.equalTo(scrollView)
             $0.width.equalTo(scrollView)
-            $0.bottom.equalTo(bestTextView.snp.bottom).offset(50)
+            $0.bottom.equalTo(saveButton.snp.bottom).offset(50)
         }
         
         scrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
+    
+//    @objc func saveButtonAction() {
+//        onSaveButtonTapped?()
+//    }
 }

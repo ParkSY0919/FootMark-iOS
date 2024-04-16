@@ -27,6 +27,9 @@ class DiaryViewController: BaseViewController, ElegantEmojiPickerDelegate, UITex
         }
         
         diaryView.todoTextView.delegate = self
+//        diaryView.onSaveButtonTapped = {
+//            self.saveButtonTapped()
+//        }
     }
     
     override func setUI() {
@@ -47,6 +50,8 @@ class DiaryViewController: BaseViewController, ElegantEmojiPickerDelegate, UITex
         diaryView.categoryButton.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
         
         setupDropDown()
+        
+        diaryView.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
     
     func PresentEmojiPicker () {
@@ -67,7 +72,7 @@ class DiaryViewController: BaseViewController, ElegantEmojiPickerDelegate, UITex
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
             if text == "\n" {
-                textView.resignFirstResponder() // 키보드 숨김
+                textView.resignFirstResponder()
                 return false
             }
             return true
@@ -100,4 +105,7 @@ class DiaryViewController: BaseViewController, ElegantEmojiPickerDelegate, UITex
         print("텍스트 필드 편집 종료")
     }
 
+    @objc func saveButtonTapped() {
+        print("save")
+        }
 }
