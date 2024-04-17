@@ -27,9 +27,8 @@ class DiaryViewController: BaseViewController, ElegantEmojiPickerDelegate, UITex
         }
         
         diaryView.todoTextView.delegate = self
-//        diaryView.onSaveButtonTapped = {
-//            self.saveButtonTapped()
-//        }
+        diaryView.thankfulTextView.delegate = self
+        diaryView.bestTextView.delegate = self
     }
     
     override func setUI() {
@@ -66,26 +65,33 @@ class DiaryViewController: BaseViewController, ElegantEmojiPickerDelegate, UITex
     }
     
     func showEmojiPicker() {
-        let picker = ElegantEmojiPicker(delegate: diaryView as! ElegantEmojiPickerDelegate)
+        let picker = ElegantEmojiPicker(delegate: diaryView as? ElegantEmojiPickerDelegate)
         self.present(picker, animated: true)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-            if text == "\n" {
-                textView.resignFirstResponder()
-                return false
-            }
-            return true
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
         }
+        return true
+    }
     
     @objc func emojiLabelTapped() {
         diaryView.emojiPickerHandler?()
     }
     
+    
+    @objc func categoryButtonTapped() {
+        diaryView.dropDown.show()
+    }
+    
     func setupDropDown() {
         diaryView.dropDown.anchorView = diaryView.categoryButton
-        diaryView.dropDown.topOffset = CGPoint(x: 0, y: diaryView.categoryButton.bounds.height)
+        diaryView.dropDown.bottomOffset = CGPoint(x: 0, y: diaryView.categoryButton.bounds.height + 80)
         diaryView.dropDown.dataSource = ["운동", "약속", "공부"]
+        diaryView.dropDown.backgroundColor = .white
+        diaryView.dropDown.textFont = UIFont.systemFont(ofSize: 18)
         
         diaryView.dropDown.selectionAction = { [weak self] (index: Int, item: String) in
             self?.diaryView.categoryButton.setTitle(item, for: .normal)
@@ -93,19 +99,15 @@ class DiaryViewController: BaseViewController, ElegantEmojiPickerDelegate, UITex
         }
     }
     
-    @objc func categoryButtonTapped() {
-        diaryView.dropDown.show()
-    }
-    
     func textViewDidBeginEditing(_ textView: UITextView) {
         print("텍스트 필드 편집 시작")
     }
-
+    
     func textViewDidEndEditing(_ textField: UITextView) {
         print("텍스트 필드 편집 종료")
     }
-
+    
     @objc func saveButtonTapped() {
         print("save")
-        }
+    }
 }

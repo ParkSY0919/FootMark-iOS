@@ -26,10 +26,6 @@ class DiaryView: BaseView {
     
     let contentView = UIView()
     
-    let topContainer = UIView()
-    let todoContainer = UIView()
-    let thankfulContainer = UIView()
-    
     let emojiLabel = UILabel().then {
         $0.setPretendardFont(text: "🫥", size: 50, weight: .bold, letterSpacing: 1.25)
         $0.isUserInteractionEnabled = true
@@ -216,8 +212,4 @@ class DiaryView: BaseView {
             $0.edges.equalToSuperview()
         }
     }
-    
-//    @objc func saveButtonAction() {
-//        onSaveButtonTapped?()
-//    }
 }
