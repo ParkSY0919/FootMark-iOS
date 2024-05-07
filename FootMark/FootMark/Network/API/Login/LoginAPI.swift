@@ -51,19 +51,19 @@ extension LoginAPI {
                         switch statusCode {
                         case 400:  // 기존 회원
                             print("로그인 실패")
-//                            DispatchQueue.main.async {
-//                                let alertController = UIAlertController(title: "로그인 실패", message: "해당 이메일로 이미 가입한 계정이 있습니다.\n다른 소셜 플랫폼에서 가입하였다면, 해당 플랫폼을 통해 로그인을 시도해주십시오.", preferredStyle: .alert)
-//                                let action = UIAlertAction(title: "확인", style: .default)
-//                                alertController.addAction(action)
-//                                
-//                                // 현재 활성화된 뷰 컨트롤러를 찾아서 알림창을 띄웁니다.
-//                                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//                                   let delegate = windowScene.delegate as? SceneDelegate,
-//                                   let window = delegate.window,
-//                                   let viewController = window.rootViewController {
-//                                    viewController.present(alertController, animated: true, completion: nil)
-//                                }
-//                            }
+                            DispatchQueue.main.async {
+                                let alertController = UIAlertController(title: "로그인 실패", message: "해당 이메일로 이미 가입한 계정이 있습니다.\n다른 소셜 플랫폼에서 가입하였다면, 해당 플랫폼을 통해 로그인을 시도해주십시오.", preferredStyle: .alert)
+                                let action = UIAlertAction(title: "확인", style: .default)
+                                alertController.addAction(action)
+                                
+                                // 현재 활성화된 뷰 컨트롤러를 찾아서 알림창을 띄웁니다.
+                                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                                   let delegate = windowScene.delegate as? SceneDelegate,
+                                   let window = delegate.window,
+                                   let viewController = window.rootViewController {
+                                    viewController.present(alertController, animated: true, completion: nil)
+                                }
+                            }
                         case 401:  // 인증 실패
                             print("로그인 실패: 인증 실패")
                         case 404:
