@@ -402,16 +402,8 @@
 			isa = PBXGroup;
 			children = (
 				9E38717B2BAC1D44007451F8 /* ViewController */,
-				9E38717A2BAC1D3E007451F8 /* View */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		9E38717A2BAC1D3E007451F8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		9E38717B2BAC1D44007451F8 /* ViewController */ = {
