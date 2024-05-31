@@ -14,16 +14,16 @@ class LoginView: BaseView {
    // MARK: - Properties
 
    // Logo & Label
-   let footMarkLogo = UIImageView(image: Image.footMarkLogo)
+   let footMarkLogo = UIImageView(image: .swLogo)
    let footMarkLabel = UILabel().then{
-      $0.setVigaFont(text: "FootMark", size: 25.0, weight: .bold, letterSpacing: 1.37)
-      $0.textColor = .primary
+      $0.setVigaFont(text: "FootMark", size: 35, weight: .bold, letterSpacing: 1.37)
+      $0.textColor = .SWprimary
       $0.textAlignment = .center
    }
    
    //apple SignIn Button
    let appleSignInButton = UIButton()
-   let appleLogo = UIImageView(image:Image.apple_SignInButton)
+   let appleLogo = UIImageView(image: .appleSignInButton)
    let appleSignInTitle = UILabel().then{
       $0.setPretendardFont(text: "Sign in with Apple", size: 17.0, weight: .regular, letterSpacing: 1.23)
       $0.textAlignment = .center
@@ -32,7 +32,7 @@ class LoginView: BaseView {
    
    //Google SignIn Button
    let googleSignInButton = UIButton()
-   let googleLogo = UIImageView(image:Image.google_SignInButton)
+   let googleLogo = UIImageView(image: .googleSignInButton)
    let googleLogoBackGround = UIView()
    let googleSignInTitle = UILabel().then{
       $0.setPretendardFont(text: "Sign in with Google", size: 17.0, weight: .regular, letterSpacing: 1.23)
@@ -46,9 +46,26 @@ class LoginView: BaseView {
       
       //AppleSignInButton
       appleSignInButton.addSubviews(appleLogo, appleSignInTitle)
+      
       appleSignInButton.do {
          $0.backgroundColor = .black
          $0.layer.cornerRadius = 12
+         $0.layer.borderWidth = 2
+         $0.layer.borderColor = UIColor.white1.cgColor
+      }
+      
+      googleLogoBackGround.do {
+         $0.backgroundColor = .blue1
+         $0.layer.cornerRadius = 10
+         $0.layer.borderWidth = 0.5
+         $0.layer.borderColor = UIColor.white.cgColor
+      }
+      
+      googleSignInButton.do {
+         $0.backgroundColor = .blue1
+         $0.layer.cornerRadius = 12
+         $0.layer.borderWidth = 2
+         $0.layer.borderColor = UIColor.white1.cgColor
       }
       
       //GoogleSignInButton
@@ -76,12 +93,14 @@ class LoginView: BaseView {
          $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-20)
          $0.height.equalTo(48)
       }
+      
       appleLogo.snp.makeConstraints {
          $0.centerY.equalToSuperview()
          $0.leading.equalToSuperview().offset(24)
          $0.width.equalTo(17)
          $0.height.equalTo(20)
       }
+      
       appleSignInTitle.snp.makeConstraints {
          $0.centerY.equalToSuperview()
          $0.centerX.equalToSuperview()
@@ -91,26 +110,22 @@ class LoginView: BaseView {
          $0.width.height.equalTo(17)
          $0.centerX.centerY.equalToSuperview()
       }
+      
       googleLogoBackGround.snp.makeConstraints{
          $0.centerY.equalToSuperview()
          $0.leading.equalToSuperview().offset(24)
          $0.width.height.equalTo(20)
       }
-      googleLogoBackGround.backgroundColor = .white
-      googleLogoBackGround.layer.cornerRadius = 10
-      googleLogoBackGround.clipsToBounds = true
       
       googleSignInTitle.snp.makeConstraints {
          $0.centerY.equalToSuperview()
          $0.centerX.equalToSuperview()
       }
+      
       googleSignInButton.snp.makeConstraints {
-         $0.top.equalTo(appleSignInButton.snp.bottom).offset(20)
+         $0.top.equalTo(appleSignInButton.snp.bottom).offset(30)
          $0.leading.trailing.height.equalTo(appleSignInButton)
       }
-      
-      googleSignInButton.backgroundColor = UIColor(red: 0.25, green: 0.52, blue: 0.95, alpha: 1.0)
-      googleSignInButton.layer.cornerRadius = 12
-      
    }
+   
 }

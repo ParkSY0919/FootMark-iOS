@@ -27,7 +27,10 @@ extension UIColor {
       }
    }
    
-   static var primary = UIColor(hex: "2EBC05", alpha: 1.0)
+   //
+   static var SWprimary = UIColor(hex: "357B9D", alpha: 1.0)
+   static var SWprimary2 = UIColor(hex: "2EBC05", alpha: 1.0)
+   
    /// 연한 회색
    static var incomingMessageBackground = UIColor(red: 98/255, green: 98/255, blue: 98/255, alpha: 1)
    

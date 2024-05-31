@@ -25,7 +25,6 @@
 		9E3871282BAC1A03007451F8 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3870D42BAC1A02007451F8 /* BaseView.swift */; };
 		9E3871292BAC1A03007451F8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3870D62BAC1A02007451F8 /* BaseViewController.swift */; };
 		9E38713C2BAC1AA3007451F8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38712D2BAC1AA3007451F8 /* Colors.swift */; };
-		9E38713D2BAC1AA3007451F8 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E38712F2BAC1AA3007451F8 /* Image.xcassets */; };
 		9E38713F2BAC1AA3007451F8 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E3871322BAC1AA3007451F8 /* Pretendard-Regular.otf */; };
 		9E3871402BAC1AA3007451F8 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E3871332BAC1AA3007451F8 /* Pretendard-Black.otf */; };
 		9E3871412BAC1AA3007451F8 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E3871342BAC1AA3007451F8 /* Pretendard-Medium.otf */; };
@@ -46,7 +45,6 @@
 		9E38716B2BAC1BCD007451F8 /* UITextField++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3871532BAC1BCC007451F8 /* UITextField++.swift */; };
 		9E38716C2BAC1BCD007451F8 /* UIColor++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3871542BAC1BCC007451F8 /* UIColor++.swift */; };
 		9E3871712BAC1BCD007451F8 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38715A2BAC1BCC007451F8 /* BaseNavigationController.swift */; };
-		9E3871742BAC1BCD007451F8 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38715E2BAC1BCC007451F8 /* Image.swift */; };
 		9E38DBE62BF59CFD00D1CA61 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 9E38DBE52BF59CFD00D1CA61 /* Moya */; };
 		9E38DBE92BF5EF4300D1CA61 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 9E38DBE82BF5EF4300D1CA61 /* FSCalendar */; };
 		9E6090AD2BCD810700D018B2 /* Viga-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E6090AC2BCD810700D018B2 /* Viga-Regular.ttf */; };
@@ -132,7 +130,6 @@
 		9E3870D42BAC1A02007451F8 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		9E3870D62BAC1A02007451F8 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9E38712D2BAC1AA3007451F8 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		9E38712F2BAC1AA3007451F8 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		9E3871322BAC1AA3007451F8 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		9E3871332BAC1AA3007451F8 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		9E3871342BAC1AA3007451F8 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
@@ -153,7 +150,6 @@
 		9E3871532BAC1BCC007451F8 /* UITextField++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField++.swift"; sourceTree = "<group>"; };
 		9E3871542BAC1BCC007451F8 /* UIColor++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor++.swift"; sourceTree = "<group>"; };
 		9E38715A2BAC1BCC007451F8 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
-		9E38715E2BAC1BCC007451F8 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		9E6090AC2BCD810700D018B2 /* Viga-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Viga-Regular.ttf"; sourceTree = "<group>"; };
 		9E6090E52BCD990700D018B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9E6090E72BCE579B00D018B2 /* FootMark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FootMark.entitlements; sourceTree = "<group>"; };
@@ -402,7 +398,6 @@
 			isa = PBXGroup;
 			children = (
 				9E386FA62BAC0C07007451F8 /* Assets.xcassets */,
-				9E38712F2BAC1AA3007451F8 /* Image.xcassets */,
 			);
 			path = AssetsCatalog;
 			sourceTree = "<group>";
@@ -430,7 +425,6 @@
 			children = (
 				9E38714A2BAC1BCC007451F8 /* Extension */,
 				9E3871552BAC1BCC007451F8 /* Component */,
-				9E38715D2BAC1BCC007451F8 /* NameSpace */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -457,14 +451,6 @@
 				9E38715A2BAC1BCC007451F8 /* BaseNavigationController.swift */,
 			);
 			path = Component;
-			sourceTree = "<group>";
-		};
-		9E38715D2BAC1BCC007451F8 /* NameSpace */ = {
-			isa = PBXGroup;
-			children = (
-				9E38715E2BAC1BCC007451F8 /* Image.swift */,
-			);
-			path = NameSpace;
 			sourceTree = "<group>";
 		};
 		9E3871782BAC1C41007451F8 /* Application */ = {
@@ -727,7 +713,6 @@
 				9E3871482BAC1AA3007451F8 /* Pretendard-SemiBold.otf in Resources */,
 				9E3871432BAC1AA3007451F8 /* Pretendard-ExtraBold.otf in Resources */,
 				9E386FAA2BAC0C07007451F8 /* LaunchScreen.storyboard in Resources */,
-				9E38713D2BAC1AA3007451F8 /* Image.xcassets in Resources */,
 				9E3871472BAC1AA3007451F8 /* Pretendard-ExtraLight.otf in Resources */,
 				9E38713F2BAC1AA3007451F8 /* Pretendard-Regular.otf in Resources */,
 				9E3871402BAC1AA3007451F8 /* Pretendard-Black.otf in Resources */,
@@ -758,7 +743,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E3871742BAC1BCD007451F8 /* Image.swift in Sources */,
 				9E3871682BAC1BCD007451F8 /* NSObject++.swift in Sources */,
 				9E1B09432BDF9B08007AAB48 /* LoginRequestModel.swift in Sources */,
 				9E386FA22BAC0C06007451F8 /* MainViewController.swift in Sources */,

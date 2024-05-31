@@ -20,7 +20,7 @@ class BaseViewController: UIViewController {
    
    // MARK: - View Life Cycle
    override func viewDidLoad() {
-      self.view.backgroundColor = .systemBackground
+      self.view.backgroundColor = .black1
       self.view.setNeedsUpdateConstraints()
       self.setUI()
       self.setLayout()
@@ -74,7 +74,7 @@ class BaseViewController: UIViewController {
             textField.clearButtonMode = .whileEditing
             textField.placeholder = "Channel name"
             textField.returnKeyType = .done
-            textField.tintColor = .primary
+            textField.tintColor = .SWprimary
          }
       }
       
