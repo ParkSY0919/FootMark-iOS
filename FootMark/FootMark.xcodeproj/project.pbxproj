@@ -555,7 +555,7 @@
 			children = (
 				C1482DED2BAFD9B9005177F7 /* DiaryViewController.swift */,
 			);
-			path = ViewController;
+			path = LoginDTO;
 			sourceTree = "<group>";
 		};
 		C1482E0A2BBC5875005177F7 /* Frameworks */ = {
