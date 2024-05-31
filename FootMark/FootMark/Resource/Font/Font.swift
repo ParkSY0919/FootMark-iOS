@@ -40,7 +40,7 @@ extension UIFont {
     }
    
    static func viga(size fontSize: CGFloat, weight: UIFont.Weight) -> UIFont {
-       let familyName = "Pretendard"
+       let familyName = "Viga"
        
        var weightString: String
        switch weight {
