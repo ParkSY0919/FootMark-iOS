@@ -50,13 +50,11 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
                let keychain = KeychainSwift()
                keychain.set(loginDTO.data.accessToken, forKey: "accessToken")
                keychain.set(loginDTO.data.refreshToken, forKey: "refreshToken")
-            case .requestErr(let data):
-               if data.statusCode == 401 {
-                  print("만료된 accessToken 입니다. \n재발급을 시도합니다.")
-                  self.getNewAccessToken()
-               } else {
-                  print("요청 오류입니다")
-               }
+            case .tokenExpired(let dat):
+               print("만료된 accessToken 입니다. \n재발급을 시도합니다.")
+               self.getNewAccessToken()
+            case .requestErr:
+               print("요청 오류입니다")
             case .decodedErr:
                print("디코딩 오류입니다")
             case .pathErr:
@@ -85,8 +83,9 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
             let keychain = KeychainSwift()
             keychain.set(loginDTO.data.accessToken, forKey: "accessToken")
             keychain.set(loginDTO.data.refreshToken, forKey: "refreshToken")
-            
-         case .requestErr(_):
+         case .tokenExpired(_):
+            print("refresh 토큰 만료입니다")
+         case .requestErr:
             print("요청 오류입니다")
          case .decodedErr:
             print("디코딩 오류입니다")
@@ -96,6 +95,7 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
             print("서버 오류입니다")
          case .networkFail:
             print("네트워크 오류입니다")
+         
          }
       }
    }
@@ -108,7 +108,7 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
                print("Unable to fetch identity token")
                return
             }
-            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+            guard String(data: appleIDToken, encoding: .utf8) != nil else {
                print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
                return
             }

@@ -12,7 +12,9 @@ class BaseService {
       switch statusCode {
       case 200..<205:
          return isValidData(data: data, responseType: T.self)
-      case 400..<500:
+      case 401:
+         return isValidData(data: data, responseType: T.self)
+      case 400, 402..<500:
          return .requestErr
       case 500:
          return .serverErr
