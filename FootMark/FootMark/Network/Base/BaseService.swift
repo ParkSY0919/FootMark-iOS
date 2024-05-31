@@ -10,9 +10,7 @@ import Foundation
 class BaseService {
    func judgeStatus<T: Codable>(statusCode: Int, data: Data) -> NetworkResult<T> {
       switch statusCode {
-      case 200..<205:
-         return isValidData(data: data, responseType: T.self)
-      case 401:
+      case 200..<205, 401:
          return isValidData(data: data, responseType: T.self)
       case 400, 402..<500:
          return .requestErr
