@@ -71,7 +71,7 @@ class LoginView: BaseView {
       }
       
       appleSignInButton.snp.makeConstraints {
-         $0.top.equalTo(footMarkLabel.snp.bottom).offset(40)
+         $0.top.equalTo(footMarkLabel.snp.bottom).offset(70)
          $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(20)
          $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-20)
          $0.height.equalTo(48)

@@ -49,10 +49,6 @@
 		9E3871742BAC1BCD007451F8 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38715E2BAC1BCC007451F8 /* Image.swift */; };
 		9E38DBE62BF59CFD00D1CA61 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 9E38DBE52BF59CFD00D1CA61 /* Moya */; };
 		9E38DBE92BF5EF4300D1CA61 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 9E38DBE82BF5EF4300D1CA61 /* FSCalendar */; };
-		C1482DEE2BAFD9B9005177F7 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1482DED2BAFD9B9005177F7 /* DiaryViewController.swift */; };
-		C1482DF02BAFDAC8005177F7 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1482DEF2BAFDAC8005177F7 /* DiaryView.swift */; };
-		C1482DF72BB05D0F005177F7 /* ElegantEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = C1482DF62BB05D0F005177F7 /* ElegantEmojiPicker */; };
-		C1482E0E2BBC6615005177F7 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = C1482E0D2BBC6615005177F7 /* DropDown */; };
 		9E6090AD2BCD810700D018B2 /* Viga-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E6090AC2BCD810700D018B2 /* Viga-Regular.ttf */; };
 		9E6090B02BCD84D800D018B2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9E6090AF2BCD84D800D018B2 /* FirebaseAnalytics */; };
 		9E6090B22BCD84D800D018B2 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 9E6090B12BCD84D800D018B2 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -86,6 +82,7 @@
 		9E6090ED2BCE768700D018B2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9E6090EC2BCE768700D018B2 /* GoogleSignIn */; };
 		9E6090EF2BCE76C300D018B2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9E6090EE2BCE76C300D018B2 /* GoogleSignIn */; };
 		9E6090F72BCE794B00D018B2 /* LoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6090F62BCE794B00D018B2 /* LoginDTO.swift */; };
+		9E7326D22C0991BF0025C981 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7326D12C0991BF0025C981 /* DiaryViewController.swift */; };
 		9E74C3442C0955D6003152A7 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E74C3432C0955D6003152A7 /* BaseService.swift */; };
 		9E74C3462C0955EA003152A7 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E74C3452C0955EA003152A7 /* BaseTargetType.swift */; };
 		9E74C3482C095612003152A7 /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E74C3472C095612003152A7 /* MoyaLoggingPlugin.swift */; };
@@ -93,6 +90,9 @@
 		9E74C34C2C09564E003152A7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E74C34B2C09564E003152A7 /* NetworkService.swift */; };
 		9E74C3512C095933003152A7 /* LoginTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E74C3502C095933003152A7 /* LoginTargetType.swift */; };
 		9E74C3532C095A68003152A7 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E74C3522C095A68003152A7 /* LoginService.swift */; };
+		C1482DF02BAFDAC8005177F7 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1482DEF2BAFDAC8005177F7 /* DiaryView.swift */; };
+		C1482DF72BB05D0F005177F7 /* ElegantEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = C1482DF62BB05D0F005177F7 /* ElegantEmojiPicker */; };
+		C1482E0E2BBC6615005177F7 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = C1482E0D2BBC6615005177F7 /* DropDown */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +158,7 @@
 		9E6090E52BCD990700D018B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9E6090E72BCE579B00D018B2 /* FootMark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FootMark.entitlements; sourceTree = "<group>"; };
 		9E6090F62BCE794B00D018B2 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
+		9E7326D12C0991BF0025C981 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		9E74C3432C0955D6003152A7 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		9E74C3452C0955EA003152A7 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		9E74C3472C095612003152A7 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
@@ -165,7 +166,6 @@
 		9E74C34B2C09564E003152A7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9E74C3502C095933003152A7 /* LoginTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTargetType.swift; sourceTree = "<group>"; };
 		9E74C3522C095A68003152A7 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
-		C1482DED2BAFD9B9005177F7 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		C1482DEF2BAFDAC8005177F7 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,7 +191,6 @@
 				9E6090C82BCD84D800D018B2 /* FirebaseFirestore in Frameworks */,
 				C1482DF72BB05D0F005177F7 /* ElegantEmojiPicker in Frameworks */,
 				C1482E0E2BBC6615005177F7 /* DropDown in Frameworks */,
-				9E23C4B62BACA2C800BB7D18 /* Alamofire in Frameworks */,
 				9E6090D22BCD84D800D018B2 /* FirebaseInAppMessaging-Beta in Frameworks */,
 				9E1B09312BDF74C6007AAB48 /* LookinServer in Frameworks */,
 				9E23C4BC2BACA30200BB7D18 /* Then in Frameworks */,
@@ -440,7 +439,6 @@
 			isa = PBXGroup;
 			children = (
 				9E38714B2BAC1BCC007451F8 /* UIViewController++.swift */,
-				9E6090022BBCF2F900D018B2 /* UISegmented++.swift */,
 				9E38714C2BAC1BCC007451F8 /* UIImage++.swift */,
 				9E38714D2BAC1BCC007451F8 /* UIResponder++.swift */,
 				9E38714E2BAC1BCC007451F8 /* UIStackView++.swift */,
@@ -504,6 +502,14 @@
 			path = LoginDTO;
 			sourceTree = "<group>";
 		};
+		9E7326D02C0991A50025C981 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9E7326D12C0991BF0025C981 /* DiaryViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		9E74C3422C0955B4003152A7 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,7 +542,7 @@
 		C1482DEA2BAFD90F005177F7 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
-				C1482DEC2BAFD93E005177F7 /* ViewController */,
+				9E7326D02C0991A50025C981 /* ViewController */,
 				C1482DEB2BAFD923005177F7 /* View */,
 			);
 			path = Diary;
@@ -548,14 +554,6 @@
 				C1482DEF2BAFDAC8005177F7 /* DiaryView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		C1482DEC2BAFD93E005177F7 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C1482DED2BAFD9B9005177F7 /* DiaryViewController.swift */,
-			);
-			path = LoginDTO;
 			sourceTree = "<group>";
 		};
 		C1482E0A2BBC5875005177F7 /* Frameworks */ = {
@@ -760,7 +758,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E6090032BBCF2F900D018B2 /* UISegmented++.swift in Sources */,
 				9E3871742BAC1BCD007451F8 /* Image.swift in Sources */,
 				9E3871682BAC1BCD007451F8 /* NSObject++.swift in Sources */,
 				9E1B09432BDF9B08007AAB48 /* LoginRequestModel.swift in Sources */,
@@ -772,10 +769,8 @@
 				9E3871282BAC1A03007451F8 /* BaseView.swift in Sources */,
 				9E3871662BAC1BCD007451F8 /* UIStackView++.swift in Sources */,
 				9E3871292BAC1A03007451F8 /* BaseViewController.swift in Sources */,
-				9E3870572BAC1872007451F8 /* NetworkResult.swift in Sources */,
-				C1482DEE2BAFD9B9005177F7 /* DiaryViewController.swift in Sources */,
-				9E3870522BAC1872007451F8 /* BaseTargetType.swift in Sources */,
 				9E38716C2BAC1BCD007451F8 /* UIColor++.swift in Sources */,
+				9E7326D22C0991BF0025C981 /* DiaryViewController.swift in Sources */,
 				9E386F9E2BAC0C06007451F8 /* AppDelegate.swift in Sources */,
 				9E38716A2BAC1BCD007451F8 /* UIView++.swift in Sources */,
 				9E74C3482C095612003152A7 /* MoyaLoggingPlugin.swift in Sources */,
@@ -793,7 +788,6 @@
 				9E74C34A2C09562A003152A7 /* NetworkResults.swift in Sources */,
 				9E386FA02BAC0C06007451F8 /* SceneDelegate.swift in Sources */,
 				9E74C3462C0955EA003152A7 /* BaseTargetType.swift in Sources */,
-				9E3870552BAC1872007451F8 /* BaseAPI.swift in Sources */,
 				C1482DF02BAFDAC8005177F7 /* DiaryView.swift in Sources */,
 				9E3871672BAC1BCD007451F8 /* UIButton++.swift in Sources */,
 			);
@@ -1182,22 +1176,6 @@
 				kind = branch;
 			};
 		};
-		C1482DF52BB05D0F005177F7 /* XCRemoteSwiftPackageReference "Elegant-Emoji-Picker" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Finalet/Elegant-Emoji-Picker";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		C1482E0C2BBC6615005177F7 /* XCRemoteSwiftPackageReference "DropDown" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AssistoLab/DropDown";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		9E6090AE2BCD84D800D018B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -1220,6 +1198,22 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.1.0;
+			};
+		};
+		C1482DF52BB05D0F005177F7 /* XCRemoteSwiftPackageReference "Elegant-Emoji-Picker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Finalet/Elegant-Emoji-Picker";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		C1482E0C2BBC6615005177F7 /* XCRemoteSwiftPackageReference "DropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AssistoLab/DropDown";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1249,16 +1243,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9E38DBE72BF5EF4300D1CA61 /* XCRemoteSwiftPackageReference "FSCalendar_Custom" */;
 			productName = FSCalendar;
-		};
-		C1482DF62BB05D0F005177F7 /* ElegantEmojiPicker */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C1482DF52BB05D0F005177F7 /* XCRemoteSwiftPackageReference "Elegant-Emoji-Picker" */;
-			productName = ElegantEmojiPicker;
-		};
-		C1482E0D2BBC6615005177F7 /* DropDown */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C1482E0C2BBC6615005177F7 /* XCRemoteSwiftPackageReference "DropDown" */;
-			productName = DropDown;
 		};
 		9E6090AF2BCD84D800D018B2 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1409,6 +1393,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9E6090EB2BCE768700D018B2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignIn;
+		};
+		C1482DF62BB05D0F005177F7 /* ElegantEmojiPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1482DF52BB05D0F005177F7 /* XCRemoteSwiftPackageReference "Elegant-Emoji-Picker" */;
+			productName = ElegantEmojiPicker;
+		};
+		C1482E0D2BBC6615005177F7 /* DropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1482E0C2BBC6615005177F7 /* XCRemoteSwiftPackageReference "DropDown" */;
+			productName = DropDown;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
