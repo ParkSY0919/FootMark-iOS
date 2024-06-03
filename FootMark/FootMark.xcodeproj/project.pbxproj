@@ -81,6 +81,8 @@
 		9E6090EF2BCE76C300D018B2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9E6090EE2BCE76C300D018B2 /* GoogleSignIn */; };
 		9E6090F72BCE794B00D018B2 /* LoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6090F62BCE794B00D018B2 /* LoginDTO.swift */; };
 		9E7326D22C0991BF0025C981 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7326D12C0991BF0025C981 /* DiaryViewController.swift */; };
+		9E7326D72C0D4E330025C981 /* MonthlyReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7326D62C0D4E330025C981 /* MonthlyReviewViewController.swift */; };
+		9E7326D92C0D51F20025C981 /* MonthlyReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7326D82C0D51F20025C981 /* MonthlyReviewView.swift */; };
 		9E74C3442C0955D6003152A7 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E74C3432C0955D6003152A7 /* BaseService.swift */; };
 		9E74C3462C0955EA003152A7 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E74C3452C0955EA003152A7 /* BaseTargetType.swift */; };
 		9E74C3482C095612003152A7 /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E74C3472C095612003152A7 /* MoyaLoggingPlugin.swift */; };
@@ -155,6 +157,8 @@
 		9E6090E72BCE579B00D018B2 /* FootMark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FootMark.entitlements; sourceTree = "<group>"; };
 		9E6090F62BCE794B00D018B2 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
 		9E7326D12C0991BF0025C981 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		9E7326D62C0D4E330025C981 /* MonthlyReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReviewViewController.swift; sourceTree = "<group>"; };
+		9E7326D82C0D51F20025C981 /* MonthlyReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReviewView.swift; sourceTree = "<group>"; };
 		9E74C3432C0955D6003152A7 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		9E74C3452C0955EA003152A7 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		9E74C3472C095612003152A7 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
@@ -343,6 +347,7 @@
 		9E3870682BAC1A02007451F8 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9E7326D32C0D47830025C981 /* MonthlyReview */,
 				9E092D362BB3BADC00B146A9 /* Sign */,
 				C1482DEA2BAFD90F005177F7 /* Diary */,
 				9E3871792BAC1C86007451F8 /* Main */,
@@ -492,6 +497,31 @@
 			isa = PBXGroup;
 			children = (
 				9E7326D12C0991BF0025C981 /* DiaryViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9E7326D32C0D47830025C981 /* MonthlyReview */ = {
+			isa = PBXGroup;
+			children = (
+				9E7326D42C0D47900025C981 /* View */,
+				9E7326D52C0D47970025C981 /* ViewController */,
+			);
+			path = MonthlyReview;
+			sourceTree = "<group>";
+		};
+		9E7326D42C0D47900025C981 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E7326D82C0D51F20025C981 /* MonthlyReviewView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9E7326D52C0D47970025C981 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9E7326D62C0D4E330025C981 /* MonthlyReviewViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -751,6 +781,7 @@
 				9E3871652BAC1BCD007451F8 /* UIResponder++.swift in Sources */,
 				9E3870502BAC1872007451F8 /* Config.swift in Sources */,
 				9E3871282BAC1A03007451F8 /* BaseView.swift in Sources */,
+				9E7326D72C0D4E330025C981 /* MonthlyReviewViewController.swift in Sources */,
 				9E3871662BAC1BCD007451F8 /* UIStackView++.swift in Sources */,
 				9E3871292BAC1A03007451F8 /* BaseViewController.swift in Sources */,
 				9E38716C2BAC1BCD007451F8 /* UIColor++.swift in Sources */,
@@ -772,6 +803,7 @@
 				9E74C34A2C09562A003152A7 /* NetworkResults.swift in Sources */,
 				9E386FA02BAC0C06007451F8 /* SceneDelegate.swift in Sources */,
 				9E74C3462C0955EA003152A7 /* BaseTargetType.swift in Sources */,
+				9E7326D92C0D51F20025C981 /* MonthlyReviewView.swift in Sources */,
 				C1482DF02BAFDAC8005177F7 /* DiaryView.swift in Sources */,
 				9E3871672BAC1BCD007451F8 /* UIButton++.swift in Sources */,
 			);
@@ -965,9 +997,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.FootMark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -996,9 +1032,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.FootMark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
