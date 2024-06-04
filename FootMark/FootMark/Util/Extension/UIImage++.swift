@@ -27,4 +27,10 @@ extension UIImage {
         
         return UIGraphicsGetImageFromCurrentImageContext()
     }
+    
+    static func systemIcon(name: String, tintColor: UIColor = .black, weight: UIImage.SymbolWeight = .regular) -> UIImage? {
+           let configuration = UIImage.SymbolConfiguration(weight: weight)
+           guard let image = UIImage(systemName: name, withConfiguration: configuration) else { return nil }
+           return image.withTintColor(tintColor, renderingMode: .alwaysOriginal)
+       }
 }
