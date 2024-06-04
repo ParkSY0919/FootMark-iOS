@@ -33,4 +33,23 @@ extension UIImage {
            guard let image = UIImage(systemName: name, withConfiguration: configuration) else { return nil }
            return image.withTintColor(tintColor, renderingMode: .alwaysOriginal)
        }
+    
+    func resizeImageUsingCoreGraphics(targetSize: CGSize) -> UIImage? {
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+        
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+        }
+
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
+        draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
 }
