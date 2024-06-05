@@ -24,7 +24,7 @@ extension LoginTargetType: BaseTargetType {
       case .socialLogin(let provider, _):
          return "/oauth/\(provider)/token"
          
-      case .newAccessToken(let refreshToken):
+      case .newAccessToken(_):
          return "/api/access"
       }
    }

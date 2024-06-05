@@ -11,7 +11,7 @@ import Then
 
 class MonthlyReviewView: BaseView {
    
-   private let navigationContainer = UIView()
+   let navigationContainer = UIView()
    let navigationBackBtn = UIButton()
    var didTapBackBtn: (() -> Void)?
    

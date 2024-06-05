@@ -41,12 +41,6 @@ class LoginView: BaseView {
    }
    
    override func setUI() {
-      addSubviews(footMarkLogo, footMarkLabel)
-      addSubviews(googleSignInButton, appleSignInButton)
-      
-      //AppleSignInButton
-      appleSignInButton.addSubviews(appleLogo, appleSignInTitle)
-      
       appleSignInButton.do {
          $0.backgroundColor = .black
          $0.layer.cornerRadius = 12
@@ -67,6 +61,14 @@ class LoginView: BaseView {
          $0.layer.borderWidth = 2
          $0.layer.borderColor = UIColor.white1.cgColor
       }
+   }
+   
+   override func setHierarchy() {
+      addSubviews(footMarkLogo, footMarkLabel)
+      addSubviews(googleSignInButton, appleSignInButton)
+      
+      //AppleSignInButton
+      appleSignInButton.addSubviews(appleLogo, appleSignInTitle)
       
       //GoogleSignInButton
       googleSignInButton.addSubviews(googleLogoBackGround, googleSignInTitle)
