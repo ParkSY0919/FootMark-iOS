@@ -95,6 +95,7 @@ class ProfileViewController: BaseViewController {
         backButton.isHidden = !profileView.isEditingMode
         confirmButton.isHidden = !profileView.isEditingMode
         editButton.isHidden = profileView.isEditingMode
+        profileView.profileImage.isUserInteractionEnabled = !profileView.isEditingMode
         
         if profileView.isEditingMode {
             profileView.nicknameTextField.becomeFirstResponder()
@@ -107,6 +108,7 @@ class ProfileViewController: BaseViewController {
         backButton.isHidden = true
         confirmButton.isHidden = true
         editButton.isHidden = false
+        profileView.profileImage.isUserInteractionEnabled = true
     }
     
     @objc private func confirmButtonTapped() {
@@ -115,6 +117,7 @@ class ProfileViewController: BaseViewController {
         backButton.isHidden = true
         confirmButton.isHidden = true
         editButton.isHidden = false
+        profileView.profileImage.isUserInteractionEnabled = true
     }
 }
 

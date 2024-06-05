@@ -22,7 +22,7 @@ class ProfileImageViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.darkGray.withAlphaComponent(0.9)
+        view.backgroundColor = UIColor.black
         
         imageView.image = image
     }
