@@ -96,6 +96,9 @@
 		C1B6A0562C0EFB7F003ECA62 /* MainContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A0552C0EFB7F003ECA62 /* MainContentViewController.swift */; };
 		C1B6A0582C0EFBC3003ECA62 /* SidebarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A0572C0EFBC3003ECA62 /* SidebarViewCell.swift */; };
 		C1B6A05C2C0EFBEA003ECA62 /* SidebarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A05B2C0EFBEA003ECA62 /* SidebarModel.swift */; };
+		C1E74B962C0F6D9F00D8E313 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E74B952C0F6D9F00D8E313 /* ProfileViewController.swift */; };
+		C1E74B982C0F6DBD00D8E313 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E74B972C0F6DBD00D8E313 /* ProfileView.swift */; };
+		C1E74B9A2C0F6DF500D8E313 /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E74B992C0F6DF500D8E313 /* ProfileImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +176,9 @@
 		C1B6A0552C0EFB7F003ECA62 /* MainContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewController.swift; sourceTree = "<group>"; };
 		C1B6A0572C0EFBC3003ECA62 /* SidebarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewCell.swift; sourceTree = "<group>"; };
 		C1B6A05B2C0EFBEA003ECA62 /* SidebarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarModel.swift; sourceTree = "<group>"; };
+		C1E74B952C0F6D9F00D8E313 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = FootMark/Presentation/Sidebar/ViewController/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
+		C1E74B972C0F6DBD00D8E313 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C1E74B992C0F6DF500D8E313 /* ProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +359,7 @@
 		9E3870682BAC1A02007451F8 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C1E74B922C0F6D7100D8E313 /* Profile */,
 				C1B6A04E2C0EFA24003ECA62 /* Sidebar */,
 				9E092D362BB3BADC00B146A9 /* Sign */,
 				C1482DEA2BAFD90F005177F7 /* Diary */,
@@ -596,6 +603,32 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C1E74B922C0F6D7100D8E313 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C1E74B942C0F6D7C00D8E313 /* ViewController */,
+				C1E74B932C0F6D7800D8E313 /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		C1E74B932C0F6D7800D8E313 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1E74B972C0F6DBD00D8E313 /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1E74B942C0F6D7C00D8E313 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1E74B952C0F6D9F00D8E313 /* ProfileViewController.swift */,
+				C1E74B992C0F6DF500D8E313 /* ProfileImageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -793,6 +826,7 @@
 				9E3871682BAC1BCD007451F8 /* NSObject++.swift in Sources */,
 				C1B6A0522C0EFB33003ECA62 /* SidebarView.swift in Sources */,
 				9E1B09432BDF9B08007AAB48 /* LoginRequestModel.swift in Sources */,
+				C1E74B9A2C0F6DF500D8E313 /* ProfileImageViewController.swift in Sources */,
 				9E386FA22BAC0C06007451F8 /* MainViewController.swift in Sources */,
 				9E38713C2BAC1AA3007451F8 /* Colors.swift in Sources */,
 				9E092D3A2BB3BB0000B146A9 /* LoginViewController.swift in Sources */,
@@ -806,6 +840,7 @@
 				9E7326D22C0991BF0025C981 /* DiaryViewController.swift in Sources */,
 				9E386F9E2BAC0C06007451F8 /* AppDelegate.swift in Sources */,
 				9E38716A2BAC1BCD007451F8 /* UIView++.swift in Sources */,
+				C1E74B982C0F6DBD00D8E313 /* ProfileView.swift in Sources */,
 				C1B6A0562C0EFB7F003ECA62 /* MainContentViewController.swift in Sources */,
 				9E74C3482C095612003152A7 /* MoyaLoggingPlugin.swift in Sources */,
 				9E38716B2BAC1BCD007451F8 /* UITextField++.swift in Sources */,
@@ -824,6 +859,7 @@
 				9E74C3462C0955EA003152A7 /* BaseTargetType.swift in Sources */,
 				C1482DF02BAFDAC8005177F7 /* DiaryView.swift in Sources */,
 				C1B6A0582C0EFBC3003ECA62 /* SidebarViewCell.swift in Sources */,
+				C1E74B962C0F6D9F00D8E313 /* ProfileViewController.swift in Sources */,
 				C1B6A0542C0EFB49003ECA62 /* SidebarViewController.swift in Sources */,
 				9E3871672BAC1BCD007451F8 /* UIButton++.swift in Sources */,
 			);
