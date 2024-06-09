@@ -17,7 +17,9 @@ class DiaryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.init(hex: "#2d2d2d")
+        view.backgroundColor = UIColor(resource: .black1)
+        
+        navigationController?.navigationBar.isHidden = true
 
         setUpDelegates()
         setUpClosures()

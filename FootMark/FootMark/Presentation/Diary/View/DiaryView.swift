@@ -25,31 +25,34 @@ class DiaryView: BaseView {
     let contentView = UIView()
     
     let emojiLabel = UILabel().then {
-        $0.setPretendardFont(text: "🫥", size: 50, weight: .bold, letterSpacing: 1.25)
+        $0.font = UIFont.pretendard(size: 50, weight: .semibold)
+        $0.text = "🫥"
         $0.isUserInteractionEnabled = true
     }
     
     let dateLabel = UILabel().then {
-        $0.setPretendardFont(text: "2023.03.24 (일)", size: 20, weight: .regular, letterSpacing: 1.25)
-        $0.textColor = UIColor.white
+        $0.font = UIFont.pretendard(size: 20, weight: .regular)
+        $0.text = "2023.03.24 (일)"
+        $0.textColor = UIColor(resource: .white2)
     }
     
     let categoryButton = UIButton().then {
         $0.backgroundColor = UIColor.white
-        $0.setTitleColor(.black, for: .normal)
-        $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+        $0.setTitleColor(UIColor.black, for: .normal)
+        $0.titleLabel?.font = UIFont.pretendard(size: 20, weight: .semibold)
         
         $0.layer.borderColor = UIColor.gray.cgColor
         $0.layer.borderWidth = 1.0
         $0.layer.cornerRadius = 5.0
         
-        $0.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-        $0.semanticContentAttribute = .forceRightToLeft
-        
-        let spacing: CGFloat = 10
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -spacing)
-        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: -spacing, bottom: 0, right: 0)
-        $0.contentEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(systemName: "chevron.up")
+        config.imagePlacement = .trailing
+        config.imagePadding = 15
+        config.imageColorTransformer = UIConfigurationColorTransformer { _ in
+            return UIColor(resource: .blue1)
+        }
+        $0.configuration = config
     }
     
     let cateogryView = UIView().then {
@@ -59,17 +62,19 @@ class DiaryView: BaseView {
     }
     
     let categoryLabel = UILabel().then {
-        $0.setPretendardFont(text: "운동", size: 30, weight: .regular, letterSpacing: 1.25)
-        $0.textColor = UIColor.white
+        $0.font = UIFont.pretendard(size: 25, weight: .regular)
+        $0.text = "운동"
+        $0.textColor = UIColor(resource: .white2)
     }
     
     let todoLabel = UILabel().then {
-        $0.setPretendardFont(text: "수영, 산책, 천국의 계단", size: 17, weight: .regular, letterSpacing: 1.25)
-        $0.textColor = UIColor.white
+        $0.font = UIFont.pretendard(size: 17, weight: .regular)
+        $0.text = "수영, 산책, 달리기"
+        $0.textColor = UIColor(resource: .white2)
     }
     
     let todoTextView = UITextView().then {
-        $0.font = UIFont.systemFont(ofSize: 16)
+        $0.font = UIFont.pretendard(size: 16, weight: .regular)
         $0.isScrollEnabled = true
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
@@ -79,12 +84,13 @@ class DiaryView: BaseView {
     }
     
     let thankfulLabel = UILabel().then {
-        $0.setPretendardFont(text: "감사한 일", size: 30, weight: .regular, letterSpacing: 1.25)
-        $0.textColor = UIColor.white
+        $0.font = UIFont.pretendard(size: 25, weight: .regular)
+        $0.text = "감사한 일"
+        $0.textColor = UIColor(resource: .white2)
     }
     
     let thankfulTextView = UITextView().then {
-        $0.font = UIFont.systemFont(ofSize: 16)
+        $0.font = UIFont.pretendard(size: 16, weight: .regular)
         $0.isScrollEnabled = true
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
@@ -94,12 +100,13 @@ class DiaryView: BaseView {
     }
     
     let bestLabel = UILabel().then {
-        $0.setPretendardFont(text: "가장 좋았던 일", size: 30, weight: .regular, letterSpacing: 1.25)
-        $0.textColor = UIColor.white
+        $0.font = UIFont.pretendard(size: 25, weight: .regular)
+        $0.text = "가장 좋았던 일"
+        $0.textColor = UIColor(resource: .white2)
     }
     
     let bestTextView = UITextView().then {
-        $0.font = UIFont.systemFont(ofSize: 16)
+        $0.font = UIFont.pretendard(size: 16, weight: .regular)
         $0.isScrollEnabled = true
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
@@ -110,9 +117,9 @@ class DiaryView: BaseView {
     
     let saveButton = UIButton().then {
         $0.setTitle("저장", for: .normal)
-        $0.setTitleColor(.white, for: .normal)
-        $0.backgroundColor = UIColor(hex: "#0085ff")
-        $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+        $0.setTitleColor(UIColor(resource: .white2), for: .normal)
+        $0.backgroundColor = UIColor(resource: .blue1)
+        $0.titleLabel?.font = UIFont.pretendard(size: 20, weight: .regular)
         $0.layer.borderColor = UIColor.gray.cgColor
         $0.layer.borderWidth = 1.0
         $0.layer.cornerRadius = 5.0
@@ -158,7 +165,7 @@ class DiaryView: BaseView {
         }
         
         categoryLabel.snp.makeConstraints {
-            $0.top.equalTo(self.dateLabel.snp.bottom).offset(30)
+            $0.top.equalTo(self.dateLabel.snp.bottom).offset(50)
             $0.leading.equalToSuperview().inset(30)
             $0.trailing.lessThanOrEqualToSuperview().offset(-30)
         }
@@ -177,7 +184,7 @@ class DiaryView: BaseView {
         }
         
         thankfulLabel.snp.makeConstraints {
-            $0.top.equalTo(self.todoTextView.snp.bottom).offset(30)
+            $0.top.equalTo(self.todoTextView.snp.bottom).offset(50)
             $0.leading.equalToSuperview().inset(30)
             $0.trailing.lessThanOrEqualToSuperview().offset(-30)
         }
@@ -190,7 +197,7 @@ class DiaryView: BaseView {
         }
         
         bestLabel.snp.makeConstraints {
-            $0.top.equalTo(self.thankfulTextView.snp.bottom).offset(30)
+            $0.top.equalTo(self.thankfulTextView.snp.bottom).offset(50)
             $0.leading.equalToSuperview().inset(30)
             $0.trailing.lessThanOrEqualToSuperview().offset(-30)
         }
@@ -218,26 +225,5 @@ class DiaryView: BaseView {
         scrollView.snp.makeConstraints {
             $0.edges.equalTo(self.safeAreaLayoutGuide)
         }
-    }
-}
-
-extension UIColor {
-    
-    convenience init(hexCode: String, alpha: CGFloat = 1.0) {
-        var hexFormatted: String = hexCode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
-        
-        if hexFormatted.hasPrefix("#") {
-            hexFormatted = String(hexFormatted.dropFirst())
-        }
-        
-        assert(hexFormatted.count == 6, "Invalid hex code used.")
-        
-        var rgbValue: UInt64 = 0
-        Scanner(string: hexFormatted).scanHexInt64(&rgbValue)
-        
-        self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-                  green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-                  blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-                  alpha: alpha)
     }
 }
