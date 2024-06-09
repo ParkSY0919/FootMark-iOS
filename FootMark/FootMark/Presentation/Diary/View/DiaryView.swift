@@ -52,6 +52,7 @@ class DiaryView: BaseView {
         config.imageColorTransformer = UIConfigurationColorTransformer { _ in
             return UIColor(resource: .blue1)
         }
+        
         $0.configuration = config
     }
     
