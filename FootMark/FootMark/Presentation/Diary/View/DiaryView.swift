@@ -7,14 +7,7 @@
 
 import UIKit
 
-protocol diaryViewDelegate: AnyObject {
-    func saveButtonTapped()
-}
-
 class DiaryView: BaseView {
-    
-    weak var delegate: diaryViewDelegate?
-    
     var emojiPickerHandler: (() -> Void)?
     
     let scrollView = UIScrollView().then {
@@ -26,13 +19,33 @@ class DiaryView: BaseView {
     
     let emojiLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 50, weight: .semibold)
-        $0.text = "🫥"
+        $0.text = "😃"
         $0.isUserInteractionEnabled = true
+    }
+    
+    let editButton = UIButton().then {
+        $0.backgroundColor = UIColor.white
+        $0.setTitleColor(UIColor.black, for: .normal)
+        $0.titleLabel?.font = UIFont.pretendard(size: 20, weight: .semibold)
+        
+        $0.layer.borderColor = UIColor.gray.cgColor
+        $0.layer.borderWidth = 1.0
+        $0.layer.cornerRadius = 5.0
+        
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(systemName: "pencil")
+        config.imagePlacement = .trailing
+        config.imagePadding = 15
+        config.imageColorTransformer = UIConfigurationColorTransformer { _ in
+            return UIColor(resource: .blue1)
+        }
+        
+        $0.configuration = config
     }
     
     let dateLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 20, weight: .regular)
-        $0.text = "2023.03.24 (일)"
+        $0.text = "2024.6.11 (화)"
         $0.textColor = UIColor(resource: .white2)
     }
     
@@ -68,13 +81,34 @@ class DiaryView: BaseView {
         $0.textColor = UIColor(resource: .white2)
     }
     
-    let todoLabel = UILabel().then {
+    let container = UIView()
+    
+    let FtodoLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 17, weight: .regular)
+        $0.text = "수영, 산책, 달리기"
         $0.textColor = UIColor(resource: .white2)
     }
     
-    let todoTextView = UITextView().then {
+    let FtodoTextView = UITextView().then {
         $0.font = UIFont.pretendard(size: 16, weight: .regular)
+        $0.text = "수영과 산책, 달리기를 했다."
+        $0.isScrollEnabled = true
+        $0.autocorrectionType = .no
+        $0.spellCheckingType = .no
+        $0.layer.borderColor = UIColor.gray.cgColor
+        $0.layer.borderWidth = 1.0
+        $0.layer.cornerRadius = 5.0
+    }
+    
+    let StodoLabel = UILabel().then {
+        $0.font = UIFont.pretendard(size: 17, weight: .regular)
+        $0.text = "Swift, 알고리즘"
+        $0.textColor = UIColor(resource: .white2)
+    }
+    
+    let StodoTextView = UITextView().then {
+        $0.font = UIFont.pretendard(size: 16, weight: .regular)
+        $0.text = "Swift와 알고리즘 공부를 했다."
         $0.isScrollEnabled = true
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
@@ -91,6 +125,7 @@ class DiaryView: BaseView {
     
     let thankfulTextView = UITextView().then {
         $0.font = UIFont.pretendard(size: 16, weight: .regular)
+        $0.text = "감사한 일"
         $0.isScrollEnabled = true
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
@@ -107,6 +142,7 @@ class DiaryView: BaseView {
     
     let bestTextView = UITextView().then {
         $0.font = UIFont.pretendard(size: 16, weight: .regular)
+        $0.text = "가장 좋았던 일"
         $0.isScrollEnabled = true
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
@@ -116,10 +152,11 @@ class DiaryView: BaseView {
     }
     
     let saveButton = UIButton().then {
+        $0.backgroundColor = UIColor(resource: .blue1)
         $0.setTitle("저장", for: .normal)
         $0.setTitleColor(UIColor(resource: .white2), for: .normal)
-        $0.backgroundColor = UIColor(resource: .blue1)
-        $0.titleLabel?.font = UIFont.pretendard(size: 20, weight: .regular)
+        $0.titleLabel?.font = UIFont.pretendard(size: 20, weight: .semibold)
+        
         $0.layer.borderColor = UIColor.gray.cgColor
         $0.layer.borderWidth = 1.0
         $0.layer.cornerRadius = 5.0
@@ -131,24 +168,36 @@ class DiaryView: BaseView {
         scrollView.addSubview(contentView)
         
         contentView.addSubview(emojiLabel)
+        contentView.addSubview(editButton)
         contentView.addSubview(dateLabel)
         contentView.addSubview(categoryButton)
         
         contentView.addSubview(categoryLabel)
-        contentView.addSubview(todoLabel)
-        contentView.addSubview(todoTextView)
+        
+        contentView.addSubview(container)
+        
+        container.addSubview(FtodoLabel)
+        container.addSubview(FtodoTextView)
+        container.addSubview(StodoLabel)
+        container.addSubview(StodoTextView)
         
         contentView.addSubview(thankfulLabel)
         contentView.addSubview(thankfulTextView)
         
         contentView.addSubview(bestLabel)
         contentView.addSubview(bestTextView)
-        
         contentView.addSubview(saveButton)
         
         emojiLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(30)
             $0.centerX.equalToSuperview()
+        }
+        
+        editButton.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(40)
+            $0.leading.equalTo(self.emojiLabel.snp.trailing).offset(100)
+            $0.width.equalTo(30)
+            $0.height.equalTo(30)
         }
         
         dateLabel.snp.makeConstraints {
@@ -159,7 +208,7 @@ class DiaryView: BaseView {
         
         categoryButton.snp.makeConstraints {
             $0.top.equalTo(self.emojiLabel.snp.bottom).offset(30)
-            $0.leading.equalTo(dateLabel.snp.trailing).offset(40)
+            $0.leading.equalTo(dateLabel.snp.trailing).offset(60)
             $0.width.equalTo(150)
             $0.height.equalTo(50)
         }
@@ -170,29 +219,48 @@ class DiaryView: BaseView {
             $0.trailing.lessThanOrEqualToSuperview().offset(-30)
         }
         
-        todoLabel.snp.makeConstraints {
-            $0.top.equalTo(self.categoryLabel.snp.bottom).offset(10)
+        container.snp.makeConstraints {
+            $0.top.equalTo(self.categoryLabel.snp.bottom).offset(20)
             $0.leading.equalToSuperview().inset(30)
-            $0.trailing.lessThanOrEqualToSuperview().offset(-30)
+            $0.trailing.equalToSuperview().offset(-30)
         }
         
-        todoTextView.snp.makeConstraints {
-            $0.top.equalTo(self.todoLabel.snp.bottom).offset(20)
-            $0.centerX.equalToSuperview().inset(30)
-            $0.width.equalTo(350)
+        FtodoLabel.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+        }
+        
+        FtodoTextView.snp.makeConstraints {
+            $0.top.equalTo(self.FtodoLabel.snp.bottom).offset(20)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(300)
+        }
+        
+        StodoLabel.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+        }
+        
+        StodoTextView.snp.makeConstraints {
+            $0.top.equalTo(self.StodoLabel.snp.bottom).offset(20)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
             $0.height.equalTo(300)
         }
         
         thankfulLabel.snp.makeConstraints {
-            $0.top.equalTo(self.todoTextView.snp.bottom).offset(50)
+            $0.top.equalTo(self.container.snp.bottom).offset(400)
             $0.leading.equalToSuperview().inset(30)
             $0.trailing.lessThanOrEqualToSuperview().offset(-30)
         }
         
         thankfulTextView.snp.makeConstraints {
             $0.top.equalTo(self.thankfulLabel.snp.bottom).offset(20)
-            $0.centerX.equalToSuperview().inset(30)
-            $0.width.equalTo(350)
+            $0.leading.equalToSuperview().inset(30)
+            $0.trailing.equalToSuperview().offset(-30)
             $0.height.equalTo(200)
         }
         
@@ -204,15 +272,15 @@ class DiaryView: BaseView {
         
         bestTextView.snp.makeConstraints {
             $0.top.equalTo(self.bestLabel.snp.bottom).offset(20)
-            $0.centerX.equalToSuperview().inset(30)
-            $0.width.equalTo(350)
+            $0.leading.equalToSuperview().inset(30)
+            $0.trailing.equalToSuperview().offset(-30)
             $0.height.equalTo(200)
         }
         
         saveButton.snp.makeConstraints {
-            $0.top.equalTo(self.bestTextView.snp.bottom).offset(100)
+            $0.top.equalTo(self.bestTextView.snp.bottom).offset(50)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(350)
+            $0.width.equalTo(340)
             $0.height.equalTo(50)
         }
         
@@ -226,4 +294,5 @@ class DiaryView: BaseView {
             $0.edges.equalTo(self.safeAreaLayoutGuide)
         }
     }
+
 }

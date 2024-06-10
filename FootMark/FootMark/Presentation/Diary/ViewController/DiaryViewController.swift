@@ -17,12 +17,27 @@ class DiaryViewController: BaseViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(resource: .black1)
-        
         navigationController?.navigationBar.isHidden = true
         
         setUpDelegates()
         setUpClosures()
         setupDropDown()
+        
+        self.diaryView.FtodoLabel.isHidden = false
+        self.diaryView.FtodoTextView.isHidden = false
+        self.diaryView.FtodoTextView.isEditable = false
+        self.diaryView.FtodoTextView.isUserInteractionEnabled = false
+        
+        self.diaryView.StodoLabel.isHidden = true
+        self.diaryView.StodoTextView.isHidden = true
+        self.diaryView.StodoTextView.isEditable = false
+        self.diaryView.StodoTextView.isUserInteractionEnabled = false
+        
+        self.diaryView.thankfulTextView.isEditable = false
+        self.diaryView.bestTextView.isEditable = false
+        
+        diaryView.saveButton.isHidden = true
+        diaryView.editButton.isHidden = false
     }
     
     override func setLayout() {
@@ -39,11 +54,13 @@ class DiaryViewController: BaseViewController {
         
         diaryView.categoryButton.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside)
         
+        diaryView.editButton.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
+        
         diaryView.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
     
     func setUpDelegates() {
-        diaryView.todoTextView.delegate = self
+        diaryView.FtodoTextView.delegate = self
         diaryView.thankfulTextView.delegate = self
         diaryView.bestTextView.delegate = self
     }
@@ -63,11 +80,6 @@ class DiaryViewController: BaseViewController {
     }
     
     func setupDropDown() {
-        let todoLabelContents = [
-            "운동": "수영, 산책, 달리기",
-            "공부": "Swift, 알고리즘"
-        ]
-        
         dropDown.anchorView = diaryView.categoryButton
         dropDown.bottomOffset = CGPoint(x: 0, y: diaryView.categoryButton.bounds.height + 80)
         dropDown.dataSource = ["운동", "공부"]
@@ -78,20 +90,81 @@ class DiaryViewController: BaseViewController {
         if let firstCategory = dropDown.dataSource.first {
             diaryView.categoryButton.setTitle(firstCategory, for: .normal)
             diaryView.categoryLabel.text = firstCategory
-            diaryView.todoLabel.text = todoLabelContents[firstCategory]
         }
         
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in
-            self?.diaryView.categoryButton.setTitle(item, for: .normal)
-            self?.diaryView.categoryLabel.text = item
-            self?.diaryView.todoTextView.text = ""
-            self?.diaryView.todoLabel.text = todoLabelContents[item]
+            guard let self = self else { return }
+            
+            self.diaryView.categoryButton.setTitle(item, for: .normal)
+            self.diaryView.categoryLabel.text = item
+            
+            // 운동 카테고리를 선택했을 때
+            if item == "운동" {
+                self.diaryView.FtodoLabel.isHidden = false
+                self.diaryView.FtodoTextView.isHidden = false
+                self.diaryView.StodoLabel.isHidden = true
+                self.diaryView.StodoTextView.isHidden = true
+            }
+            // 공부 카테고리를 선택했을 때
+            else if item == "공부" {
+                self.diaryView.FtodoLabel.isHidden = true
+                self.diaryView.FtodoTextView.isHidden = true
+                self.diaryView.StodoLabel.isHidden = false
+                self.diaryView.StodoTextView.isHidden = false
+            }
+            // 다른 카테고리를 선택했을 때는 모두 숨김 처리
+            else {
+                self.diaryView.FtodoLabel.isHidden = true
+                self.diaryView.FtodoTextView.isHidden = true
+                self.diaryView.StodoLabel.isHidden = true
+                self.diaryView.StodoTextView.isHidden = true
+            }
         }
     }
     
+    @objc func editButtonTapped() {
+        // StodoTextView 제거
+        diaryView.StodoTextView.removeFromSuperview()
+        
+        // emojiLabel 활성화
+        diaryView.emojiLabel.isHidden = false
+        diaryView.emojiLabel.isUserInteractionEnabled = true
+        
+        // FtodoTextView 활성화
+        diaryView.FtodoTextView.isHidden = false
+        diaryView.FtodoTextView.isEditable = true
+        diaryView.FtodoTextView.isUserInteractionEnabled = true
+        diaryView.FtodoTextView.becomeFirstResponder()
+        
+        diaryView.thankfulTextView.isEditable = true
+        diaryView.bestTextView.isEditable = true
+        
+        // 레이아웃 갱신
+        diaryView.setNeedsLayout()
+        diaryView.layoutIfNeeded()
+        
+        // 버튼 상태 변경
+        diaryView.saveButton.isHidden = false
+        diaryView.editButton.isHidden = true
+    }
     
     @objc func saveButtonTapped() {
-        print("save")
+        // FtodoTextView 비활성화
+        diaryView.FtodoTextView.isEditable = false
+        diaryView.FtodoTextView.isUserInteractionEnabled = false
+        
+        // StodoTextView 비활성화
+        diaryView.StodoTextView.isEditable = false
+        diaryView.StodoTextView.isUserInteractionEnabled = false
+        
+        diaryView.thankfulTextView.isEditable = false
+        diaryView.bestTextView.isEditable = false
+        
+        // 버튼 상태 변경
+        diaryView.saveButton.isHidden = true
+        diaryView.editButton.isHidden = false
+        
+        diaryView.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
 }
 
