@@ -80,6 +80,10 @@
 		9E6090ED2BCE768700D018B2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9E6090EC2BCE768700D018B2 /* GoogleSignIn */; };
 		9E6090EF2BCE76C300D018B2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9E6090EE2BCE76C300D018B2 /* GoogleSignIn */; };
 		9E6090F72BCE794B00D018B2 /* LoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6090F62BCE794B00D018B2 /* LoginDTO.swift */; };
+		9E6451F52C15DBB20026C29D /* PostEmojiRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6451F42C15DBB20026C29D /* PostEmojiRequestModel.swift */; };
+		9E6451F72C15DBE80026C29D /* PostEmojiDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6451F62C15DBE80026C29D /* PostEmojiDTO.swift */; };
+		9E6451F92C15DC820026C29D /* EmojiTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6451F82C15DC820026C29D /* EmojiTargetType.swift */; };
+		9E6451FB2C15DD2B0026C29D /* EmojiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6451FA2C15DD2B0026C29D /* EmojiService.swift */; };
 		9E7326D22C0991BF0025C981 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7326D12C0991BF0025C981 /* DiaryViewController.swift */; };
 		9E74C3442C0955D6003152A7 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E74C3432C0955D6003152A7 /* BaseService.swift */; };
 		9E74C3462C0955EA003152A7 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E74C3452C0955EA003152A7 /* BaseTargetType.swift */; };
@@ -162,6 +166,10 @@
 		9E6090E52BCD990700D018B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9E6090E72BCE579B00D018B2 /* FootMark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FootMark.entitlements; sourceTree = "<group>"; };
 		9E6090F62BCE794B00D018B2 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
+		9E6451F42C15DBB20026C29D /* PostEmojiRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEmojiRequestModel.swift; sourceTree = "<group>"; };
+		9E6451F62C15DBE80026C29D /* PostEmojiDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEmojiDTO.swift; sourceTree = "<group>"; };
+		9E6451F82C15DC820026C29D /* EmojiTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTargetType.swift; sourceTree = "<group>"; };
+		9E6451FA2C15DD2B0026C29D /* EmojiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiService.swift; sourceTree = "<group>"; };
 		9E7326D12C0991BF0025C981 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		9E74C3432C0955D6003152A7 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		9E74C3452C0955EA003152A7 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
@@ -334,6 +342,7 @@
 			children = (
 				9E74C3422C0955B4003152A7 /* Base */,
 				9E74C34F2C0957F3003152A7 /* Login */,
+				9E6451F02C15DB410026C29D /* Emoji */,
 				9E386FD02BAC1872007451F8 /* DTO */,
 				9E3870002BAC1872007451F8 /* Config */,
 			);
@@ -343,6 +352,7 @@
 		9E386FD02BAC1872007451F8 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				9E6451F12C15DB7E0026C29D /* EmojiDTO */,
 				9E6090F52BCE793D00D018B2 /* LoginDTO */,
 			);
 			path = DTO;
@@ -504,6 +514,40 @@
 				9E1B09412BDF9AF6007AAB48 /* Request */,
 			);
 			path = LoginDTO;
+			sourceTree = "<group>";
+		};
+		9E6451F02C15DB410026C29D /* Emoji */ = {
+			isa = PBXGroup;
+			children = (
+				9E6451F82C15DC820026C29D /* EmojiTargetType.swift */,
+				9E6451FA2C15DD2B0026C29D /* EmojiService.swift */,
+			);
+			path = Emoji;
+			sourceTree = "<group>";
+		};
+		9E6451F12C15DB7E0026C29D /* EmojiDTO */ = {
+			isa = PBXGroup;
+			children = (
+				9E6451F32C15DB8A0026C29D /* Request */,
+				9E6451F22C15DB840026C29D /* Response */,
+			);
+			path = EmojiDTO;
+			sourceTree = "<group>";
+		};
+		9E6451F22C15DB840026C29D /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				9E6451F62C15DBE80026C29D /* PostEmojiDTO.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		9E6451F32C15DB8A0026C29D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				9E6451F42C15DBB20026C29D /* PostEmojiRequestModel.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 		9E7326D02C0991A50025C981 /* ViewController */ = {
@@ -838,6 +882,7 @@
 				9E38716C2BAC1BCD007451F8 /* UIColor++.swift in Sources */,
 				C1B6A05C2C0EFBEA003ECA62 /* SidebarModel.swift in Sources */,
 				9E7326D22C0991BF0025C981 /* DiaryViewController.swift in Sources */,
+				9E6451F92C15DC820026C29D /* EmojiTargetType.swift in Sources */,
 				9E386F9E2BAC0C06007451F8 /* AppDelegate.swift in Sources */,
 				9E38716A2BAC1BCD007451F8 /* UIView++.swift in Sources */,
 				C1E74B982C0F6DBD00D8E313 /* ProfileView.swift in Sources */,
@@ -849,12 +894,15 @@
 				9E092D3C2BB3BC0800B146A9 /* LoginView.swift in Sources */,
 				9E6090F72BCE794B00D018B2 /* LoginDTO.swift in Sources */,
 				9E74C3442C0955D6003152A7 /* BaseService.swift in Sources */,
+				9E6451F72C15DBE80026C29D /* PostEmojiDTO.swift in Sources */,
+				9E6451F52C15DBB20026C29D /* PostEmojiRequestModel.swift in Sources */,
 				9E3871452BAC1AA3007451F8 /* Font.swift in Sources */,
 				9E74C3532C095A68003152A7 /* LoginService.swift in Sources */,
 				9E3871632BAC1BCD007451F8 /* UIViewController++.swift in Sources */,
 				9E3871642BAC1BCD007451F8 /* UIImage++.swift in Sources */,
 				9E3871712BAC1BCD007451F8 /* BaseNavigationController.swift in Sources */,
 				9E74C34A2C09562A003152A7 /* NetworkResults.swift in Sources */,
+				9E6451FB2C15DD2B0026C29D /* EmojiService.swift in Sources */,
 				9E386FA02BAC0C06007451F8 /* SceneDelegate.swift in Sources */,
 				9E74C3462C0955EA003152A7 /* BaseTargetType.swift in Sources */,
 				C1482DF02BAFDAC8005177F7 /* DiaryView.swift in Sources */,
