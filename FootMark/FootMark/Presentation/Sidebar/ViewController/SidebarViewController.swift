@@ -8,21 +8,23 @@
 import UIKit
 
 class SidebarViewController: BaseViewController {
-
+    
     var sidebarView = SidebarView()
     let sidebarList = SidebarModel.dummy()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        sidebarView.tableView.backgroundColor = UIColor(resource: .black1)
+        
         sidebarView.tableView.dataSource = self
         sidebarView.tableView.delegate = self
         sidebarView.tableView.register(SidebarViewCell.self, forCellReuseIdentifier: "SidebarViewCell")
     }
-
+    
     override func setLayout() {
         view.addSubview(sidebarView)
-
+        
         sidebarView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.bottom.equalToSuperview()
@@ -33,19 +35,19 @@ class SidebarViewController: BaseViewController {
 }
 
 extension SidebarViewController : UITableViewDelegate, UITableViewDataSource {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return sidebarList.count
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sidebarList[section].count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: SidebarViewCell.identifier,
@@ -53,26 +55,36 @@ extension SidebarViewController : UITableViewDelegate, UITableViewDataSource {
         cell.dataBind(sidebarList[indexPath.section][indexPath.row])
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 20.0 // 첫 번째 섹션의 헤더 높이 (공백)
+        } else {
+            return 0.0 // 나머지 섹션의 헤더 높이
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-
+        
         let averageCellHeight: CGFloat = 44.0
         let numberOfCellsInSection = tableView.numberOfRows(inSection: section)
         let totalCellHeight = averageCellHeight * CGFloat(numberOfCellsInSection)
-
+        
         let tableViewHeight = tableView.frame.size.height
         let remainingHeight = tableViewHeight - totalCellHeight
-
+        
         switch section {
         case 0:
-            return remainingHeight * 0.05
+            return remainingHeight * 0.08
         case 1:
+            return remainingHeight * 0.1
+        case 2:
             return remainingHeight * 0.3
         default:
             return 0.0
         }
     }
-
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section < sidebarList.count - 1 {
             let footerView = UIView()
@@ -82,37 +94,35 @@ extension SidebarViewController : UITableViewDelegate, UITableViewDataSource {
             return nil
         }
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = sidebarList[indexPath.section][indexPath.row]
         print("\(selectedItem.title) 선택됨")
-
+        
         switch selectedItem.title {
         case "Profile":
-            print("프로필 화면으로 이동")
-
+            let profileVC = ProfileViewController()
+            navigationController?.pushViewController(profileVC, animated: true)
+            
         case "Home":
-            print("홈 화면으로 이동")
-
+            let profileVC = ProfileViewController()
+            navigationController?.pushViewController(profileVC, animated: true)
+            
         case "Monthly Review":
-            print("월간 리뷰 화면으로 이동")
-
+            let profileVC = ProfileViewController()
+            navigationController?.pushViewController(profileVC, animated: true)
+            
         case "Category":
-            print("카테고리 화면으로 이동")
-
+            let profileVC = ProfileViewController()
+            navigationController?.pushViewController(profileVC, animated: true)
+            
         case "Logout":
             print("로그아웃 처리")
-
-        case "Notification":
-            print("알림 설정 화면으로 이동")
-
-        case "Settings":
-            print("설정 화면으로 이동")
-
+            
         default:
             break
         }
-
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

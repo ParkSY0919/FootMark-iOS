@@ -8,15 +8,13 @@
 import UIKit
 
 class SidebarView: BaseView {
-
     var tableView = UITableView().then() {
-        $0.layer.borderWidth = 1.0
-        $0.layer.borderColor = UIColor.black.cgColor
+        $0.layer.borderWidth = 0.3
+        $0.layer.borderColor = UIColor(resource: .white2).cgColor
         $0.separatorStyle = .none
     }
 
     override func setLayout() {
-
         addSubview(tableView)
 
         tableView.snp.makeConstraints {

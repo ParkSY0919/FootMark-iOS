@@ -20,7 +20,7 @@ class MainContentViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.White()
+        view.backgroundColor = UIColor(resource: .black1)
 
         setupDimmingView()
     }
