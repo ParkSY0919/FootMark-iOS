@@ -100,6 +100,8 @@
 		C1B6A0562C0EFB7F003ECA62 /* MainContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A0552C0EFB7F003ECA62 /* MainContentViewController.swift */; };
 		C1B6A0582C0EFBC3003ECA62 /* SidebarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A0572C0EFBC3003ECA62 /* SidebarViewCell.swift */; };
 		C1B6A05C2C0EFBEA003ECA62 /* SidebarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A05B2C0EFBEA003ECA62 /* SidebarModel.swift */; };
+		C1DF9F1E2C169D7600924DD9 /* AddDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DF9F1D2C169D7600924DD9 /* AddDiaryViewController.swift */; };
+		C1DF9F202C169D8900924DD9 /* AddDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DF9F1F2C169D8900924DD9 /* AddDiaryView.swift */; };
 		C1E74B962C0F6D9F00D8E313 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E74B952C0F6D9F00D8E313 /* ProfileViewController.swift */; };
 		C1E74B982C0F6DBD00D8E313 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E74B972C0F6DBD00D8E313 /* ProfileView.swift */; };
 		C1E74B9A2C0F6DF500D8E313 /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E74B992C0F6DF500D8E313 /* ProfileImageViewController.swift */; };
@@ -184,6 +186,8 @@
 		C1B6A0552C0EFB7F003ECA62 /* MainContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewController.swift; sourceTree = "<group>"; };
 		C1B6A0572C0EFBC3003ECA62 /* SidebarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewCell.swift; sourceTree = "<group>"; };
 		C1B6A05B2C0EFBEA003ECA62 /* SidebarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarModel.swift; sourceTree = "<group>"; };
+		C1DF9F1D2C169D7600924DD9 /* AddDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryViewController.swift; sourceTree = "<group>"; };
+		C1DF9F1F2C169D8900924DD9 /* AddDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryView.swift; sourceTree = "<group>"; };
 		C1E74B952C0F6D9F00D8E313 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = FootMark/Presentation/Sidebar/ViewController/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
 		C1E74B972C0F6DBD00D8E313 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		C1E74B992C0F6DF500D8E313 /* ProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewController.swift; sourceTree = "<group>"; };
@@ -554,6 +558,7 @@
 			isa = PBXGroup;
 			children = (
 				9E7326D12C0991BF0025C981 /* DiaryViewController.swift */,
+				C1DF9F1D2C169D7600924DD9 /* AddDiaryViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -600,6 +605,7 @@
 			isa = PBXGroup;
 			children = (
 				C1482DEF2BAFDAC8005177F7 /* DiaryView.swift */,
+				C1DF9F1F2C169D8900924DD9 /* AddDiaryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -871,6 +877,7 @@
 				C1B6A0522C0EFB33003ECA62 /* SidebarView.swift in Sources */,
 				9E1B09432BDF9B08007AAB48 /* LoginRequestModel.swift in Sources */,
 				C1E74B9A2C0F6DF500D8E313 /* ProfileImageViewController.swift in Sources */,
+				C1DF9F1E2C169D7600924DD9 /* AddDiaryViewController.swift in Sources */,
 				9E386FA22BAC0C06007451F8 /* MainViewController.swift in Sources */,
 				9E38713C2BAC1AA3007451F8 /* Colors.swift in Sources */,
 				9E092D3A2BB3BB0000B146A9 /* LoginViewController.swift in Sources */,
@@ -900,6 +907,7 @@
 				9E74C3532C095A68003152A7 /* LoginService.swift in Sources */,
 				9E3871632BAC1BCD007451F8 /* UIViewController++.swift in Sources */,
 				9E3871642BAC1BCD007451F8 /* UIImage++.swift in Sources */,
+				C1DF9F202C169D8900924DD9 /* AddDiaryView.swift in Sources */,
 				9E3871712BAC1BCD007451F8 /* BaseNavigationController.swift in Sources */,
 				9E74C34A2C09562A003152A7 /* NetworkResults.swift in Sources */,
 				9E6451FB2C15DD2B0026C29D /* EmojiService.swift in Sources */,

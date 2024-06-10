@@ -63,9 +63,14 @@ class DiaryViewController: BaseViewController {
     }
     
     func setupDropDown() {
+        let todoLabelContents = [
+            "운동": "수영, 산책, 달리기",
+            "공부": "Swift, 알고리즘"
+        ]
+        
         dropDown.anchorView = diaryView.categoryButton
         dropDown.bottomOffset = CGPoint(x: 0, y: diaryView.categoryButton.bounds.height + 80)
-        dropDown.dataSource = ["운동", "약속", "공부"]
+        dropDown.dataSource = ["운동", "공부"]
         dropDown.backgroundColor = .white
         
         dropDown.textFont = UIFont.pretendard(size: 18, weight: .regular)
@@ -73,13 +78,17 @@ class DiaryViewController: BaseViewController {
         if let firstCategory = dropDown.dataSource.first {
             diaryView.categoryButton.setTitle(firstCategory, for: .normal)
             diaryView.categoryLabel.text = firstCategory
+            diaryView.todoLabel.text = todoLabelContents[firstCategory]
         }
         
         dropDown.selectionAction = { [weak self] (index: Int, item: String) in
             self?.diaryView.categoryButton.setTitle(item, for: .normal)
             self?.diaryView.categoryLabel.text = item
+            self?.diaryView.todoTextView.text = ""
+            self?.diaryView.todoLabel.text = todoLabelContents[item]
         }
     }
+    
     
     @objc func saveButtonTapped() {
         print("save")
