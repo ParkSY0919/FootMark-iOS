@@ -14,4 +14,5 @@ final class NetworkService {
    private init() {}
    
    let loginService: LoginService = LoginService()
+   let emojiService: EmojiService = EmojiService()
 }
