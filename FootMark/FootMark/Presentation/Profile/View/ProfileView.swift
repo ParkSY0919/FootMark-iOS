@@ -27,29 +27,32 @@ class ProfileView: BaseView {
     let titleLabel = UILabel().then {
         $0.text = "기본프로필"
         $0.font = UIFont.viga(size: 30, weight: .bold)
+        $0.textColor = UIColor(resource: .white2)
         $0.textAlignment = .center
     }
     
     let nicknameTextField = UITextField().then {
         $0.font = UIFont.pretendard(size: 20, weight: .regular)
+        $0.textColor = UIColor(resource: .white2)
         $0.borderStyle = .none
         $0.text = "사용자 닉네임"
         $0.clearButtonMode = .whileEditing
     }
     
     let nicknameUnderlineView = UIView().then {
-        $0.backgroundColor = .gray
+        $0.backgroundColor = UIColor(resource: .white2)
     }
     
     let messageTextField = UITextField().then {
         $0.font = UIFont.pretendard(size: 20, weight: .regular)
+        $0.textColor = UIColor(resource: .white2)
         $0.borderStyle = .none
         $0.text = "상태메세지"
         $0.clearButtonMode = .whileEditing
     }
     
     let messageUnderlineView = UIView().then {
-        $0.backgroundColor = .gray
+        $0.backgroundColor = UIColor(resource: .white2)
     }
     
     override func setLayout() {

@@ -12,23 +12,24 @@ class ProfileViewController: BaseViewController {
     
     let editButton = UIButton().then {
         $0.setTitle("편집", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
+        $0.setTitleColor(UIColor(resource: .white2), for: .normal)
     }
     
     let backButton = UIButton().then {
         $0.setTitle("취소", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
+        $0.setTitleColor(UIColor(resource: .white2), for: .normal)
     }
     
     let confirmButton = UIButton().then {
         $0.setTitle("확인", for: .normal)
+        $0.setTitleColor(UIColor(resource: .white2), for: .normal)
         $0.layer.cornerRadius = 10
-        $0.backgroundColor = .systemBlue
+        $0.backgroundColor = UIColor(resource: .blue1)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(resource: .black1)
         
         setUpDelegate()
         
@@ -133,9 +134,9 @@ extension ProfileViewController : UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == profileView.nicknameTextField {
-            profileView.nicknameUnderlineView.backgroundColor = .black
+            profileView.nicknameUnderlineView.backgroundColor = UIColor(resource: .white2)
         } else if textField == profileView.messageTextField {
-            profileView.messageUnderlineView.backgroundColor = .black
+            profileView.messageUnderlineView.backgroundColor = UIColor(resource: .white2)
         }
     }
     

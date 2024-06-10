@@ -16,7 +16,7 @@ class ProfileImageViewController: BaseViewController {
     
     let backButton = UIButton().then {
         $0.setTitle("X", for: .normal)
-        $0.setTitleColor(.white, for: .normal)
+        $0.setTitleColor(UIColor(resource: .white2), for: .normal)
     }
     
     override func viewDidLoad() {
