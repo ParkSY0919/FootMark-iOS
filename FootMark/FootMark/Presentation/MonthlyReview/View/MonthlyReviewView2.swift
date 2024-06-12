@@ -1,15 +1,23 @@
+//
+//  MonthlyReviewView2.swift
+//  FootMark
+//
+//  Created by 박신영 on 6/11/24.
+//
+
 import UIKit
 import SnapKit
 import Then
 
-class MonthlyReviewView: BaseView {
+class MonthlyReviewView2: BaseView {
+   
     
     let navigationContainer = UIView()
     let navigationBackBtn = UIButton()
     var didTapBackBtn: (() -> Void)?
     
     let dropDownButton = UIButton().then {
-        $0.setTitle("Select Month", for: .normal)
+        $0.setTitle("June 2024", for: .normal)
         $0.setTitleColor(.black, for: .normal)
         $0.backgroundColor = .lightGray
         $0.layer.cornerRadius = 5
@@ -88,7 +96,7 @@ class MonthlyReviewView: BaseView {
     }
 }
 
-extension MonthlyReviewView: UITableViewDataSource, UITableViewDelegate {
+extension MonthlyReviewView2: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return months.count

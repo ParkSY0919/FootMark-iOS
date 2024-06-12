@@ -14,10 +14,10 @@ class LoginView: BaseView {
    // MARK: - Properties
 
    // Logo & Label
-   let footMarkLogo = UIImageView(image: .swLogo)
+   let footMarkLogo = UIImageView(image: .swLogo2)
    let footMarkLabel = UILabel().then{
-      $0.setVigaFont(text: "FootMark", size: 35, weight: .bold, letterSpacing: 1.37)
-      $0.textColor = .SWprimary
+      $0.setVigaFont(text: "MindTrack", size: 35, weight: .bold, letterSpacing: 1.37)
+      $0.textColor = .SWprimary2
       $0.textAlignment = .center
    }
    
@@ -49,14 +49,14 @@ class LoginView: BaseView {
       }
       
       googleLogoBackGround.do {
-         $0.backgroundColor = .blue1
+         $0.backgroundColor = .SWprimary2
          $0.layer.cornerRadius = 10
          $0.layer.borderWidth = 0.5
          $0.layer.borderColor = UIColor.white.cgColor
       }
       
       googleSignInButton.do {
-         $0.backgroundColor = .blue1
+         $0.backgroundColor = .SWprimary2
          $0.layer.cornerRadius = 12
          $0.layer.borderWidth = 2
          $0.layer.borderColor = UIColor.white1.cgColor

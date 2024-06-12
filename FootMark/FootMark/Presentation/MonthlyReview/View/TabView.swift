@@ -76,9 +76,6 @@ final class TabView: UIView {
                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapItem))
                $0.addGestureRecognizer(tapGesture)
             }
-//            if label.text == "시즌오프" {
-//               label.textColor = .brown
-//            }
             self.stackView.addArrangedSubview(label)
             self.contentLabels.append(label)
          }

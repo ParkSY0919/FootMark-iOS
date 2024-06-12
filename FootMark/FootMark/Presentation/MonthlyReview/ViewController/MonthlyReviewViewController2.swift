@@ -1,8 +1,8 @@
 //
-//  MonthlyReviewViewController.swift
+//  MonthlyReviewViewController2.swift
 //  FootMark
 //
-//  Created by 박신영 on 6/3/24.
+//  Created by 박신영 on 6/11/24.
 //
 
 import UIKit
@@ -13,9 +13,9 @@ import Then
 //   MonthlyReviewViewController()
 //}
 
-class MonthlyReviewViewController: BaseViewController {
+class MonthlyReviewViewController2: BaseViewController {
    
-   private let monthlyReview = MonthlyReviewView()
+   private let monthlyReview = MonthlyReviewView2()
    private let tabView = TabView()
    private var selectedIndex = 0
    private let items = [
@@ -64,11 +64,11 @@ class MonthlyReviewViewController: BaseViewController {
          $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
          $0.height.equalTo(48)
       }
-//      tableView.snp.makeConstraints {
-//             $0.top.equalTo(tabView.snp.bottom).offset(16)
-//             $0.leading.trailing.equalToSuperview().inset(16)
-//             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-//         }
+      tableView.snp.makeConstraints {
+             $0.top.equalTo(tabView.snp.bottom).offset(16)
+             $0.leading.trailing.equalToSuperview().inset(16)
+             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+         }
    }
    
    override func viewDidLoad() {
@@ -79,7 +79,7 @@ class MonthlyReviewViewController: BaseViewController {
       //BackBtn의 Action이 실행되지 않고 있음.
       monthlyReview.didTapBackBtn = {
          print("현재 monthlyReview.didTapBackBtn 눌림")
-         self.navigationController?.pushViewController(MonthlyReviewViewController2(), animated: true)
+         self.navigationController?.popViewController(animated: true)
       }
       
       data = ["첫 번째 데이터", "두 번째 데이터", "세 번째 데이터"]
@@ -105,7 +105,7 @@ class MonthlyReviewViewController: BaseViewController {
    
 }
 
-extension MonthlyReviewViewController: UITableViewDataSource, UITableViewDelegate {
+extension MonthlyReviewViewController2: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -116,3 +116,4 @@ extension MonthlyReviewViewController: UITableViewDataSource, UITableViewDelegat
         return cell
     }
 }
+
