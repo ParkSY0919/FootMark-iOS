@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0860022C1BD6F8004E60E2 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0860012C1BD6F8004E60E2 /* CustomNavigationController.swift */; };
 		9E092D3A2BB3BB0000B146A9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E092D392BB3BB0000B146A9 /* LoginViewController.swift */; };
 		9E092D3C2BB3BC0800B146A9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E092D3B2BB3BC0800B146A9 /* LoginView.swift */; };
 		9E1B09312BDF74C6007AAB48 /* LookinServer in Frameworks */ = {isa = PBXBuildFile; productRef = 9E1B09302BDF74C6007AAB48 /* LookinServer */; };
@@ -118,6 +119,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E0860012C1BD6F8004E60E2 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		9E092D392BB3BB0000B146A9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9E092D3B2BB3BC0800B146A9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9E1B09422BDF9B08007AAB48 /* LoginRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestModel.swift; sourceTree = "<group>"; };
@@ -536,6 +538,7 @@
 			children = (
 				9E7326D62C0D4E330025C981 /* MonthlyReviewViewController.swift */,
 				9E6451FE2C17D0D00026C29D /* MonthlyReviewViewController2.swift */,
+				9E0860012C1BD6F8004E60E2 /* CustomNavigationController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -824,6 +827,7 @@
 				9E74C3462C0955EA003152A7 /* BaseTargetType.swift in Sources */,
 				9E7326D92C0D51F20025C981 /* MonthlyReviewView.swift in Sources */,
 				C1482DF02BAFDAC8005177F7 /* DiaryView.swift in Sources */,
+				9E0860022C1BD6F8004E60E2 /* CustomNavigationController.swift in Sources */,
 				9E3871672BAC1BCD007451F8 /* UIButton++.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
