@@ -9,82 +9,85 @@ import UIKit
 import SnapKit
 import Then
 
-//#Preview() {
-//   MonthlyReviewViewController()
-//}
 
 class MonthlyReviewViewController: BaseViewController {
    
-   private let monthlyReview = MonthlyReviewView()
+   //   private let monthlyReview = MonthlyReviewView()
+   let customNavigationController = CustomNavigationController()
    private let tabView = TabView()
    private var selectedIndex = 0
+   private let scrollView = UIScrollView()
+   private let contentView = UIView()
+   private let totalTableView = UIImageView(image: UIImage(resource: .monthlyTotalBf))
+   //   private let
    private let items = [
       "전체",
-      "감사의 말",
-      "오늘 가장 좋았던 일",
-      "운동",
-      "약속"
+      "감사한 일",
+      "가장 좋았던 일",
+      "운동"
    ]
-   private let tableView = UITableView()
-       private var data = [String]() // 테이블뷰에 표시할 데이터 배열
+   
+   private lazy var num = customNavigationController.cnt
    
    override func setUI() {
       self.navigationController?.isNavigationBarHidden = true
       
-      monthlyReview.do {
+      customNavigationController.view.do {
          $0.isUserInteractionEnabled = true
       }
-      
-      tabView.didTap = { [weak self] index in
-         guard let self else { return }
-         self.selectedIndex = index // 선택된 인덱스 할당
-         self.tabView.scroll(to: index)
-         self.tabView.syncUnderlineView(index: index, underlineView: self.tabView.highlightView)
-         self.toggleScrollView(index: index) // 선택된 인덱스에 따라 ScrollView 토글
-      }
-      
-      tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-          tableView.dataSource = self
-          tableView.delegate = self
    }
    
    override func setHierarchy() {
-      view.addSubviews(monthlyReview, tabView, tableView)
+      view.addSubviews(customNavigationController.navigationContainer, tabView, scrollView)
+      scrollView.addSubview(contentView)
+      contentView.addSubview(totalTableView)
    }
    
    override func setLayout() {
-      monthlyReview.snp.makeConstraints {
-//         $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
-         $0.top.horizontalEdges.equalToSuperview()
-         $0.height.equalTo(100)
+      
+      customNavigationController.navigationContainer.snp.makeConstraints {
+         $0.top.equalTo(view.safeAreaLayoutGuide)
+         $0.horizontalEdges.equalToSuperview()
+         $0.height.equalTo(50)
       }
       
       tabView.snp.makeConstraints {
-         $0.top.equalTo(monthlyReview.snp.bottom).offset(30)
-         $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+         $0.top.equalTo(customNavigationController.navigationContainer.snp.bottom)
+         $0.leading.trailing.equalToSuperview()
          $0.height.equalTo(48)
       }
-//      tableView.snp.makeConstraints {
-//             $0.top.equalTo(tabView.snp.bottom).offset(16)
-//             $0.leading.trailing.equalToSuperview().inset(16)
-//             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-//         }
+      
+      scrollView.snp.makeConstraints {
+         $0.top.equalTo(tabView.snp.bottom).offset(10)
+         $0.horizontalEdges.bottom.equalToSuperview()
+      }
+      
+      contentView.snp.makeConstraints {
+         $0.edges.equalTo(scrollView)
+         $0.width.equalTo(scrollView)
+         $0.height.greaterThanOrEqualToSuperview().priority(.low)
+      }
+      
+      totalTableView.snp.makeConstraints {
+         $0.edges.equalToSuperview()
+      }
    }
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      print("현재 MonthlyReviewViewController 입니다.")
       tabView.dataSource = items
       handleScroll()
-      //BackBtn의 Action이 실행되지 않고 있음.
-      monthlyReview.didTapBackBtn = {
+      customNavigationController.didTapBackBtn = {
          print("현재 monthlyReview.didTapBackBtn 눌림")
-         self.navigationController?.pushViewController(MonthlyReviewViewController2(), animated: true)
+         //               self.navigationController?.pushViewController(MonthlyReviewViewController2(), animated: true)
       }
       
-      data = ["첫 번째 데이터", "두 번째 데이터", "세 번째 데이터"]
+      customNavigationController.onCntChanged = {
+         DispatchQueue.main.async {
+            self.totalTableView.image = UIImage(resource: .monthlyMayTotal)
+         }
+      }
    }
-   
    private func handleScroll() {
       tabView.syncUnderlineView(index: 0, underlineView: tabView.highlightView)
       
@@ -92,27 +95,25 @@ class MonthlyReviewViewController: BaseViewController {
          guard let self else { return }
          tabView.scroll(to: index)
          tabView.syncUnderlineView(index: index, underlineView: tabView.highlightView)
+         self.toggleScrollView(index: index)
       }
    }
    
    private func toggleScrollView(index: Int) {
-      if index == 1 {
-         print("index 값 1이 클릭 됐을 때")
-      } else {
-         print("index 1 아닐 때")
+      switch index {
+      case 0:
+         totalTableView.image = UIImage(resource: .monthlyTotalBf)
+      case 1:
+         totalTableView.image = UIImage(resource: .monthlyThanksBf)
+      case 2:
+         totalTableView.image = UIImage(resource: .monthlyBestHappyBf)
+      case 3:
+         totalTableView.image = UIImage(resource: .monthlyEXBf)
+      case 4:
+         totalTableView.image = UIImage(resource: .monthlyMayTotal)
+      default:
+         break
       }
    }
    
-}
-
-extension MonthlyReviewViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = data[indexPath.row]
-        return cell
-    }
 }
