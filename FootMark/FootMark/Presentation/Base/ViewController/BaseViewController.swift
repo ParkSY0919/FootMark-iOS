@@ -23,6 +23,7 @@ class BaseViewController: UIViewController {
       self.view.backgroundColor = .black1
       self.view.setNeedsUpdateConstraints()
       self.setUI()
+      self.setHierarchy()
       self.setLayout()
       self.setAddTarget()
       self.setUpKeyboard()
@@ -31,6 +32,8 @@ class BaseViewController: UIViewController {
    
    // MARK: - UI Components
    func setUI() {}
+   // MARK: - set View Hierarchy
+   func setHierarchy() {}
    // MARK: - Layout Helper
    func setLayout() {}
    // MARK: - Add Target

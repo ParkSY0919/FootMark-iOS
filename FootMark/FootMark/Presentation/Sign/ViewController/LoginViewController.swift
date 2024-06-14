@@ -50,7 +50,11 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
                let keychain = KeychainSwift()
                keychain.set(loginDTO.data.accessToken, forKey: "accessToken")
                keychain.set(loginDTO.data.refreshToken, forKey: "refreshToken")
-               self.addEmoji()
+               
+               DispatchQueue.main.async {
+                  let mainVC = MonthlyReviewViewController()
+                  self.navigationController?.pushViewController(mainVC, animated: true)
+               }
             case .tokenExpired(_):
                print("만료된 accessToken 입니다. \n재발급을 시도합니다.")
                self.getNewAccessToken()
