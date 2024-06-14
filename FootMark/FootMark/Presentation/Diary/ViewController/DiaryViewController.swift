@@ -9,6 +9,7 @@ import UIKit
 import ElegantEmojiPicker
 import DropDown
 
+//d
 class DiaryViewController: BaseViewController {
     var diaryView = DiaryView()
     let dropDown = DropDown()
