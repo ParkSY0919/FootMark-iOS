@@ -80,6 +80,10 @@
 		9E6090ED2BCE768700D018B2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9E6090EC2BCE768700D018B2 /* GoogleSignIn */; };
 		9E6090EF2BCE76C300D018B2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9E6090EE2BCE76C300D018B2 /* GoogleSignIn */; };
 		9E6090F72BCE794B00D018B2 /* LoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6090F62BCE794B00D018B2 /* LoginDTO.swift */; };
+		9E6451F52C15DBB20026C29D /* PostEmojiRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6451F42C15DBB20026C29D /* PostEmojiRequestModel.swift */; };
+		9E6451F72C15DBE80026C29D /* PostEmojiDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6451F62C15DBE80026C29D /* PostEmojiDTO.swift */; };
+		9E6451F92C15DC820026C29D /* EmojiTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6451F82C15DC820026C29D /* EmojiTargetType.swift */; };
+		9E6451FB2C15DD2B0026C29D /* EmojiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6451FA2C15DD2B0026C29D /* EmojiService.swift */; };
 		9E7326D22C0991BF0025C981 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7326D12C0991BF0025C981 /* DiaryViewController.swift */; };
 		9E74C3442C0955D6003152A7 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E74C3432C0955D6003152A7 /* BaseService.swift */; };
 		9E74C3462C0955EA003152A7 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E74C3452C0955EA003152A7 /* BaseTargetType.swift */; };
@@ -91,6 +95,16 @@
 		C1482DF02BAFDAC8005177F7 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1482DEF2BAFDAC8005177F7 /* DiaryView.swift */; };
 		C1482DF72BB05D0F005177F7 /* ElegantEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = C1482DF62BB05D0F005177F7 /* ElegantEmojiPicker */; };
 		C1482E0E2BBC6615005177F7 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = C1482E0D2BBC6615005177F7 /* DropDown */; };
+		C1B6A0522C0EFB33003ECA62 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A0512C0EFB33003ECA62 /* SidebarView.swift */; };
+		C1B6A0542C0EFB49003ECA62 /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A0532C0EFB49003ECA62 /* SidebarViewController.swift */; };
+		C1B6A0562C0EFB7F003ECA62 /* MainContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A0552C0EFB7F003ECA62 /* MainContentViewController.swift */; };
+		C1B6A0582C0EFBC3003ECA62 /* SidebarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A0572C0EFBC3003ECA62 /* SidebarViewCell.swift */; };
+		C1B6A05C2C0EFBEA003ECA62 /* SidebarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A05B2C0EFBEA003ECA62 /* SidebarModel.swift */; };
+		C1DF9F1E2C169D7600924DD9 /* AddDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DF9F1D2C169D7600924DD9 /* AddDiaryViewController.swift */; };
+		C1DF9F202C169D8900924DD9 /* AddDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DF9F1F2C169D8900924DD9 /* AddDiaryView.swift */; };
+		C1E74B962C0F6D9F00D8E313 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E74B952C0F6D9F00D8E313 /* ProfileViewController.swift */; };
+		C1E74B982C0F6DBD00D8E313 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E74B972C0F6DBD00D8E313 /* ProfileView.swift */; };
+		C1E74B9A2C0F6DF500D8E313 /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E74B992C0F6DF500D8E313 /* ProfileImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +168,10 @@
 		9E6090E52BCD990700D018B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9E6090E72BCE579B00D018B2 /* FootMark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FootMark.entitlements; sourceTree = "<group>"; };
 		9E6090F62BCE794B00D018B2 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
+		9E6451F42C15DBB20026C29D /* PostEmojiRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEmojiRequestModel.swift; sourceTree = "<group>"; };
+		9E6451F62C15DBE80026C29D /* PostEmojiDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEmojiDTO.swift; sourceTree = "<group>"; };
+		9E6451F82C15DC820026C29D /* EmojiTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTargetType.swift; sourceTree = "<group>"; };
+		9E6451FA2C15DD2B0026C29D /* EmojiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiService.swift; sourceTree = "<group>"; };
 		9E7326D12C0991BF0025C981 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		9E74C3432C0955D6003152A7 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		9E74C3452C0955EA003152A7 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
@@ -163,6 +181,16 @@
 		9E74C3502C095933003152A7 /* LoginTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTargetType.swift; sourceTree = "<group>"; };
 		9E74C3522C095A68003152A7 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		C1482DEF2BAFDAC8005177F7 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
+		C1B6A0512C0EFB33003ECA62 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		C1B6A0532C0EFB49003ECA62 /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
+		C1B6A0552C0EFB7F003ECA62 /* MainContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewController.swift; sourceTree = "<group>"; };
+		C1B6A0572C0EFBC3003ECA62 /* SidebarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewCell.swift; sourceTree = "<group>"; };
+		C1B6A05B2C0EFBEA003ECA62 /* SidebarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarModel.swift; sourceTree = "<group>"; };
+		C1DF9F1D2C169D7600924DD9 /* AddDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryViewController.swift; sourceTree = "<group>"; };
+		C1DF9F1F2C169D8900924DD9 /* AddDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryView.swift; sourceTree = "<group>"; };
+		C1E74B952C0F6D9F00D8E313 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = FootMark/Presentation/Sidebar/ViewController/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
+		C1E74B972C0F6DBD00D8E313 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C1E74B992C0F6DF500D8E313 /* ProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +346,7 @@
 			children = (
 				9E74C3422C0955B4003152A7 /* Base */,
 				9E74C34F2C0957F3003152A7 /* Login */,
+				9E6451F02C15DB410026C29D /* Emoji */,
 				9E386FD02BAC1872007451F8 /* DTO */,
 				9E3870002BAC1872007451F8 /* Config */,
 			);
@@ -327,6 +356,7 @@
 		9E386FD02BAC1872007451F8 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				9E6451F12C15DB7E0026C29D /* EmojiDTO */,
 				9E6090F52BCE793D00D018B2 /* LoginDTO */,
 			);
 			path = DTO;
@@ -343,6 +373,8 @@
 		9E3870682BAC1A02007451F8 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C1E74B922C0F6D7100D8E313 /* Profile */,
+				C1B6A04E2C0EFA24003ECA62 /* Sidebar */,
 				9E092D362BB3BADC00B146A9 /* Sign */,
 				C1482DEA2BAFD90F005177F7 /* Diary */,
 				9E3871792BAC1C86007451F8 /* Main */,
@@ -488,10 +520,45 @@
 			path = LoginDTO;
 			sourceTree = "<group>";
 		};
+		9E6451F02C15DB410026C29D /* Emoji */ = {
+			isa = PBXGroup;
+			children = (
+				9E6451F82C15DC820026C29D /* EmojiTargetType.swift */,
+				9E6451FA2C15DD2B0026C29D /* EmojiService.swift */,
+			);
+			path = Emoji;
+			sourceTree = "<group>";
+		};
+		9E6451F12C15DB7E0026C29D /* EmojiDTO */ = {
+			isa = PBXGroup;
+			children = (
+				9E6451F32C15DB8A0026C29D /* Request */,
+				9E6451F22C15DB840026C29D /* Response */,
+			);
+			path = EmojiDTO;
+			sourceTree = "<group>";
+		};
+		9E6451F22C15DB840026C29D /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				9E6451F62C15DBE80026C29D /* PostEmojiDTO.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		9E6451F32C15DB8A0026C29D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				9E6451F42C15DBB20026C29D /* PostEmojiRequestModel.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		9E7326D02C0991A50025C981 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				9E7326D12C0991BF0025C981 /* DiaryViewController.swift */,
+				C1DF9F1D2C169D7600924DD9 /* AddDiaryViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -538,6 +605,7 @@
 			isa = PBXGroup;
 			children = (
 				C1482DEF2BAFDAC8005177F7 /* DiaryView.swift */,
+				C1DF9F1F2C169D8900924DD9 /* AddDiaryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -547,6 +615,68 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C1B6A04E2C0EFA24003ECA62 /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				C1B6A05A2C0EFBDB003ECA62 /* Model */,
+				C1B6A0502C0EFA31003ECA62 /* ViewController */,
+				C1B6A04F2C0EFA2C003ECA62 /* View */,
+			);
+			path = Sidebar;
+			sourceTree = "<group>";
+		};
+		C1B6A04F2C0EFA2C003ECA62 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1B6A0512C0EFB33003ECA62 /* SidebarView.swift */,
+				C1B6A0572C0EFBC3003ECA62 /* SidebarViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1B6A0502C0EFA31003ECA62 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1B6A0532C0EFB49003ECA62 /* SidebarViewController.swift */,
+				C1B6A0552C0EFB7F003ECA62 /* MainContentViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1B6A05A2C0EFBDB003ECA62 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C1B6A05B2C0EFBEA003ECA62 /* SidebarModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C1E74B922C0F6D7100D8E313 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C1E74B942C0F6D7C00D8E313 /* ViewController */,
+				C1E74B932C0F6D7800D8E313 /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		C1E74B932C0F6D7800D8E313 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1E74B972C0F6DBD00D8E313 /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1E74B942C0F6D7C00D8E313 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1E74B952C0F6D9F00D8E313 /* ProfileViewController.swift */,
+				C1E74B992C0F6DF500D8E313 /* ProfileImageViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -744,7 +874,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E3871682BAC1BCD007451F8 /* NSObject++.swift in Sources */,
+				C1B6A0522C0EFB33003ECA62 /* SidebarView.swift in Sources */,
 				9E1B09432BDF9B08007AAB48 /* LoginRequestModel.swift in Sources */,
+				C1E74B9A2C0F6DF500D8E313 /* ProfileImageViewController.swift in Sources */,
+				C1DF9F1E2C169D7600924DD9 /* AddDiaryViewController.swift in Sources */,
 				9E386FA22BAC0C06007451F8 /* MainViewController.swift in Sources */,
 				9E38713C2BAC1AA3007451F8 /* Colors.swift in Sources */,
 				9E092D3A2BB3BB0000B146A9 /* LoginViewController.swift in Sources */,
@@ -754,9 +887,13 @@
 				9E3871662BAC1BCD007451F8 /* UIStackView++.swift in Sources */,
 				9E3871292BAC1A03007451F8 /* BaseViewController.swift in Sources */,
 				9E38716C2BAC1BCD007451F8 /* UIColor++.swift in Sources */,
+				C1B6A05C2C0EFBEA003ECA62 /* SidebarModel.swift in Sources */,
 				9E7326D22C0991BF0025C981 /* DiaryViewController.swift in Sources */,
+				9E6451F92C15DC820026C29D /* EmojiTargetType.swift in Sources */,
 				9E386F9E2BAC0C06007451F8 /* AppDelegate.swift in Sources */,
 				9E38716A2BAC1BCD007451F8 /* UIView++.swift in Sources */,
+				C1E74B982C0F6DBD00D8E313 /* ProfileView.swift in Sources */,
+				C1B6A0562C0EFB7F003ECA62 /* MainContentViewController.swift in Sources */,
 				9E74C3482C095612003152A7 /* MoyaLoggingPlugin.swift in Sources */,
 				9E38716B2BAC1BCD007451F8 /* UITextField++.swift in Sources */,
 				9E74C3512C095933003152A7 /* LoginTargetType.swift in Sources */,
@@ -764,15 +901,22 @@
 				9E092D3C2BB3BC0800B146A9 /* LoginView.swift in Sources */,
 				9E6090F72BCE794B00D018B2 /* LoginDTO.swift in Sources */,
 				9E74C3442C0955D6003152A7 /* BaseService.swift in Sources */,
+				9E6451F72C15DBE80026C29D /* PostEmojiDTO.swift in Sources */,
+				9E6451F52C15DBB20026C29D /* PostEmojiRequestModel.swift in Sources */,
 				9E3871452BAC1AA3007451F8 /* Font.swift in Sources */,
 				9E74C3532C095A68003152A7 /* LoginService.swift in Sources */,
 				9E3871632BAC1BCD007451F8 /* UIViewController++.swift in Sources */,
 				9E3871642BAC1BCD007451F8 /* UIImage++.swift in Sources */,
+				C1DF9F202C169D8900924DD9 /* AddDiaryView.swift in Sources */,
 				9E3871712BAC1BCD007451F8 /* BaseNavigationController.swift in Sources */,
 				9E74C34A2C09562A003152A7 /* NetworkResults.swift in Sources */,
+				9E6451FB2C15DD2B0026C29D /* EmojiService.swift in Sources */,
 				9E386FA02BAC0C06007451F8 /* SceneDelegate.swift in Sources */,
 				9E74C3462C0955EA003152A7 /* BaseTargetType.swift in Sources */,
 				C1482DF02BAFDAC8005177F7 /* DiaryView.swift in Sources */,
+				C1B6A0582C0EFBC3003ECA62 /* SidebarViewCell.swift in Sources */,
+				C1E74B962C0F6D9F00D8E313 /* ProfileViewController.swift in Sources */,
+				C1B6A0542C0EFB49003ECA62 /* SidebarViewController.swift in Sources */,
 				9E3871672BAC1BCD007451F8 /* UIButton++.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
