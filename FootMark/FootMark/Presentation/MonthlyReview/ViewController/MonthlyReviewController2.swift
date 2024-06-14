@@ -1,8 +1,8 @@
 //
-//  MonthlyReviewViewController.swift
+//  MonthlyReviewController2.swift
 //  FootMark
 //
-//  Created by 박신영 on 6/3/24.
+//  Created by 박신영 on 6/14/24.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import SnapKit
 import Then
 
 
-class MonthlyReviewViewController: BaseViewController {
+class MonthlyReviewController2: BaseViewController {
    
    //   private let monthlyReview = MonthlyReviewView()
    let customNavigationController = CustomNavigationController()
@@ -18,13 +18,14 @@ class MonthlyReviewViewController: BaseViewController {
    private var selectedIndex = 0
    private let scrollView = UIScrollView()
    private let contentView = UIView()
-   private let totalTableView = UIImageView(image: UIImage(resource: .monthlyTotalBf))
+   private let totalTableView = UIImageView(image: UIImage(resource: .monthlyTotalAf))
    //   private let
    private let items = [
       "전체",
       "감사한 일",
       "가장 좋았던 일",
-      "운동"
+      "운동",
+      "공부"
    ]
    
    private lazy var num = customNavigationController.cnt
@@ -102,7 +103,7 @@ class MonthlyReviewViewController: BaseViewController {
    private func toggleScrollView(index: Int) {
       switch index {
       case 0:
-         totalTableView.image = UIImage(resource: .monthlyTotalBf)
+         totalTableView.image = UIImage(resource: .monthlyTotalAf)
       case 1:
          totalTableView.image = UIImage(resource: .monthlyThanksBf)
       case 2:
@@ -117,3 +118,4 @@ class MonthlyReviewViewController: BaseViewController {
    }
    
 }
+

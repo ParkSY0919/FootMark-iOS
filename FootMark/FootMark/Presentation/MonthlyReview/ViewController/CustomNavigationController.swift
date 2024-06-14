@@ -50,7 +50,7 @@ class CustomNavigationController: BaseViewController {
       
       dropDown.do {
          $0.anchorView = dropDownBtn
-         $0.bottomOffset = CGPoint(x: -10, y:(dropDown.anchorView?.plainView.bounds.height)!+40)
+         $0.bottomOffset = CGPoint(x: -6, y:(dropDown.anchorView?.plainView.bounds.height)!+40)
          $0.width = 150
          $0.textColor = UIColor.black
          $0.selectedTextColor = UIColor.red

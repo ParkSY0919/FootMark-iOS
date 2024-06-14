@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  MainTwoViewController.swift
 //  FootMark
 //
-//  Created by 박신영 on 3/21/24.
+//  Created by 박신영 on 6/14/24.
 //
 
 import UIKit
@@ -11,12 +11,12 @@ import SnapKit
 import Then
 
 
-class MainViewController: BaseViewController {
+class MainTwoViewController: BaseViewController {
    
    let sidebarButton = UIButton()
    let calContainer = UIView()
    var events = [Date]()
-   var sidebarVC: SidebarViewController?
+   var sidebarVC: SidebarViewController2?
    var isSidebarPresented = false
    let dimmingView = UIView()
    let nickNameLabel = UILabel()
@@ -298,12 +298,12 @@ class MainViewController: BaseViewController {
       let juneEvent13 = dfMatter.date(from: "2024-06-13")
       let juneEvent14 = dfMatter.date(from: "2024-06-14")
       
-      events = [mayEvent12!, mayEvent13!, juneEvent12!, juneEvent13!]
+      events = [mayEvent12!, mayEvent13!, juneEvent12!, juneEvent13!, juneEvent14!]
    }
    
    func showSidebar() {
       guard !isSidebarPresented else { return }
-      sidebarVC = SidebarViewController()
+      sidebarVC = SidebarViewController2()
       guard let sidebarVC = sidebarVC else { return }
       
       self.addChild(sidebarVC)
@@ -387,7 +387,7 @@ class MainViewController: BaseViewController {
 }
 
 // MARK: - Methods
-extension MainViewController {
+extension MainTwoViewController {
    private func setAction() {
       [prevButton, nextButton].forEach {
          $0.addTarget(self, action: #selector(moveMonthButtonDidTap(sender:)), for: .touchUpInside)
@@ -408,7 +408,7 @@ extension MainViewController {
 }
 
 // MARK: - FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance
-extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+extension MainTwoViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
    
    // 공식 문서에서 레이아웃을 위해 아래의 코드 요구
    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
@@ -470,39 +470,25 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
             self.percentLabel.text = "100%"
             self.studyContainer.isHidden = true
             self.checkboxView1.title = "유산소 5km"
-            self.goal1Btn.isHidden = false
-            self.goal1TitleTextLabel.isHidden = false
-            self.checkboxView1.isHidden = false
          } else if day == "15" {
             self.emojiLabel.text = "🥸"
             self.percentLabel.text = "100%"
             self.studyContainer.isHidden = true
             self.checkboxView1.title = "웨이트 1시간"
-            self.goal1Btn.isHidden = false
-            self.goal1TitleTextLabel.isHidden = false
-            self.checkboxView1.isHidden = false
          } else if day == "12" {
             self.emojiLabel.text = "😂"
             self.checkboxView1.title = "하체운동, 줄넘기, 유산소"
             self.percentLabel.text = "100%"
             self.studyContainer.isHidden = true
-            self.goal1Btn.isHidden = false
-            self.goal1TitleTextLabel.isHidden = false
-            self.checkboxView1.isHidden = false
          } else if day == "13" {
             self.emojiLabel.text = "😎"
             self.checkboxView1.title = "가슴+삼두운동, 줄넘기, 유산소"
             self.percentLabel.text = "100%"
             self.studyContainer.isHidden = true
-            self.goal1Btn.isHidden = false
-            self.goal1TitleTextLabel.isHidden = false
-            self.checkboxView1.isHidden = false
          } else if day == "14" {
+            self.emojiLabel.text = "😀"
             self.percentLabel.text = "100%"
             self.studyContainer.isHidden = false
-            self.goal1Btn.isHidden = false
-            self.goal1TitleTextLabel.isHidden = false
-            self.checkboxView1.isHidden = false
          } else {
             self.emojiLabel.text = "🫥"
             self.percentLabel.text = "0%"

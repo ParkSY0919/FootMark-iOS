@@ -27,6 +27,7 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
    override func viewDidLoad() {
       super.viewDidLoad()
       print("로드됨")
+      navigationController?.navigationBar.isHidden = true
    }
    
    // MARK: - setAddTarget
@@ -52,7 +53,7 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
                keychain.set(loginDTO.data.refreshToken, forKey: "refreshToken")
                
                DispatchQueue.main.async {
-                  let mainVC = MonthlyReviewViewController()
+                  let mainVC = MainViewController()
                   self.navigationController?.pushViewController(mainVC, animated: true)
                }
             case .tokenExpired(_):

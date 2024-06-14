@@ -15,7 +15,7 @@ class ProfileView: BaseView {
     }
     
     let profileImage = UIImageView().then {
-        $0.image = UIImage(named: "profile")?.resizeImageUsingCoreGraphics(targetSize: CGSize(width: 30, height: 30))
+       $0.image = UIImage(resource: .profile).resizeImageUsingCoreGraphics(targetSize: CGSize(width: 30, height: 30))
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 75
@@ -35,7 +35,7 @@ class ProfileView: BaseView {
         $0.font = UIFont.pretendard(size: 20, weight: .regular)
         $0.textColor = UIColor(resource: .white2)
         $0.borderStyle = .none
-        $0.text = "사용자 닉네임"
+        $0.text = "sy Park"
         $0.clearButtonMode = .whileEditing
     }
     
@@ -47,7 +47,7 @@ class ProfileView: BaseView {
         $0.font = UIFont.pretendard(size: 20, weight: .regular)
         $0.textColor = UIColor(resource: .white2)
         $0.borderStyle = .none
-        $0.text = "상태메세지"
+        $0.text = "상태메세지를 등록해주세요"
         $0.clearButtonMode = .whileEditing
     }
     

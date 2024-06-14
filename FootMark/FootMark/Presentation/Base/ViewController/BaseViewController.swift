@@ -18,6 +18,7 @@ class BaseViewController: UIViewController {
       view = BaseView()
    }
    
+   
    // MARK: - View Life Cycle
    override func viewDidLoad() {
       self.view.backgroundColor = .black1
@@ -27,6 +28,7 @@ class BaseViewController: UIViewController {
       self.setLayout()
       self.setAddTarget()
       self.setUpKeyboard()
+      navigationController?.navigationBar.isHidden = false
    }
    
    

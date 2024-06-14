@@ -35,6 +35,7 @@ class ProfileViewController: BaseViewController {
         
         backButton.isHidden = true
         confirmButton.isHidden = true
+       navigationController?.navigationBar.isHidden = false
     }
     
     override func setAddTarget() {

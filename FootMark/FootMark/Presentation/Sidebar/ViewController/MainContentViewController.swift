@@ -97,9 +97,10 @@ class MainContentViewController: BaseViewController {
             sidebarVC.view.frame = CGRect(x: -self.view.frame.width, y: 0, width: self.view.frame.width, height: self.view.frame.height)
             self.dimmingView.alpha = 0.0
         }) { (finished) in
-            sidebarVC.willMove(toParent: nil)
-            sidebarVC.view.removeFromSuperview()
-            sidebarVC.removeFromParent()
+           sidebarVC.navigationController?.popViewController(animated: true)
+//            sidebarVC.willMove(toParent: nil)
+//            sidebarVC.view.removeFromSuperview()
+//            sidebarVC.removeFromParent()
             self.isSidebarPresented = false
         }
     }

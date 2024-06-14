@@ -1,13 +1,13 @@
 //
-//  SidebarViewController.swift
+//  SidebarViewController2.swift
 //  FootMark
 //
-//  Created by 윤성은 on 6/4/24.
+//  Created by 박신영 on 6/14/24.
 //
 
 import UIKit
 
-class SidebarViewController: BaseViewController {
+class SidebarViewController2: BaseViewController {
     
     var sidebarView = SidebarView()
     let sidebarList = SidebarModel.dummy()
@@ -34,7 +34,7 @@ class SidebarViewController: BaseViewController {
     }
 }
 
-extension SidebarViewController : UITableViewDelegate, UITableViewDataSource {
+extension SidebarViewController2 : UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sidebarList.count
@@ -109,7 +109,7 @@ extension SidebarViewController : UITableViewDelegate, UITableViewDataSource {
             navigationController?.pushViewController(mainVC, animated: true)
             
         case "Monthly Review":
-            let monthlyVC = MonthlyReviewViewController()
+            let monthlyVC = MonthlyReviewController2() //여기
             navigationController?.pushViewController(monthlyVC, animated: true)
             
         case "Category":
@@ -118,6 +118,9 @@ extension SidebarViewController : UITableViewDelegate, UITableViewDataSource {
             
         case "Logout":
             print("로그아웃 처리")
+           let loginVC = LoginViewController()
+           navigationController?.pushViewController(loginVC, animated: true)
+           print("~~~")
             
         default:
             break
@@ -126,3 +129,4 @@ extension SidebarViewController : UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+

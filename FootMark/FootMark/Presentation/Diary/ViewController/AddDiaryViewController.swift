@@ -12,13 +12,17 @@ import DropDown
 class AddDiaryViewController: BaseViewController {
     var addDiaryView = AddDiaryView()
     let dropDown = DropDown()
+   
+   override func viewWillAppear(_ animated: Bool) {
+      navigationController?.navigationBar.isHidden = false
+   }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(resource: .black1)
         
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
         
         setUpDelegates()
         setUpClosures()
@@ -92,6 +96,9 @@ class AddDiaryViewController: BaseViewController {
     
     @objc func saveButtonTapped() {
         print("save")
+       let vc = MainTwoViewController()
+       self.navigationController?.pushViewController(vc, animated: true)
+       
     }
 }
 

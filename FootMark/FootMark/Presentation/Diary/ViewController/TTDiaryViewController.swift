@@ -1,8 +1,8 @@
 //
-//  DiaryViewController.swift
+//  TTDiaryViewController.swift
 //  FootMark
 //
-//  Created by 윤성은 on 3/24/24.
+//  Created by 박신영 on 6/14/24.
 //
 
 import UIKit
@@ -10,8 +10,9 @@ import ElegantEmojiPicker
 import DropDown
 
 
-class DiaryViewController: BaseViewController {
-    var diaryView = DiaryView()
+class TTDiaryViewController: BaseViewController {
+   
+    var diaryView = TTDiaryView()
     let dropDown = DropDown()
    
    override func viewWillAppear(_ animated: Bool) {
@@ -22,7 +23,7 @@ class DiaryViewController: BaseViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(resource: .black1)
-        navigationController?.navigationBar.isHidden = true
+//        navigationController?.navigationBar.isHidden = true
         
         setUpDelegates()
         setUpClosures()
@@ -87,7 +88,7 @@ class DiaryViewController: BaseViewController {
     func setupDropDown() {
         dropDown.anchorView = diaryView.categoryButton
         dropDown.bottomOffset = CGPoint(x: 0, y: diaryView.categoryButton.bounds.height + 80)
-        dropDown.dataSource = ["운동", "공부"]
+        dropDown.dataSource = ["운동"]
         dropDown.backgroundColor = .white
         
         dropDown.textFont = UIFont.pretendard(size: 18, weight: .regular)
@@ -173,7 +174,7 @@ class DiaryViewController: BaseViewController {
     }
 }
 
-extension DiaryViewController: ElegantEmojiPickerDelegate {
+extension TTDiaryViewController: ElegantEmojiPickerDelegate {
     func PresentEmojiPicker() {
         let picker = ElegantEmojiPicker(delegate: self)
         self.present(picker, animated: true)
@@ -189,7 +190,7 @@ extension DiaryViewController: ElegantEmojiPickerDelegate {
     }
 }
 
-extension DiaryViewController: UITextViewDelegate {
+extension TTDiaryViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
@@ -206,3 +207,5 @@ extension DiaryViewController: UITextViewDelegate {
         print("텍스트 필드 편집 종료")
     }
 }
+
+

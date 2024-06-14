@@ -1,13 +1,13 @@
 //
-//  DiaryView.swift
+//  MayView.swift
 //  FootMark
 //
-//  Created by 윤성은 on 3/24/24.
+//  Created by 박신영 on 6/14/24.
 //
 
 import UIKit
 
-class DiaryView: BaseView {
+class MayView: BaseView {
     var emojiPickerHandler: (() -> Void)?
     
     let scrollView = UIScrollView().then {
@@ -16,10 +16,11 @@ class DiaryView: BaseView {
     }
     
     let contentView = UIView()
+   
     
     let emojiLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 50, weight: .semibold)
-        $0.text = "😃"
+        $0.text = "🥸"
         $0.isUserInteractionEnabled = true
     }
     
@@ -45,7 +46,7 @@ class DiaryView: BaseView {
     
     let dateLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 20, weight: .regular)
-        $0.text = "2024.06.14 (금)"
+        $0.text = "2024.05.15 (목)"
         $0.textColor = UIColor(resource: .white2)
     }
     
@@ -85,13 +86,13 @@ class DiaryView: BaseView {
     
     let FtodoLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 17, weight: .regular)
-        $0.text = "수영, 산책, 달리기"
+        $0.text = "웨이트"
         $0.textColor = UIColor(resource: .white2)
     }
     
     let FtodoTextView = UITextView().then {
         $0.font = UIFont.pretendard(size: 16, weight: .regular)
-        $0.text = "수영과 산책, 달리기를 했다."
+        $0.text = "오늘 헬스장에서 1시간 동안 웨이트 트레이닝을 했습니다."
         $0.isScrollEnabled = true
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
@@ -125,7 +126,7 @@ class DiaryView: BaseView {
     
     let thankfulTextView = UITextView().then {
         $0.font = UIFont.pretendard(size: 16, weight: .regular)
-        $0.text = "감사한 일"
+        $0.text = "선생님을 찾아뵀을 때 밥을 사주셔서 감사했습니다."
         $0.isScrollEnabled = true
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
@@ -142,7 +143,7 @@ class DiaryView: BaseView {
     
     let bestTextView = UITextView().then {
         $0.font = UIFont.pretendard(size: 16, weight: .regular)
-        $0.text = "가장 좋았던 일"
+        $0.text = "오랜만에 은사님을 뵈니 좋았습니다."
         $0.isScrollEnabled = true
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
@@ -296,3 +297,4 @@ class DiaryView: BaseView {
     }
 
 }
+

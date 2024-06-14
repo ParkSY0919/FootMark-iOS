@@ -1,13 +1,13 @@
 //
-//  DiaryView.swift
+//  BFDiaryView.swift
 //  FootMark
 //
-//  Created by 윤성은 on 3/24/24.
+//  Created by 박신영 on 6/14/24.
 //
 
 import UIKit
 
-class DiaryView: BaseView {
+class BFDiaryView: BaseView {
     var emojiPickerHandler: (() -> Void)?
     
     let scrollView = UIScrollView().then {
@@ -16,10 +16,11 @@ class DiaryView: BaseView {
     }
     
     let contentView = UIView()
+   
     
     let emojiLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 50, weight: .semibold)
-        $0.text = "😃"
+        $0.text = "😂"
         $0.isUserInteractionEnabled = true
     }
     
@@ -45,7 +46,7 @@ class DiaryView: BaseView {
     
     let dateLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 20, weight: .regular)
-        $0.text = "2024.06.14 (금)"
+        $0.text = "2024.06.12 (수)"
         $0.textColor = UIColor(resource: .white2)
     }
     
@@ -85,13 +86,13 @@ class DiaryView: BaseView {
     
     let FtodoLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 17, weight: .regular)
-        $0.text = "수영, 산책, 달리기"
+        $0.text = "하체운동, 줄넘기, 유산소"
         $0.textColor = UIColor(resource: .white2)
     }
     
     let FtodoTextView = UITextView().then {
         $0.font = UIFont.pretendard(size: 16, weight: .regular)
-        $0.text = "수영과 산책, 달리기를 했다."
+        $0.text = "3분할 중 하체와 어깨를 운동하였습니다.\n줄넘기 목표치 2000개를 수행하였습니다.\n유산소 30분을 수행하였습니다."
         $0.isScrollEnabled = true
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
@@ -125,7 +126,7 @@ class DiaryView: BaseView {
     
     let thankfulTextView = UITextView().then {
         $0.font = UIFont.pretendard(size: 16, weight: .regular)
-        $0.text = "감사한 일"
+        $0.text = "오늘 하루 무사히 잘 지냈음에 감사합니다."
         $0.isScrollEnabled = true
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
@@ -142,7 +143,7 @@ class DiaryView: BaseView {
     
     let bestTextView = UITextView().then {
         $0.font = UIFont.pretendard(size: 16, weight: .regular)
-        $0.text = "가장 좋았던 일"
+        $0.text = "동아리에서 알고리즘 스터디를 하였는데, 스터디 멤버들 중 과반수가 넘게 과제를 수행하지 않아 하루 벌금이 4만원이 모여 다 같이 웃었습니다!"
         $0.isScrollEnabled = true
         $0.autocorrectionType = .no
         $0.spellCheckingType = .no
