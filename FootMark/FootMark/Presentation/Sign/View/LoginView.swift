@@ -14,10 +14,10 @@ class LoginView: BaseView {
    // MARK: - Properties
 
    // Logo & Label
-   let footMarkLogo = UIImageView(image: .swLogo2)
+   let footMarkLogo = UIImageView(image: .swLogo)
    let footMarkLabel = UILabel().then{
-      $0.setVigaFont(text: "MindTrack", size: 35, weight: .bold, letterSpacing: 1.37)
-      $0.textColor = .SWprimary2
+      $0.setVigaFont(text: "Foot Mark", size: 35, weight: .bold, letterSpacing: 1.37)
+      $0.textColor = .SWprimary
       $0.textAlignment = .center
    }
    
@@ -49,14 +49,14 @@ class LoginView: BaseView {
       }
       
       googleLogoBackGround.do {
-         $0.backgroundColor = .SWprimary2
+         $0.backgroundColor = .SWprimary
          $0.layer.cornerRadius = 10
          $0.layer.borderWidth = 0.5
          $0.layer.borderColor = UIColor.white.cgColor
       }
       
       googleSignInButton.do {
-         $0.backgroundColor = .SWprimary2
+         $0.backgroundColor = .SWprimary
          $0.layer.cornerRadius = 12
          $0.layer.borderWidth = 2
          $0.layer.borderColor = UIColor.white1.cgColor
@@ -79,7 +79,7 @@ class LoginView: BaseView {
       //Logo Design
       footMarkLogo.snp.makeConstraints{
          $0.centerX.equalTo(self.safeAreaLayoutGuide.snp.centerX)
-         $0.centerY.equalToSuperview().offset(-100)
+         $0.centerY.equalToSuperview().offset(-130)
          $0.width.equalTo(192)
          $0.height.equalTo(177)
       }
@@ -90,7 +90,7 @@ class LoginView: BaseView {
       }
       
       appleSignInButton.snp.makeConstraints {
-         $0.top.equalTo(footMarkLabel.snp.bottom).offset(70)
+         $0.top.equalTo(footMarkLabel.snp.bottom).offset(110)
          $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(20)
          $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-20)
          $0.height.equalTo(48)

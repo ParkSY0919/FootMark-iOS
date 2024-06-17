@@ -46,11 +46,14 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
             switch result {
             case .success(let loginDTO):
                print("\(provider) 로그인 성공")
+               print("🔥\(loginDTO)")
                print("AccessToken: \(loginDTO.data.accessToken)")
                print("refreshToken: \(loginDTO.data.refreshToken)")
                let keychain = KeychainSwift()
                keychain.set(loginDTO.data.accessToken, forKey: "accessToken")
                keychain.set(loginDTO.data.refreshToken, forKey: "refreshToken")
+               keychain.set(loginDTO.data.userImage, forKey: "userImage")
+               keychain.set(loginDTO.data.userNickname, forKey: "userNickname")
                
                DispatchQueue.main.async {
                   let mainVC = MainViewController()

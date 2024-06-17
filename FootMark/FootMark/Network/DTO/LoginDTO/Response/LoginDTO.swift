@@ -22,10 +22,12 @@ struct LoginDTO: Codable {
 
 // MARK: - LoginDataClass
 struct LoginDataClass: Codable {
-    let accessToken, refreshToken: String
+    let accessToken, refreshToken, userNickname, userImage: String
    
-   init(accessToken: String, refreshToken: String) {
+   init(accessToken: String, refreshToken: String, userNickname: String, userImage: String) {
       self.accessToken = accessToken
       self.refreshToken = refreshToken
+      self.userNickname = userNickname
+      self.userImage = userImage
    }
 }
