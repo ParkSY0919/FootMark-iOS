@@ -56,8 +56,8 @@ class SidebarViewCell: UITableViewCell {
     }
     
     func dataBind(_ sidebarData: SidebarModel) {
-        if sidebarData.title == "MindTrack" {
-            // "MindTrack" 항목은 원래 색상
+        if sidebarData.title == "FootMark" {
+            // "FootMark" 항목은 원래 색상
             let originalImage = sidebarData.image?.withRenderingMode(.alwaysOriginal)
             tableImageView.image = originalImage
         } else {

@@ -113,11 +113,13 @@ extension SidebarViewController : UITableViewDelegate, UITableViewDataSource {
             navigationController?.pushViewController(monthlyVC, animated: true)
             
         case "Category":
-            let profileVC = ProfileViewController()
-            navigationController?.pushViewController(profileVC, animated: true)
+           print("카테고리")
             
         case "Logout":
             print("로그아웃 처리")
+           let loginVC = LoginViewController()
+           navigationController?.pushViewController(loginVC, animated: true)
+           print("~~~")
             
         default:
             break
