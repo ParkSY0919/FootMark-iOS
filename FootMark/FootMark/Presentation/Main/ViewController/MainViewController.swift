@@ -23,8 +23,8 @@ class MainViewController: BaseViewController {
    let messageLabel = UILabel()
    
    let studyContainer = UIView()
-   
    var percentLabel = UILabel()
+   var isalreadyLoadToday = false
    
    let emojiLabel = UILabel().then {
       $0.font = UIFont.pretendard(size: 40, weight: .semibold)
@@ -45,13 +45,13 @@ class MainViewController: BaseViewController {
    // 이전 달로 이동 버튼
    private let prevButton = UIButton(type: .system).then {
       $0.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-      $0.tintColor = .black1
+      $0.tintColor = .white1
    }
    
    // 다음 달로 이동 버튼
    private let nextButton = UIButton(type: .system).then {
       $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-      $0.tintColor = .black1
+      $0.tintColor = .white1
    }
    
    private lazy var calendarView: FSCalendar = {
@@ -73,19 +73,19 @@ class MainViewController: BaseViewController {
       // 헤더뷰 설정
       calendar.headerHeight = 55
       calendar.appearance.headerDateFormat = "YYYY년 MM월"
-      calendar.appearance.headerTitleColor = .black1
+      calendar.appearance.headerTitleColor = .white1
       calendar.appearance.headerTitleFont = .pretendard(size: 17, weight: .bold)
       
       // 요일 UI 설정
       calendar.appearance.weekdayFont = .pretendard(size: 12, weight: .black)
-      calendar.appearance.weekdayTextColor = .black
+      calendar.appearance.weekdayTextColor = .white1
       
       // 날짜 UI 설정
-      calendar.appearance.titleTodayColor = .black
+      calendar.appearance.titleTodayColor = .white1
       calendar.appearance.titleFont = .pretendard(size: 16, weight: .medium)
       calendar.appearance.subtitleFont = .pretendard(size: 10, weight: .black)
       calendar.appearance.subtitleTodayColor = .SWprimary
-      calendar.appearance.todayColor = .white
+      calendar.appearance.todayColor = .orange
       
       return calendar
    }()
@@ -101,9 +101,13 @@ class MainViewController: BaseViewController {
       setupDimmingView()
       
       DispatchQueue.main.async {
+         for i in 0...4 {
+            self.calendarView.calendarWeekdayView.weekdayLabels[i].textColor = .white
+         }
          self.calendarView.calendarWeekdayView.weekdayLabels[5].textColor = .blue
          self.calendarView.calendarWeekdayView.weekdayLabels[6].textColor = .red
       }
+      getTodos()
    }
    
    override func setAddTarget() {
@@ -128,7 +132,8 @@ class MainViewController: BaseViewController {
       
       calContainer.do {
          $0.layer.cornerRadius = 10
-         $0.backgroundColor = .white1
+         $0.backgroundColor = .black1
+         $0.layer.borderColor = UIColor.white.cgColor
       }
       
       goal1Btn.do {
@@ -172,7 +177,7 @@ class MainViewController: BaseViewController {
          } else {
             $0.text = UserDefaults.standard.string(forKey: "messageText")
          }
-         $0.font = .pretendard(size: 13, weight: .black)
+         $0.font = .pretendard(size: 18, weight: .black)
          $0.textColor = .white1
       }
       
@@ -211,7 +216,7 @@ class MainViewController: BaseViewController {
       percentLabel.do {
          $0.font = .pretendard(size: 15, weight: .heavy)
          $0.textColor = .white
-         $0.text = "100%"
+         $0.text = "Today Mood"
       }
    }
    
@@ -232,13 +237,13 @@ class MainViewController: BaseViewController {
       }
       
       messageLabel.snp.makeConstraints {
-         $0.top.equalTo(nickNameLabel.snp.bottom).offset(5)
+         $0.top.equalTo(nickNameLabel.snp.bottom).offset(10)
          $0.leading.equalTo(nickNameLabel)
       }
       
       emojiLabel.snp.makeConstraints {
          $0.centerY.equalTo(sidebarButton)
-         $0.trailing.equalToSuperview().inset(20)
+         $0.centerX.equalTo(percentLabel)
       }
       
       percentLabel.snp.makeConstraints {
@@ -247,7 +252,7 @@ class MainViewController: BaseViewController {
       }
       
       calContainer.snp.makeConstraints {
-         $0.top.equalTo(sidebarButton.snp.bottom).offset(50)
+         $0.top.equalTo(sidebarButton.snp.bottom).offset(30)
          $0.horizontalEdges.equalToSuperview().inset(20)
          $0.height.equalTo(380)
       }
@@ -310,6 +315,64 @@ class MainViewController: BaseViewController {
          $0.trailing.equalToSuperview()
       }
    }
+   
+   func getTodos(for date: String? = nil) {
+         let todayString: String
+         if let date = date {
+            todayString = date
+         } else {
+            let today = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "ko_KR")
+            dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            todayString = dateFormatter.string(from: today)
+         }
+
+         if isalreadyLoadToday == false || date != nil {
+            NetworkService.shared.mainService.getTodos(createAt: todayString) {
+               result in
+               switch result {
+               case .success(let data):
+                  print(data)
+                  self.isalreadyLoadToday = true
+               case .tokenExpired(_):
+                  print("refresh 토큰 만료입니다")
+               case .requestErr:
+                  print("요청 오류입니다")
+               case .decodedErr:
+                  print("디코딩 오류입니다")
+               case .pathErr:
+                  print("경로 오류입니다")
+               case .serverErr:
+                  print("서버 오류입니다")
+               case .networkFail:
+                  print("네트워크 오류입니다")
+               }
+            }
+         } else {
+            NetworkService.shared.mainService.getTodos(createAt: todayString) {
+               result in
+               switch result {
+               case .success(let data):
+                  print(data)
+                  self.isalreadyLoadToday = true
+               case .tokenExpired(_):
+                  print("refresh 토큰 만료입니다")
+               case .requestErr:
+                  print("요청 오류입니다")
+               case .decodedErr:
+                  print("디코딩 오류입니다")
+               case .pathErr:
+                  print("경로 오류입니다")
+               case .serverErr:
+                  print("서버 오류입니다")
+               case .networkFail:
+                  print("네트워크 오류입니다")
+               }
+            }
+         }
+      }
    
    func setEvents() {
       let dfMatter = DateFormatter()
@@ -478,7 +541,7 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
       } else if weekday == 7 { // 토요일
          return .blue
       } else {
-         return .label
+         return .white
       }
    }
    
@@ -487,11 +550,13 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
       let dateFormatter = DateFormatter()
       dateFormatter.locale = Locale(identifier: "ko_KR")
       dateFormatter.timeZone = TimeZone(abbreviation: "KST")
-      dateFormatter.dateFormat = "dd"
-      
+      dateFormatter.dateFormat = "yyyy-MM-dd"
       let day = dateFormatter.string(from: date)
+      
+      getTodos(for: day) // 선택된 날짜에 대해 getTodos 호출
+      
       DispatchQueue.main.async {
-         if day == "05" {
+         if day == "2024-06-05" {
             self.emojiLabel.text = "🥳"
             self.percentLabel.text = "100%"
             self.studyContainer.isHidden = true
@@ -499,33 +564,11 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
             self.goal1Btn.isHidden = false
             self.goal1TitleTextLabel.isHidden = false
             self.checkboxView1.isHidden = false
-         } else if day == "15" {
+         } else if day == "2024-05-15" {
             self.emojiLabel.text = "🥸"
             self.percentLabel.text = "100%"
             self.studyContainer.isHidden = true
             self.checkboxView1.title = "웨이트 1시간"
-            self.goal1Btn.isHidden = false
-            self.goal1TitleTextLabel.isHidden = false
-            self.checkboxView1.isHidden = false
-         } else if day == "12" {
-            self.emojiLabel.text = "😂"
-            self.checkboxView1.title = "하체운동, 줄넘기, 유산소"
-            self.percentLabel.text = "100%"
-            self.studyContainer.isHidden = true
-            self.goal1Btn.isHidden = false
-            self.goal1TitleTextLabel.isHidden = false
-            self.checkboxView1.isHidden = false
-         } else if day == "13" {
-            self.emojiLabel.text = "😎"
-            self.checkboxView1.title = "가슴+삼두운동, 줄넘기, 유산소"
-            self.percentLabel.text = "100%"
-            self.studyContainer.isHidden = true
-            self.goal1Btn.isHidden = false
-            self.goal1TitleTextLabel.isHidden = false
-            self.checkboxView1.isHidden = false
-         } else if day == "14" {
-            self.percentLabel.text = "100%"
-            self.studyContainer.isHidden = false
             self.goal1Btn.isHidden = false
             self.goal1TitleTextLabel.isHidden = false
             self.checkboxView1.isHidden = false
