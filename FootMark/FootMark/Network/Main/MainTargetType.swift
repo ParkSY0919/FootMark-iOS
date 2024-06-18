@@ -11,6 +11,7 @@ import Moya
 
 enum MainTargetType {
     case getTodo(createAt: String)
+   case postCategory(request: PostCategoryRequestModel)
 }
 
 extension MainTargetType: BaseTargetType {
@@ -22,6 +23,9 @@ extension MainTargetType: BaseTargetType {
         switch self {
         case .getTodo(_):
             return "/category/todos"
+           
+        case .postCategory(_):
+           return "/category"
         }
     }
     
@@ -29,6 +33,9 @@ extension MainTargetType: BaseTargetType {
         switch self {
         case .getTodo(_):
             return .get
+           
+        case .postCategory(_):
+           return .post
         }
     }
     
@@ -36,12 +43,18 @@ extension MainTargetType: BaseTargetType {
         switch self {
         case .getTodo(let createAt):
             return .requestParameters(parameters: ["createAt": createAt], encoding: URLEncoding.queryString)
+           
+        case .postCategory(let request):
+           return .requestJSONEncodable(request)
         }
     }
     
     var headers: [String : String]? {
         switch self {
         case .getTodo(_):
+            return ["Content-Type": "application/json"]
+           
+        case .postCategory(_):
             return ["Content-Type": "application/json"]
         }
     }

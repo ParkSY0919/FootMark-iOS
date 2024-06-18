@@ -11,32 +11,50 @@ import Moya
 import KeychainSwift
 
 protocol MainServiceProtocol {
-    func getTodos(createAt: String , completion: @escaping (NetworkResult<TodosResponseDTO>) -> Void)
+   func getTodos(createAt: String, completion: @escaping (NetworkResult<TodosResponseDTO>) -> Void)
+   func postCategory(request: PostCategoryRequestModel, completion: @escaping (NetworkResult<PostCategoryResponseDTO>) -> Void)
 }
 
 final class MainService: BaseService, MainServiceProtocol {
-    let moyaProvider: MoyaProvider<MainTargetType>
-    
-    override init() {
-        self.moyaProvider = MoyaProvider<MainTargetType>(
-            requestClosure: KeychainManager.shared.mainTargetRequestClosure(),
-            plugins: [MoyaLoggingPlugin()]
-        )
-    }
-    
-    func getTodos(createAt: String , completion: @escaping (NetworkResult<TodosResponseDTO>) -> Void) {
-        moyaProvider.request(.getTodo(createAt: createAt)) { result in
-            switch result {
-            case .success(let result):
-                let statusCode = result.statusCode
-                let data = result.data
-
-                let networkResult: NetworkResult<TodosResponseDTO> = self.judgeStatus(statusCode: statusCode, data: data)
-                completion(networkResult)
-                
-            case .failure:
-                completion(.networkFail)
-            }
-        }
-    }
+   
+   let moyaProvider: MoyaProvider<MainTargetType>
+   
+   override init() {
+      self.moyaProvider = MoyaProvider<MainTargetType>(
+         requestClosure: KeychainManager.shared.mainTargetRequestClosure(),
+         plugins: [MoyaLoggingPlugin()]
+      )
+   }
+   
+   func getTodos(createAt: String , completion: @escaping (NetworkResult<TodosResponseDTO>) -> Void) {
+      moyaProvider.request(.getTodo(createAt: createAt)) { result in
+         switch result {
+         case .success(let result):
+            let statusCode = result.statusCode
+            let data = result.data
+            
+            let networkResult: NetworkResult<TodosResponseDTO> = self.judgeStatus(statusCode: statusCode, data: data)
+            completion(networkResult)
+            
+         case .failure:
+            completion(.networkFail)
+         }
+      }
+   }
+   
+   func postCategory(request: PostCategoryRequestModel, completion: @escaping (NetworkResult<PostCategoryResponseDTO>) -> Void) {
+      moyaProvider.request(.postCategory(request: request)) { result in
+         switch result {
+         case .success(let result):
+            let statusCode = result.statusCode
+            let data = result.data
+            
+            let networkResult: NetworkResult<PostCategoryResponseDTO> = self.judgeStatus(statusCode: statusCode, data: data)
+            completion(networkResult)
+            
+         case .failure:
+            completion(.networkFail)
+         }
+      }
+   }
 }

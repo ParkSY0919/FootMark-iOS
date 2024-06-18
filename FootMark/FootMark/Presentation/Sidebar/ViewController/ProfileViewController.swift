@@ -90,14 +90,8 @@ class ProfileViewController: BaseViewController {
       let kingFisher = KingFisher()
       let image = profileView.profileImage
       let url = keychain.get("userImage")
-      let keychainNickName = keychain.get("userNickname")
-      let userdefaultsNickName = UserDefaults.standard.string(forKey: "nickNameText")
-      
-      if userdefaultsNickName == Optional("")  {
-         profileView.nicknameTextField.text = keychainNickName
-      } else {
-         profileView.nicknameTextField.text = userdefaultsNickName
-      }
+      let userdefaultsNickName = UserDefaults.standard.string(forKey: "userNickname")
+      profileView.nicknameTextField.text = userdefaultsNickName
       kingFisher.loadProfileImage(url: url ?? "", image: image)
       print("Profile loadImage 끝~")
    }
@@ -133,7 +127,7 @@ class ProfileViewController: BaseViewController {
    }
    
    @objc private func confirmButtonTapped() {
-      let nickRegEx = "[가-힣A-Za-z0-9]{2,7}"
+      let nickRegEx = "^[^\\s][가-힣A-Za-z0-9\\s]{0,5}[^\\s]$"
       let nickTest = NSPredicate(format: "SELF MATCHES %@", nickRegEx)
       
       let messageRegEx = "(?!^\\s*$)[가-힣A-Za-z0-9!@#$%^&*(),.?\":{}|<>~]{2,8}"
@@ -168,7 +162,7 @@ class ProfileViewController: BaseViewController {
          // nickRegEx를 어긴 경우 처리 (예: 경고 메시지 표시)
          DispatchQueue.main.async {
             self.showAlert(title: "닉네임 변경 불가능",
-                           message: "1. 특수문자는 입력이 불가능합니다.\n2. 닉네임 길이 규정은 2글자 이상 7글자 이하입니다.\n3. 'ㅍㅜㅅㅁㅏㅋㅡ'와 글 자소 입력은 불가능합니다.,",
+                           message: "1. 특수문자는 입력이 불가능합니다.\n2. 닉네임 길이 규정은 2글자 이상 7글자 이하입니다.\n3. 'ㅍㅜㅅㅁㅏㅋㅡ'와 글 자소 입력은 불가능합니다.\n4. 첫 자와 마지막 글자는 공백이 불가능합니다.",
                            confirmButtonName: "확인")
          }
       } else if !messageTest.evaluate(with: profileView.messageTextField.text) {
@@ -181,7 +175,7 @@ class ProfileViewController: BaseViewController {
          // nickRegEx를 어긴 경우 처리 (예: 경고 메시지 표시)
          DispatchQueue.main.async {
             self.showAlert(title: "상태메세지 변경 불가능",
-                           message: "1. '' or ' '와 같이 미입력 혹은 공백 시작 및 단독 입력은 불가합니다.\n2. 메세지 길이 규정은 1글자 이상 8글자 이하입니다.\n3. 'ㅍㅜㅅㅁㅏㅋㅡ'와 글 자소 입력은 불가능합니다.",
+                           message: "1. '' or ' '와 같이 미입력 혹은 공백 시작 및 단독 입력은 불가합니다.\n2. 메세지 길이 규정은 2글자 이상 8글자 이하입니다.\n3. 'ㅍㅜㅅㅁㅏㅋㅡ'와 글 자소 입력은 불가능합니다.",
                            confirmButtonName: "확인")
          }
       }

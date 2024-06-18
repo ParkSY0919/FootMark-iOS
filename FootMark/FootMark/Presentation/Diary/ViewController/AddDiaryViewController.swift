@@ -96,8 +96,8 @@ class AddDiaryViewController: BaseViewController {
     
     @objc func saveButtonTapped() {
         print("save")
-       let vc = MainTwoViewController()
-       self.navigationController?.pushViewController(vc, animated: true)
+//       let vc = MainTwoViewController()
+//       self.navigationController?.pushViewController(vc, animated: true)
        
     }
 }

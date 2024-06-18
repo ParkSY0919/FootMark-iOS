@@ -68,8 +68,10 @@ extension SidebarViewController : UITableViewDelegate, UITableViewDataSource {
             withIdentifier: SidebarViewCell.identifier,
             for: indexPath) as? SidebarViewCell else { return UITableViewCell() }
         cell.dataBind(sidebarList[indexPath.section][indexPath.row])
-       if indexPath.row == [1][0] {
-          loadData(cell: cell.tableImageView)
+       if indexPath.section == 1 {
+          if indexPath.row == 0 {
+             loadData(cell: cell.tableImageView)
+          }
        }
         return cell
     }

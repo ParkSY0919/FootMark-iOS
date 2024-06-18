@@ -28,6 +28,10 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
       super.viewDidLoad()
       print("로드됨")
       navigationController?.navigationBar.isHidden = true
+      //Userdefaults 초기화
+      for key in UserDefaults.standard.dictionaryRepresentation().keys {
+          UserDefaults.standard.removeObject(forKey: key.description)
+      }
    }
    
    // MARK: - setAddTarget
@@ -53,7 +57,10 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
                keychain.set(loginDTO.data.accessToken, forKey: "accessToken")
                keychain.set(loginDTO.data.refreshToken, forKey: "refreshToken")
                keychain.set(loginDTO.data.userImage, forKey: "userImage")
-               keychain.set(loginDTO.data.userNickname, forKey: "userNickname")
+               UserDefaults.standard.set(loginDTO.data.userNickname, forKey: "userNickname")
+//               keychain.set(loginDTO.data.userNickname, forKey: "userNickname")
+//               print(keychain.get("userImage"))
+//               print(keychain.get("userNickname"))
                
                self.isFirstLogin()
                
@@ -85,9 +92,11 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
             print("최초로그인 여부: \(data.data)")
             UserDefaults.standard.set(data.data.categoryIDS[0], forKey: "감사한 일")
             UserDefaults.standard.set(data.data.categoryIDS[1], forKey: "가장 좋았던 일")
+            UserDefaults.standard.set(0, forKey: "categoryCount")
             
             print(UserDefaults.standard.string(forKey: "감사한 일"))
             print(UserDefaults.standard.string(forKey: "가장 좋았던 일"))
+            print(UserDefaults.standard.integer(forKey: "categoryCount"))
             
          case .tokenExpired(_):
             print("refresh 토큰 만료입니다")

@@ -25,6 +25,11 @@ class MainViewController: BaseViewController {
    let studyContainer = UIView()
    var percentLabel = UILabel()
    var isalreadyLoadToday = false
+   var categoryContainer = UIView()
+   var categoryCount = UserDefaults.standard.integer(forKey: "categoryCount")
+   var categoryName1 = ""
+   var categoryName2 = ""
+   var allCategoryCount = 0
    
    let emojiLabel = UILabel().then {
       $0.font = UIFont.pretendard(size: 40, weight: .semibold)
@@ -33,14 +38,36 @@ class MainViewController: BaseViewController {
    }
    var emojiLabelTap: (() -> Void)?
    var goal1Btn = UIButton()
-   var goal1TitleTextLabel = UITextField()
+   var goal1TitleTextLabel = UILabel()
    var goal2Btn = UIButton()
-   var goal2TitleTextLabel = UITextField()
+   var goal2TitleTextLabel = UILabel()
    let checkboxView1 = CheckboxView()
    let checkboxView2 = CheckboxView()
    
    // 현재 캘린더가 보여주고 있는 Page 트래킹
    lazy var currentPage = calendarView.currentPage
+   
+   let categoryLabel = UILabel().then {
+      $0.setPretendardFont(text: "Category", size: 20, weight: .bold, letterSpacing: 1.25)
+      $0.textColor = .white
+   }
+   
+   let emojiLabel2 = UILabel().then {
+      $0.text = "🥺"
+      $0.font = UIFont.pretendard(size: 40, weight: .semibold)
+      $0.textAlignment = .center
+   }
+   
+   let noCategoryLabel = UILabel().then {
+      $0.setPretendardFont(text: "등록된 목표와 Todo가 없어요!\n목표와 Todo를 등록해봐요!", size: 16, weight: .bold, letterSpacing: 1.25)
+      $0.numberOfLines = 3
+      $0.textAlignment = .center
+      $0.textColor = .white1
+   }
+   
+   let noCategoryContainer = UIView()
+   
+   let categoryPlusBtn = UIButton()
    
    // 이전 달로 이동 버튼
    private let prevButton = UIButton(type: .system).then {
@@ -92,7 +119,7 @@ class MainViewController: BaseViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-//      self.navigationController?.navigationBar.isHidden = true
+      //      self.navigationController?.navigationBar.isHidden = true
       self.navigationItem.hidesBackButton = true
       setAction()
       setEvents()
@@ -114,6 +141,7 @@ class MainViewController: BaseViewController {
       sidebarButton.addTarget(self, action: #selector(sidebarButtonTapped), for: .touchUpInside)
       let tapGesture = UITapGestureRecognizer(target: self, action: #selector(emojiLabelTapped))
       emojiLabel.addGestureRecognizer(tapGesture)
+      categoryPlusBtn.addTarget(self, action: #selector(didTapCategoryPlusBtn), for: .touchUpInside)
    }
    
    override func setUI() {
@@ -136,18 +164,20 @@ class MainViewController: BaseViewController {
          $0.layer.borderColor = UIColor.white.cgColor
       }
       
-      goal1Btn.do {
-         var config = UIButton.Configuration.filled()
-         config.image = UIImage(systemName: "plus.circle")
-         config.imagePlacement = .leading
-         config.imagePadding = 8
-         config.imageColorTransformer = UIConfigurationColorTransformer {_ in
-            return UIColor.blue
+      categoryPlusBtn.do {
+         $0.setImage(UIImage(systemName: "plus.circle"), for: .normal)
+         $0.tintColor = .white
+         $0.imageView?.snp.makeConstraints {
+            $0.edges.equalToSuperview()
          }
-         
-         $0.configuration = config
-         $0.clipsToBounds = true
-         $0.layer.cornerRadius = 12
+      }
+      
+      goal1Btn.do {
+         $0.setImage(UIImage(systemName: "trophy"), for: .normal)
+         $0.tintColor = .SWprimary2
+         $0.imageView?.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+         }
       }
       
       goal1TitleTextLabel.do {
@@ -157,27 +187,23 @@ class MainViewController: BaseViewController {
       }
       
       nickNameLabel.do {
-         let keychainNickName = keychain.get("userNickname")
-         let userdefaultsNickName = UserDefaults.standard.string(forKey: "nickNameText")
-         
-         if userdefaultsNickName == Optional("")  {
-            $0.text = "\(keychainNickName ?? "") 님"
-         } else {
-            $0.text = "\(userdefaultsNickName ?? "") 님"
-         }
+         let userdefaultsNickName = UserDefaults.standard.string(forKey: "userNickname")
+         $0.text = userdefaultsNickName
          $0.font = .pretendard(size: 25, weight: .black)
          $0.textColor = .white
       }
       
       messageLabel.do {
-         let messageText = UserDefaults.standard.string(forKey: "messageText")
+         let messageText = UserDefaults.standard.string(forKey: "messageText") ?? ""
          
-         if messageText == Optional("") || messageText == "" || messageText == " " {
+         if messageText.count <= 1 {
             $0.text = "상태메세지를 설정해주세요"
+            $0.font = .pretendard(size: 12, weight: .black)
          } else {
             $0.text = UserDefaults.standard.string(forKey: "messageText")
+            $0.font = .pretendard(size: 16, weight: .black)
          }
-         $0.font = .pretendard(size: 18, weight: .black)
+         
          $0.textColor = .white1
       }
       
@@ -221,9 +247,11 @@ class MainViewController: BaseViewController {
    }
    
    override func setLayout() {
-      view.addSubviews(sidebarButton, nickNameLabel, messageLabel, emojiLabel, percentLabel, calContainer, goal1Btn, goal1TitleTextLabel, checkboxView1, studyContainer)
+      
+      view.addSubviews(sidebarButton, nickNameLabel, messageLabel, emojiLabel, percentLabel, calContainer, categoryContainer)
       calContainer.addSubviews(calendarView, prevButton, nextButton)
-      studyContainer.addSubviews(goal2Btn, goal2TitleTextLabel, checkboxView2)
+      categoryContainer.addSubviews(categoryLabel, categoryPlusBtn, noCategoryContainer)
+      noCategoryContainer.addSubviews(emojiLabel2, noCategoryLabel)
       
       sidebarButton.snp.makeConstraints {
          $0.top.equalToSuperview().offset(80)
@@ -254,7 +282,7 @@ class MainViewController: BaseViewController {
       calContainer.snp.makeConstraints {
          $0.top.equalTo(sidebarButton.snp.bottom).offset(30)
          $0.horizontalEdges.equalToSuperview().inset(20)
-         $0.height.equalTo(380)
+         $0.height.equalTo(350)
       }
       
       calendarView.snp.makeConstraints {
@@ -273,106 +301,194 @@ class MainViewController: BaseViewController {
          $0.trailing.equalTo(calendarView.calendarHeaderView.snp.trailing).inset(80)
       }
       
-      goal1Btn.snp.makeConstraints {
-         $0.top.equalTo(calContainer.snp.bottom).offset(30)
-         $0.leading.equalToSuperview().offset(20)
-         $0.size.equalTo(24)
-      }
-      
-      goal1TitleTextLabel.snp.makeConstraints {
-         $0.centerY.equalTo(goal1Btn)
-         $0.leading.equalTo(goal1Btn.snp.trailing).offset(15)
-      }
-      
-      checkboxView1.snp.makeConstraints {
-         $0.top.equalTo(goal1Btn.snp.bottom).offset(10)
-         $0.leading.equalToSuperview().inset(50)
-         $0.height.equalTo(40)
-         $0.trailing.equalToSuperview()
-      }
-      
-      studyContainer.snp.makeConstraints {
+      categoryContainer.snp.makeConstraints {
+         $0.top.equalTo(calContainer.snp.bottom).offset(5)
          $0.horizontalEdges.equalToSuperview().inset(20)
-         $0.top.equalTo(checkboxView1.snp.bottom).offset(20)
-         $0.height.equalTo(200)
+         $0.bottom.equalToSuperview().inset(10)
       }
       
-      goal2Btn.snp.makeConstraints {
-         $0.top.equalToSuperview()
-         $0.leading.equalTo(goal1Btn)
-         $0.size.equalTo(24)
+      categoryLabel.snp.makeConstraints {
+         $0.top.leading.equalToSuperview().inset(10)
+         $0.height.equalTo(21)
       }
       
-      goal2TitleTextLabel.snp.makeConstraints {
-         $0.centerY.equalTo(goal2Btn)
-         $0.leading.equalTo(goal2Btn.snp.trailing).offset(15)
+      categoryPlusBtn.snp.makeConstraints {
+         $0.top.trailing.equalToSuperview().inset(10)
+         $0.size.equalTo(30)
       }
       
-      checkboxView2.snp.makeConstraints {
-         $0.top.equalTo(goal2Btn.snp.bottom).offset(10)
-         $0.leading.equalToSuperview().inset(30)
-         $0.height.equalTo(40)
-         $0.trailing.equalToSuperview()
+      noCategoryContainer.snp.makeConstraints {
+         $0.top.equalTo(categoryPlusBtn.snp.bottom).offset(10)
+         $0.horizontalEdges.bottom.equalToSuperview().inset(10)
       }
+      
+      emojiLabel2.snp.makeConstraints {
+         $0.centerX.equalTo(noCategoryLabel)
+         $0.bottom.equalTo(noCategoryLabel.snp.top).offset(-10)
+      }
+      
+      noCategoryLabel.snp.makeConstraints {
+         $0.center.equalToSuperview()
+      }
+      //      else {
+      //         view.addSubviews(sidebarButton, nickNameLabel, messageLabel, emojiLabel, percentLabel, calContainer, goal1Btn, goal1TitleTextLabel, checkboxView1, studyContainer)
+      //         calContainer.addSubviews(calendarView, prevButton, nextButton)
+      //         studyContainer.addSubviews(goal2Btn, goal2TitleTextLabel, checkboxView2, categoryPlusBtn)
+      //
+      //         sidebarButton.snp.makeConstraints {
+      //            $0.top.equalToSuperview().offset(80)
+      //            $0.leading.equalToSuperview().inset(10)
+      //            $0.size.equalTo(50)
+      //         }
+      //
+      //         nickNameLabel.snp.makeConstraints {
+      //            $0.centerY.equalTo(sidebarButton)
+      //            $0.leading.equalTo(sidebarButton.snp.trailing).offset(10)
+      //         }
+      //
+      //         messageLabel.snp.makeConstraints {
+      //            $0.top.equalTo(nickNameLabel.snp.bottom).offset(10)
+      //            $0.leading.equalTo(nickNameLabel)
+      //         }
+      //
+      //         emojiLabel.snp.makeConstraints {
+      //            $0.centerY.equalTo(sidebarButton)
+      //            $0.centerX.equalTo(percentLabel)
+      //         }
+      //
+      //         percentLabel.snp.makeConstraints {
+      //            $0.trailing.equalToSuperview().inset(15)
+      //            $0.top.equalTo(emojiLabel.snp.bottom).offset(5)
+      //         }
+      //
+      //         calContainer.snp.makeConstraints {
+      //            $0.top.equalTo(sidebarButton.snp.bottom).offset(30)
+      //            $0.horizontalEdges.equalToSuperview().inset(20)
+      //            $0.height.equalTo(380)
+      //         }
+      //
+      //         calendarView.snp.makeConstraints {
+      //            $0.center.equalToSuperview()
+      //            $0.height.equalTo(330)
+      //            $0.width.equalTo(356)
+      //         }
+      //
+      //         prevButton.snp.makeConstraints {
+      //            $0.centerY.equalTo(calendarView.calendarHeaderView).multipliedBy(1.1)
+      //            $0.leading.equalTo(calendarView.calendarHeaderView.snp.leading).inset(80)
+      //         }
+      //
+      //         nextButton.snp.makeConstraints {
+      //            $0.centerY.equalTo(calendarView.calendarHeaderView).multipliedBy(1.1)
+      //            $0.trailing.equalTo(calendarView.calendarHeaderView.snp.trailing).inset(80)
+      //         }
+      //
+      //         goal1Btn.snp.makeConstraints {
+      //            $0.top.equalTo(calContainer.snp.bottom).offset(30)
+      //            $0.leading.equalToSuperview().offset(20)
+      //            $0.size.equalTo(24)
+      //         }
+      //
+      //         goal1TitleTextLabel.snp.makeConstraints {
+      //            $0.centerY.equalTo(goal1Btn)
+      //            $0.leading.equalTo(goal1Btn.snp.trailing).offset(15)
+      //         }
+      //
+      //         checkboxView1.snp.makeConstraints {
+      //            $0.top.equalTo(goal1Btn.snp.bottom).offset(10)
+      //            $0.leading.equalToSuperview().inset(50)
+      //            $0.height.equalTo(40)
+      //            $0.trailing.equalToSuperview()
+      //         }
+      //
+      //         studyContainer.snp.makeConstraints {
+      //            $0.horizontalEdges.equalToSuperview().inset(20)
+      //            $0.top.equalTo(checkboxView1.snp.bottom).offset(20)
+      //            $0.height.equalTo(200)
+      //         }
+      //
+      //         goal2Btn.snp.makeConstraints {
+      //            $0.top.equalToSuperview()
+      //            $0.leading.equalTo(goal1Btn)
+      //            $0.size.equalTo(24)
+      //         }
+      //
+      //         goal2TitleTextLabel.snp.makeConstraints {
+      //            $0.centerY.equalTo(goal2Btn)
+      //            $0.leading.equalTo(goal2Btn.snp.trailing).offset(15)
+      //         }
+      //
+      //         checkboxView2.snp.makeConstraints {
+      //            $0.top.equalTo(goal2Btn.snp.bottom).offset(10)
+      //            $0.leading.equalToSuperview().inset(30)
+      //            $0.height.equalTo(40)
+      //            $0.trailing.equalToSuperview()
+      //         }
+      //
+      //         categoryPlusBtn.snp.makeConstraints {
+      //            $0.top.trailing.equalToSuperview().inset(10)
+      //            $0.size.equalTo(30)
+      //         }
+      //      }
    }
    
    func getTodos(for date: String? = nil) {
-         let todayString: String
-         if let date = date {
-            todayString = date
-         } else {
-            let today = Date()
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "ko_KR")
-            dateFormatter.timeZone = TimeZone(abbreviation: "KST")
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            todayString = dateFormatter.string(from: today)
-         }
-
-         if isalreadyLoadToday == false || date != nil {
-            NetworkService.shared.mainService.getTodos(createAt: todayString) {
-               result in
-               switch result {
-               case .success(let data):
-                  print(data)
-                  self.isalreadyLoadToday = true
-               case .tokenExpired(_):
-                  print("refresh 토큰 만료입니다")
-               case .requestErr:
-                  print("요청 오류입니다")
-               case .decodedErr:
-                  print("디코딩 오류입니다")
-               case .pathErr:
-                  print("경로 오류입니다")
-               case .serverErr:
-                  print("서버 오류입니다")
-               case .networkFail:
-                  print("네트워크 오류입니다")
-               }
+      let todayString: String
+      if let date = date {
+         todayString = date
+      } else {
+         let today = Date()
+         let dateFormatter = DateFormatter()
+         dateFormatter.locale = Locale(identifier: "ko_KR")
+         dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+         dateFormatter.dateFormat = "yyyy-MM-dd"
+         todayString = dateFormatter.string(from: today)
+      }
+      
+      if isalreadyLoadToday == false || date != nil {
+         NetworkService.shared.mainService.getTodos(createAt: todayString) {
+            result in
+            switch result {
+            case .success(let data):
+               print(data)
+               self.isalreadyLoadToday = true
+            case .tokenExpired(_):
+               print("refresh 토큰 만료입니다")
+            case .requestErr:
+               print("요청 오류입니다")
+            case .decodedErr:
+               print("디코딩 오류입니다")
+            case .pathErr:
+               print("경로 오류입니다")
+            case .serverErr:
+               print("서버 오류입니다")
+            case .networkFail:
+               print("네트워크 오류입니다")
             }
-         } else {
-            NetworkService.shared.mainService.getTodos(createAt: todayString) {
-               result in
-               switch result {
-               case .success(let data):
-                  print(data)
-                  self.isalreadyLoadToday = true
-               case .tokenExpired(_):
-                  print("refresh 토큰 만료입니다")
-               case .requestErr:
-                  print("요청 오류입니다")
-               case .decodedErr:
-                  print("디코딩 오류입니다")
-               case .pathErr:
-                  print("경로 오류입니다")
-               case .serverErr:
-                  print("서버 오류입니다")
-               case .networkFail:
-                  print("네트워크 오류입니다")
-               }
+         }
+      } else {
+         NetworkService.shared.mainService.getTodos(createAt: todayString) {
+            result in
+            switch result {
+            case .success(let data):
+               print(data)
+               self.isalreadyLoadToday = true
+            case .tokenExpired(_):
+               print("refresh 토큰 만료입니다")
+            case .requestErr:
+               print("요청 오류입니다")
+            case .decodedErr:
+               print("디코딩 오류입니다")
+            case .pathErr:
+               print("경로 오류입니다")
+            case .serverErr:
+               print("서버 오류입니다")
+            case .networkFail:
+               print("네트워크 오류입니다")
             }
          }
       }
+   }
    
    func setEvents() {
       let dfMatter = DateFormatter()
@@ -380,14 +496,9 @@ class MainViewController: BaseViewController {
       dfMatter.dateFormat = "yyyy-MM-dd"
       
       // events
-      let mayEvent12 = dfMatter.date(from: "2024-05-05")
-      let mayEvent13 = dfMatter.date(from: "2024-05-15")
+//      let mayEvent12 = dfMatter.date(from: "2024-05-05")
       
-      let juneEvent12 = dfMatter.date(from: "2024-06-12")
-      let juneEvent13 = dfMatter.date(from: "2024-06-13")
-      let juneEvent14 = dfMatter.date(from: "2024-06-14")
-      
-      events = [mayEvent12!, mayEvent13!, juneEvent12!, juneEvent13!]
+      events = []
    }
    
    func showSidebar() {
@@ -455,22 +566,209 @@ class MainViewController: BaseViewController {
    }
    
    @objc private func emojiLabelTapped() {
-//      if self.emojiLabel.text == "😂" {
-//         let diaryVC = BFDiaryViewController()
-//         self.navigationController?.pushViewController(diaryVC, animated: true)
-//      } else if self.emojiLabel.text == "😎" {
-//         let diaryVC = TTDiaryViewController()
-//         self.navigationController?.pushViewController(diaryVC, animated: true)
-//      } else if self.emojiLabel.text == "🥸" {
-//         let diaryVC = MayViewController()
-//         self.navigationController?.pushViewController(diaryVC, animated: true)
-//      } else if self.emojiLabel.text == "😀" {
-//         let diaryVC = DiaryViewController()
-//         self.navigationController?.pushViewController(diaryVC, animated: true)
-//      } else {
-//         let diaryVC = AddDiaryViewController()
-//         self.navigationController?.pushViewController(diaryVC, animated: true)
-//      }
+      let alertVC = CategoryViewController()
+      alertVC.isModalInPresentation = false
+      present(alertVC, animated: true, completion: nil)
+      
+      //Diary 파트
+      //      if self.emojiLabel.text == "😂" {
+      //         let diaryVC = BFDiaryViewController()
+      //         self.navigationController?.pushViewController(diaryVC, animated: true)
+      //      } else if self.emojiLabel.text == "😎" {
+      //         let diaryVC = TTDiaryViewController()
+      //         self.navigationController?.pushViewController(diaryVC, animated: true)
+      //      }
+      
+   }
+   
+   func updateView(count: Int) {
+      if count == 0 {
+         view.addSubviews(sidebarButton, nickNameLabel, messageLabel, emojiLabel, percentLabel, calContainer, categoryContainer)
+         calContainer.addSubviews(calendarView, prevButton, nextButton)
+         categoryContainer.addSubviews(categoryLabel, categoryPlusBtn, noCategoryContainer)
+         noCategoryContainer.addSubviews(emojiLabel2, noCategoryLabel)
+         
+         sidebarButton.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(80)
+            $0.leading.equalToSuperview().inset(10)
+            $0.size.equalTo(50)
+         }
+         
+         nickNameLabel.snp.makeConstraints {
+            $0.centerY.equalTo(sidebarButton)
+            $0.leading.equalTo(sidebarButton.snp.trailing).offset(10)
+         }
+         
+         messageLabel.snp.makeConstraints {
+            $0.top.equalTo(nickNameLabel.snp.bottom).offset(10)
+            $0.leading.equalTo(nickNameLabel)
+         }
+         
+         emojiLabel.snp.makeConstraints {
+            $0.centerY.equalTo(sidebarButton)
+            $0.centerX.equalTo(percentLabel)
+         }
+         
+         percentLabel.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(15)
+            $0.top.equalTo(emojiLabel.snp.bottom).offset(5)
+         }
+         
+         calContainer.snp.makeConstraints {
+            $0.top.equalTo(sidebarButton.snp.bottom).offset(30)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(350)
+         }
+         
+         calendarView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.height.equalTo(330)
+            $0.width.equalTo(356)
+         }
+         
+         prevButton.snp.makeConstraints {
+            $0.centerY.equalTo(calendarView.calendarHeaderView).multipliedBy(1.1)
+            $0.leading.equalTo(calendarView.calendarHeaderView.snp.leading).inset(80)
+         }
+         
+         nextButton.snp.makeConstraints {
+            $0.centerY.equalTo(calendarView.calendarHeaderView).multipliedBy(1.1)
+            $0.trailing.equalTo(calendarView.calendarHeaderView.snp.trailing).inset(80)
+         }
+         
+         categoryContainer.snp.makeConstraints {
+            $0.top.equalTo(calContainer.snp.bottom).offset(5)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview().inset(10)
+         }
+         
+         categoryLabel.snp.makeConstraints {
+            $0.top.leading.equalToSuperview().inset(10)
+            $0.height.equalTo(21)
+         }
+         
+         categoryPlusBtn.snp.makeConstraints {
+            $0.top.trailing.equalToSuperview().inset(10)
+            $0.size.equalTo(30)
+         }
+         
+         noCategoryContainer.snp.makeConstraints {
+            $0.top.equalTo(categoryPlusBtn.snp.bottom).offset(10)
+            $0.horizontalEdges.bottom.equalToSuperview().inset(10)
+         }
+         
+         emojiLabel2.snp.makeConstraints {
+            $0.centerX.equalTo(noCategoryLabel)
+            $0.bottom.equalTo(noCategoryLabel.snp.top).offset(-10)
+         }
+         
+         noCategoryLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
+         }
+      } else if count == 1 {
+         goal1TitleTextLabel.text = categoryName1
+         
+         view.addSubviews(sidebarButton, nickNameLabel, messageLabel, emojiLabel, percentLabel, calContainer, categoryContainer)
+         
+         calContainer.addSubviews(calendarView, prevButton, nextButton)
+         categoryContainer.addSubviews(categoryLabel, categoryPlusBtn, noCategoryContainer)
+         
+         noCategoryContainer.addSubviews(emojiLabel2, noCategoryLabel)
+         
+         sidebarButton.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(80)
+            $0.leading.equalToSuperview().inset(10)
+            $0.size.equalTo(50)
+         }
+         
+         nickNameLabel.snp.makeConstraints {
+            $0.centerY.equalTo(sidebarButton)
+            $0.leading.equalTo(sidebarButton.snp.trailing).offset(10)
+         }
+         
+         messageLabel.snp.makeConstraints {
+            $0.top.equalTo(nickNameLabel.snp.bottom).offset(10)
+            $0.leading.equalTo(nickNameLabel)
+         }
+         
+         emojiLabel.snp.makeConstraints {
+            $0.centerY.equalTo(sidebarButton)
+            $0.centerX.equalTo(percentLabel)
+         }
+         
+         percentLabel.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(15)
+            $0.top.equalTo(emojiLabel.snp.bottom).offset(5)
+         }
+         
+         calContainer.snp.makeConstraints {
+            $0.top.equalTo(sidebarButton.snp.bottom).offset(30)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(350)
+         }
+         
+         calendarView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.height.equalTo(330)
+            $0.width.equalTo(356)
+         }
+         
+         prevButton.snp.makeConstraints {
+            $0.centerY.equalTo(calendarView.calendarHeaderView).multipliedBy(1.1)
+            $0.leading.equalTo(calendarView.calendarHeaderView.snp.leading).inset(80)
+         }
+         
+         nextButton.snp.makeConstraints {
+            $0.centerY.equalTo(calendarView.calendarHeaderView).multipliedBy(1.1)
+            $0.trailing.equalTo(calendarView.calendarHeaderView.snp.trailing).inset(80)
+         }
+         
+         categoryContainer.snp.makeConstraints {
+            $0.top.equalTo(calContainer.snp.bottom).offset(5)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview().inset(10)
+         }
+         
+         categoryLabel.snp.makeConstraints {
+            $0.top.leading.equalToSuperview().inset(10)
+            $0.height.equalTo(21)
+         }
+         
+         categoryPlusBtn.snp.makeConstraints {
+            $0.top.trailing.equalToSuperview().inset(10)
+            $0.size.equalTo(30)
+         }
+         
+         noCategoryContainer.snp.makeConstraints {
+            $0.top.equalTo(categoryPlusBtn.snp.bottom).offset(10)
+            $0.horizontalEdges.bottom.equalToSuperview().inset(10)
+         }
+         
+         emojiLabel2.snp.removeConstraints()
+         noCategoryLabel.snp.removeConstraints()
+         
+         
+         noCategoryContainer.addSubviews(goal1Btn, goal1TitleTextLabel)
+         goal1Btn.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(20)
+            $0.size.equalTo(40)
+         }
+         goal1TitleTextLabel.snp.makeConstraints {
+            $0.leading.equalTo(goal1Btn.snp.trailing).offset(5)
+            $0.centerY.equalTo(goal1Btn)
+         }
+         
+      }
+   }
+   
+   @objc private func didTapCategoryPlusBtn() {
+      let alertVC = CategoryViewController()
+      alertVC.isModalInPresentation = false
+      alertVC.mainVC = self // self를 전달합니다.
+      alertVC.categoryClosure = {
+         self.updateView(count: self.allCategoryCount)
+      }
+      present(alertVC, animated: true, completion: nil)
       
    }
 }
