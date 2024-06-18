@@ -133,12 +133,38 @@ class ProfileViewController: BaseViewController {
    }
    
    @objc private func confirmButtonTapped() {
-      profileView.isEditingMode = false
+      let nickRegEx = "[가-힣A-Za-z0-9]{2,7}"
+      let nickTest = NSPredicate(format: "SELF MATCHES %@", nickRegEx)
       
-      backButton.isHidden = true
-      confirmButton.isHidden = true
-      editButton.isHidden = false
-      profileView.profileImage.isUserInteractionEnabled = true
+      if nickTest.evaluate(with: profileView.nicknameTextField.text) {
+         UserDefaults.standard.set(profileView.nicknameTextField.text, forKey: "nickNameText")
+         UserDefaults.standard.set(profileView.messageTextField.text, forKey: "messageText")
+         profileView.isEditingMode = false
+         
+         backButton.isHidden = true
+         confirmButton.isHidden = true
+         editButton.isHidden = false
+         profileView.profileImage.isUserInteractionEnabled = true
+         DispatchQueue.main.async {
+            self.showAlert(title: "수정 완료",
+                           message: "성공적으로 수정되었습니다.",
+                           confirmButtonName: "확인")
+         }
+      } else {
+         profileView.isEditingMode = true
+         
+         backButton.isHidden = false
+         confirmButton.isHidden = false
+         editButton.isHidden = true
+         profileView.profileImage.isUserInteractionEnabled = true
+         // nickRegEx를 어긴 경우 처리 (예: 경고 메시지 표시)
+         DispatchQueue.main.async {
+            self.showAlert(title: "닉네임 변경 불가능",
+                           message: "1. 특수문자는 입력이 불가능합니다.\n2. 닉네임 길이 규정은 2글자 이상 7글자 이하입니다.\n3. 'ㅍㅜㅅㅁㅏㅋㅡ'와 같이 한글 자소 입력은 불가능합니다.,",
+                           confirmButtonName: "확인")
+         }
+      }
+      
    }
 }
 
@@ -163,10 +189,9 @@ extension ProfileViewController : UITextFieldDelegate {
    func textFieldDidEndEditing(_ textField: UITextField) {
       if textField == profileView.nicknameTextField {
          profileView.nicknameUnderlineView.backgroundColor = .gray
-         UserDefaults.standard.set(textField.text, forKey: "nickNameText")
       } else if textField == profileView.messageTextField {
          profileView.messageUnderlineView.backgroundColor = .gray
-         UserDefaults.standard.set(textField.text, forKey: "messageText")
       }
    }
+   
 }
