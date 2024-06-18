@@ -20,6 +20,7 @@ class MainViewController: BaseViewController {
    var isSidebarPresented = false
    let dimmingView = UIView()
    let nickNameLabel = UILabel()
+   let messageLabel = UILabel()
    
    let studyContainer = UIView()
    
@@ -91,6 +92,7 @@ class MainViewController: BaseViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
+//      self.navigationController?.navigationBar.isHidden = true
       self.navigationItem.hidesBackButton = true
       setAction()
       setEvents()
@@ -150,9 +152,28 @@ class MainViewController: BaseViewController {
       }
       
       nickNameLabel.do {
-         $0.text = "sy Park 님"
+         let keychainNickName = keychain.get("userNickname")
+         let userdefaultsNickName = UserDefaults.standard.string(forKey: "nickNameText")
+         
+         if userdefaultsNickName == Optional("")  {
+            $0.text = "\(keychainNickName ?? "") 님"
+         } else {
+            $0.text = "\(userdefaultsNickName ?? "") 님"
+         }
          $0.font = .pretendard(size: 25, weight: .black)
          $0.textColor = .white
+      }
+      
+      messageLabel.do {
+         let messageText = UserDefaults.standard.string(forKey: "messageText")
+         
+         if messageText == Optional("") || messageText == "" || messageText == " " {
+            $0.text = "상태메세지를 설정해주세요"
+         } else {
+            $0.text = UserDefaults.standard.string(forKey: "messageText")
+         }
+         $0.font = .pretendard(size: 13, weight: .black)
+         $0.textColor = .white1
       }
       
       goal2Btn.do {
@@ -195,7 +216,7 @@ class MainViewController: BaseViewController {
    }
    
    override func setLayout() {
-      view.addSubviews(sidebarButton, nickNameLabel, emojiLabel, percentLabel, calContainer, goal1Btn, goal1TitleTextLabel, checkboxView1, studyContainer)
+      view.addSubviews(sidebarButton, nickNameLabel, messageLabel, emojiLabel, percentLabel, calContainer, goal1Btn, goal1TitleTextLabel, checkboxView1, studyContainer)
       calContainer.addSubviews(calendarView, prevButton, nextButton)
       studyContainer.addSubviews(goal2Btn, goal2TitleTextLabel, checkboxView2)
       
@@ -208,6 +229,11 @@ class MainViewController: BaseViewController {
       nickNameLabel.snp.makeConstraints {
          $0.centerY.equalTo(sidebarButton)
          $0.leading.equalTo(sidebarButton.snp.trailing).offset(10)
+      }
+      
+      messageLabel.snp.makeConstraints {
+         $0.top.equalTo(nickNameLabel.snp.bottom).offset(5)
+         $0.leading.equalTo(nickNameLabel)
       }
       
       emojiLabel.snp.makeConstraints {
@@ -366,22 +392,22 @@ class MainViewController: BaseViewController {
    }
    
    @objc private func emojiLabelTapped() {
-      if self.emojiLabel.text == "😂" {
-         let diaryVC = BFDiaryViewController()
-         self.navigationController?.pushViewController(diaryVC, animated: true)
-      } else if self.emojiLabel.text == "😎" {
-         let diaryVC = TTDiaryViewController()
-         self.navigationController?.pushViewController(diaryVC, animated: true)
-      } else if self.emojiLabel.text == "🥸" {
-         let diaryVC = MayViewController()
-         self.navigationController?.pushViewController(diaryVC, animated: true)
-      } else if self.emojiLabel.text == "😀" {
-         let diaryVC = DiaryViewController()
-         self.navigationController?.pushViewController(diaryVC, animated: true)
-      } else {
-         let diaryVC = AddDiaryViewController()
-         self.navigationController?.pushViewController(diaryVC, animated: true)
-      }
+//      if self.emojiLabel.text == "😂" {
+//         let diaryVC = BFDiaryViewController()
+//         self.navigationController?.pushViewController(diaryVC, animated: true)
+//      } else if self.emojiLabel.text == "😎" {
+//         let diaryVC = TTDiaryViewController()
+//         self.navigationController?.pushViewController(diaryVC, animated: true)
+//      } else if self.emojiLabel.text == "🥸" {
+//         let diaryVC = MayViewController()
+//         self.navigationController?.pushViewController(diaryVC, animated: true)
+//      } else if self.emojiLabel.text == "😀" {
+//         let diaryVC = DiaryViewController()
+//         self.navigationController?.pushViewController(diaryVC, animated: true)
+//      } else {
+//         let diaryVC = AddDiaryViewController()
+//         self.navigationController?.pushViewController(diaryVC, animated: true)
+//      }
       
    }
 }

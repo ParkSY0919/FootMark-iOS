@@ -136,7 +136,10 @@ class ProfileViewController: BaseViewController {
       let nickRegEx = "[가-힣A-Za-z0-9]{2,7}"
       let nickTest = NSPredicate(format: "SELF MATCHES %@", nickRegEx)
       
-      if nickTest.evaluate(with: profileView.nicknameTextField.text) {
+      let messageRegEx = "(?!^\\s*$)[가-힣A-Za-z0-9!@#$%^&*(),.?\":{}|<>~]{2,8}"
+      let messageTest = NSPredicate(format: "SELF MATCHES %@", messageRegEx)
+      
+      if nickTest.evaluate(with: profileView.nicknameTextField.text) && messageTest.evaluate(with: profileView.messageTextField.text) {
          UserDefaults.standard.set(profileView.nicknameTextField.text, forKey: "nickNameText")
          UserDefaults.standard.set(profileView.messageTextField.text, forKey: "messageText")
          profileView.isEditingMode = false
@@ -146,11 +149,16 @@ class ProfileViewController: BaseViewController {
          editButton.isHidden = false
          profileView.profileImage.isUserInteractionEnabled = true
          DispatchQueue.main.async {
+            if let navigationController = self.navigationController,
+               let mainVC = navigationController.viewControllers.first(where: { $0 is MainViewController }) as? MainViewController {
+               mainVC.nickNameLabel.text = self.profileView.nicknameTextField.text
+               mainVC.messageLabel.text = self.profileView.messageTextField.text
+            }
             self.showAlert(title: "수정 완료",
                            message: "성공적으로 수정되었습니다.",
                            confirmButtonName: "확인")
          }
-      } else {
+      } else if !nickTest.evaluate(with: profileView.nicknameTextField.text) {
          profileView.isEditingMode = true
          
          backButton.isHidden = false
@@ -160,7 +168,20 @@ class ProfileViewController: BaseViewController {
          // nickRegEx를 어긴 경우 처리 (예: 경고 메시지 표시)
          DispatchQueue.main.async {
             self.showAlert(title: "닉네임 변경 불가능",
-                           message: "1. 특수문자는 입력이 불가능합니다.\n2. 닉네임 길이 규정은 2글자 이상 7글자 이하입니다.\n3. 'ㅍㅜㅅㅁㅏㅋㅡ'와 같이 한글 자소 입력은 불가능합니다.,",
+                           message: "1. 특수문자는 입력이 불가능합니다.\n2. 닉네임 길이 규정은 2글자 이상 7글자 이하입니다.\n3. 'ㅍㅜㅅㅁㅏㅋㅡ'와 글 자소 입력은 불가능합니다.,",
+                           confirmButtonName: "확인")
+         }
+      } else if !messageTest.evaluate(with: profileView.messageTextField.text) {
+         profileView.isEditingMode = true
+         
+         backButton.isHidden = false
+         confirmButton.isHidden = false
+         editButton.isHidden = true
+         profileView.profileImage.isUserInteractionEnabled = true
+         // nickRegEx를 어긴 경우 처리 (예: 경고 메시지 표시)
+         DispatchQueue.main.async {
+            self.showAlert(title: "상태메세지 변경 불가능",
+                           message: "1. '' or ' '와 같이 미입력 혹은 공백 시작 및 단독 입력은 불가합니다.\n2. 메세지 길이 규정은 1글자 이상 8글자 이하입니다.\n3. 'ㅍㅜㅅㅁㅏㅋㅡ'와 글 자소 입력은 불가능합니다.",
                            confirmButtonName: "확인")
          }
       }
