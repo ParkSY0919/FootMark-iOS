@@ -17,4 +17,6 @@ final class NetworkService {
    let loginService: LoginService = LoginService()
    let emojiService: EmojiService = EmojiService()
    let mainService: MainService = MainService()
+    let todoService: TodoService = TodoService()
+    let reviewService: ReviewService = ReviewService()
 }

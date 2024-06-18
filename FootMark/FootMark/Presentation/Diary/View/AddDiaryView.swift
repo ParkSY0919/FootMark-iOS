@@ -1,8 +1,8 @@
 //
-//  AddDiaryView.swift
+//  DiaryView.swift
 //  FootMark
 //
-//  Created by 윤성은 on 6/9/24.
+//  Created by 윤성은 on 3/24/24.
 //
 
 import UIKit
@@ -12,7 +12,6 @@ protocol addDiaryViewDelegate: AnyObject {
 }
 
 class AddDiaryView: BaseView {
-    
     weak var delegate: addDiaryViewDelegate?
     
     var emojiPickerHandler: (() -> Void)?
@@ -32,7 +31,7 @@ class AddDiaryView: BaseView {
     
     let dateLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 20, weight: .regular)
-        $0.text = "2023.03.24 (일)"
+        $0.text = "2023-04-22"
         $0.textColor = UIColor(resource: .white2)
     }
     
@@ -70,6 +69,7 @@ class AddDiaryView: BaseView {
     
     let todoLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 17, weight: .regular)
+        $0.text = "수영, 산책, 달리기"
         $0.textColor = UIColor(resource: .white2)
     }
     
@@ -147,7 +147,7 @@ class AddDiaryView: BaseView {
         contentView.addSubview(saveButton)
         
         emojiLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(30)
+            $0.top.equalToSuperview()
             $0.centerX.equalToSuperview()
         }
         
@@ -159,7 +159,8 @@ class AddDiaryView: BaseView {
         
         categoryButton.snp.makeConstraints {
             $0.top.equalTo(self.emojiLabel.snp.bottom).offset(30)
-            $0.leading.equalTo(dateLabel.snp.trailing).offset(40)
+            $0.centerY.equalTo(self.dateLabel.snp.centerY)
+            $0.trailing.equalToSuperview().offset(-30)
             $0.width.equalTo(150)
             $0.height.equalTo(50)
         }
