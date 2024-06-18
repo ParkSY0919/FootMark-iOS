@@ -119,6 +119,22 @@
 		C1B6A0562C0EFB7F003ECA62 /* MainContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A0552C0EFB7F003ECA62 /* MainContentViewController.swift */; };
 		C1B6A0582C0EFBC3003ECA62 /* SidebarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A0572C0EFBC3003ECA62 /* SidebarViewCell.swift */; };
 		C1B6A05C2C0EFBEA003ECA62 /* SidebarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6A05B2C0EFBEA003ECA62 /* SidebarModel.swift */; };
+		C1C2D6AA2C222BE700C68BC8 /* ReviewTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6A92C222BE700C68BC8 /* ReviewTargetType.swift */; };
+		C1C2D6AC2C222BEF00C68BC8 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6AB2C222BEF00C68BC8 /* ReviewService.swift */; };
+		C1C2D6B22C222C7A00C68BC8 /* PostReviewDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6B12C222C7A00C68BC8 /* PostReviewDTO.swift */; };
+		C1C2D6B42C222C8C00C68BC8 /* PutReviewDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6B32C222C8C00C68BC8 /* PutReviewDTO.swift */; };
+		C1C2D6B62C222CAC00C68BC8 /* DelReviewDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6B52C222CAC00C68BC8 /* DelReviewDTO.swift */; };
+		C1C2D6B82C222CC400C68BC8 /* PostReviewRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6B72C222CC400C68BC8 /* PostReviewRequestModel.swift */; };
+		C1C2D6BA2C222D0900C68BC8 /* PostReviewGoal1RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6B92C222D0900C68BC8 /* PostReviewGoal1RequestModel.swift */; };
+		C1C2D6BC2C222D2600C68BC8 /* PostReviewGoal2RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6BB2C222D2600C68BC8 /* PostReviewGoal2RequestModel.swift */; };
+		C1C2D6BE2C222D4300C68BC8 /* PostReviewThankfulRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6BD2C222D4300C68BC8 /* PostReviewThankfulRequestModel.swift */; };
+		C1C2D6C02C222D6300C68BC8 /* PostReviewBestRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6BF2C222D6300C68BC8 /* PostReviewBestRequestModel.swift */; };
+		C1C2D6C22C222D8900C68BC8 /* PutReviewRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6C12C222D8900C68BC8 /* PutReviewRequestModel.swift */; };
+		C1C2D6C92C222F7B00C68BC8 /* TodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6C82C222F7B00C68BC8 /* TodoService.swift */; };
+		C1C2D6CB2C222F8500C68BC8 /* TodoTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6CA2C222F8500C68BC8 /* TodoTargetType.swift */; };
+		C1C2D6D02C22300700C68BC8 /* GetTodoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6CF2C22300700C68BC8 /* GetTodoDTO.swift */; };
+		C1C2D6D42C2231B600C68BC8 /* PutEmojiRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6D32C2231B600C68BC8 /* PutEmojiRequestModel.swift */; };
+		C1C2D6D62C2231C000C68BC8 /* PutEmojiDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2D6D52C2231C000C68BC8 /* PutEmojiDTO.swift */; };
 		C1DF9F1E2C169D7600924DD9 /* AddDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DF9F1D2C169D7600924DD9 /* AddDiaryViewController.swift */; };
 		C1DF9F202C169D8900924DD9 /* AddDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DF9F1F2C169D8900924DD9 /* AddDiaryView.swift */; };
 		C1E74B962C0F6D9F00D8E313 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E74B952C0F6D9F00D8E313 /* ProfileViewController.swift */; };
@@ -222,6 +238,22 @@
 		C1B6A0552C0EFB7F003ECA62 /* MainContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewController.swift; sourceTree = "<group>"; };
 		C1B6A0572C0EFBC3003ECA62 /* SidebarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewCell.swift; sourceTree = "<group>"; };
 		C1B6A05B2C0EFBEA003ECA62 /* SidebarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarModel.swift; sourceTree = "<group>"; };
+		C1C2D6A92C222BE700C68BC8 /* ReviewTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTargetType.swift; sourceTree = "<group>"; };
+		C1C2D6AB2C222BEF00C68BC8 /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
+		C1C2D6B12C222C7A00C68BC8 /* PostReviewDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReviewDTO.swift; sourceTree = "<group>"; };
+		C1C2D6B32C222C8C00C68BC8 /* PutReviewDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutReviewDTO.swift; sourceTree = "<group>"; };
+		C1C2D6B52C222CAC00C68BC8 /* DelReviewDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelReviewDTO.swift; sourceTree = "<group>"; };
+		C1C2D6B72C222CC400C68BC8 /* PostReviewRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReviewRequestModel.swift; sourceTree = "<group>"; };
+		C1C2D6B92C222D0900C68BC8 /* PostReviewGoal1RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReviewGoal1RequestModel.swift; sourceTree = "<group>"; };
+		C1C2D6BB2C222D2600C68BC8 /* PostReviewGoal2RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReviewGoal2RequestModel.swift; sourceTree = "<group>"; };
+		C1C2D6BD2C222D4300C68BC8 /* PostReviewThankfulRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReviewThankfulRequestModel.swift; sourceTree = "<group>"; };
+		C1C2D6BF2C222D6300C68BC8 /* PostReviewBestRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReviewBestRequestModel.swift; sourceTree = "<group>"; };
+		C1C2D6C12C222D8900C68BC8 /* PutReviewRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutReviewRequestModel.swift; sourceTree = "<group>"; };
+		C1C2D6C82C222F7B00C68BC8 /* TodoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoService.swift; sourceTree = "<group>"; };
+		C1C2D6CA2C222F8500C68BC8 /* TodoTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTargetType.swift; sourceTree = "<group>"; };
+		C1C2D6CF2C22300700C68BC8 /* GetTodoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTodoDTO.swift; sourceTree = "<group>"; };
+		C1C2D6D32C2231B600C68BC8 /* PutEmojiRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutEmojiRequestModel.swift; sourceTree = "<group>"; };
+		C1C2D6D52C2231C000C68BC8 /* PutEmojiDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutEmojiDTO.swift; sourceTree = "<group>"; };
 		C1DF9F1D2C169D7600924DD9 /* AddDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryViewController.swift; sourceTree = "<group>"; };
 		C1DF9F1F2C169D8900924DD9 /* AddDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryView.swift; sourceTree = "<group>"; };
 		C1E74B952C0F6D9F00D8E313 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = FootMark/Presentation/Sidebar/ViewController/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -382,6 +414,8 @@
 		9E386FCF2BAC1872007451F8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C1C2D6C52C222F5000C68BC8 /* Todo */,
+				C1C2D6A82C222BD500C68BC8 /* Review */,
 				9E63BB042C216E4B00D5ED5B /* Main */,
 				9E74C3422C0955B4003152A7 /* Base */,
 				9E74C34F2C0957F3003152A7 /* Login */,
@@ -395,6 +429,8 @@
 		9E386FD02BAC1872007451F8 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				C1C2D6CC2C222FD300C68BC8 /* TodoDTO */,
+				C1C2D6AD2C222C2F00C68BC8 /* ReviewDTO */,
 				9E63BB0C2C2175BA00D5ED5B /* MainDTO */,
 				9E6451F12C15DB7E0026C29D /* EmojiDTO */,
 				9E6090F52BCE793D00D018B2 /* LoginDTO */,
@@ -624,6 +660,7 @@
 			isa = PBXGroup;
 			children = (
 				9E6451F62C15DBE80026C29D /* PostEmojiDTO.swift */,
+				C1C2D6D52C2231C000C68BC8 /* PutEmojiDTO.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -632,6 +669,7 @@
 			isa = PBXGroup;
 			children = (
 				9E6451F42C15DBB20026C29D /* PostEmojiRequestModel.swift */,
+				C1C2D6D32C2231B600C68BC8 /* PutEmojiRequestModel.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -762,6 +800,72 @@
 				C1B6A05B2C0EFBEA003ECA62 /* SidebarModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C1C2D6A82C222BD500C68BC8 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				C1C2D6A92C222BE700C68BC8 /* ReviewTargetType.swift */,
+				C1C2D6AB2C222BEF00C68BC8 /* ReviewService.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		C1C2D6AD2C222C2F00C68BC8 /* ReviewDTO */ = {
+			isa = PBXGroup;
+			children = (
+				C1C2D6B02C222C4C00C68BC8 /* Response */,
+				C1C2D6AF2C222C4700C68BC8 /* Request */,
+			);
+			path = ReviewDTO;
+			sourceTree = "<group>";
+		};
+		C1C2D6AF2C222C4700C68BC8 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				C1C2D6B72C222CC400C68BC8 /* PostReviewRequestModel.swift */,
+				C1C2D6B92C222D0900C68BC8 /* PostReviewGoal1RequestModel.swift */,
+				C1C2D6BB2C222D2600C68BC8 /* PostReviewGoal2RequestModel.swift */,
+				C1C2D6BD2C222D4300C68BC8 /* PostReviewThankfulRequestModel.swift */,
+				C1C2D6BF2C222D6300C68BC8 /* PostReviewBestRequestModel.swift */,
+				C1C2D6C12C222D8900C68BC8 /* PutReviewRequestModel.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		C1C2D6B02C222C4C00C68BC8 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				C1C2D6B12C222C7A00C68BC8 /* PostReviewDTO.swift */,
+				C1C2D6B32C222C8C00C68BC8 /* PutReviewDTO.swift */,
+				C1C2D6B52C222CAC00C68BC8 /* DelReviewDTO.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		C1C2D6C52C222F5000C68BC8 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				C1C2D6C82C222F7B00C68BC8 /* TodoService.swift */,
+				C1C2D6CA2C222F8500C68BC8 /* TodoTargetType.swift */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
+		C1C2D6CC2C222FD300C68BC8 /* TodoDTO */ = {
+			isa = PBXGroup;
+			children = (
+				C1C2D6CE2C222FEF00C68BC8 /* Response */,
+			);
+			path = TodoDTO;
+			sourceTree = "<group>";
+		};
+		C1C2D6CE2C222FEF00C68BC8 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				C1C2D6CF2C22300700C68BC8 /* GetTodoDTO.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		C1E74B922C0F6D7100D8E313 /* Profile */ = {
@@ -990,18 +1094,24 @@
 				9E3871682BAC1BCD007451F8 /* NSObject++.swift in Sources */,
 				C1B6A0522C0EFB33003ECA62 /* SidebarView.swift in Sources */,
 				9E1B09432BDF9B08007AAB48 /* LoginRequestModel.swift in Sources */,
+				C1C2D6B62C222CAC00C68BC8 /* DelReviewDTO.swift in Sources */,
 				C1E74B9A2C0F6DF500D8E313 /* ProfileImageViewController.swift in Sources */,
 				C1DF9F1E2C169D7600924DD9 /* AddDiaryViewController.swift in Sources */,
+				C1C2D6D42C2231B600C68BC8 /* PutEmojiRequestModel.swift in Sources */,
+				C1C2D6B22C222C7A00C68BC8 /* PostReviewDTO.swift in Sources */,
 				9E386FA22BAC0C06007451F8 /* MainViewController.swift in Sources */,
 				9E38713C2BAC1AA3007451F8 /* Colors.swift in Sources */,
 				9E092D3A2BB3BB0000B146A9 /* LoginViewController.swift in Sources */,
+				C1C2D6B42C222C8C00C68BC8 /* PutReviewDTO.swift in Sources */,
 				9E3871652BAC1BCD007451F8 /* UIResponder++.swift in Sources */,
 				9E3870502BAC1872007451F8 /* Config.swift in Sources */,
 				9E3871282BAC1A03007451F8 /* BaseView.swift in Sources */,
 				9E7326D72C0D4E330025C981 /* MonthlyReviewViewController.swift in Sources */,
 				9E3871662BAC1BCD007451F8 /* UIStackView++.swift in Sources */,
 				9E3871292BAC1A03007451F8 /* BaseViewController.swift in Sources */,
+				C1C2D6B82C222CC400C68BC8 /* PostReviewRequestModel.swift in Sources */,
 				9E63BB152C21BA1800D5ED5B /* AddCategoryViewController.swift in Sources */,
+				C1C2D6BC2C222D2600C68BC8 /* PostReviewGoal2RequestModel.swift in Sources */,
 				9E38716C2BAC1BCD007451F8 /* UIColor++.swift in Sources */,
 				9EA61F392C1C7AC0001A0B80 /* UICheckBox++.swift in Sources */,
 				9E63BB0F2C2176D700D5ED5B /* TodosResponseDTO.swift in Sources */,
@@ -1025,24 +1135,34 @@
 				9E6090F72BCE794B00D018B2 /* LoginDTO.swift in Sources */,
 				9E74C3442C0955D6003152A7 /* BaseService.swift in Sources */,
 				9E63BB092C216EA700D5ED5B /* MainService.swift in Sources */,
+				C1C2D6BA2C222D0900C68BC8 /* PostReviewGoal1RequestModel.swift in Sources */,
 				9E6451F72C15DBE80026C29D /* PostEmojiDTO.swift in Sources */,
 				9E6451F52C15DBB20026C29D /* PostEmojiRequestModel.swift in Sources */,
 				9E3871452BAC1AA3007451F8 /* Font.swift in Sources */,
+				C1C2D6C92C222F7B00C68BC8 /* TodoService.swift in Sources */,
+				C1C2D6BE2C222D4300C68BC8 /* PostReviewThankfulRequestModel.swift in Sources */,
 				9E74C3532C095A68003152A7 /* LoginService.swift in Sources */,
 				9E3871632BAC1BCD007451F8 /* UIViewController++.swift in Sources */,
 				9E3871642BAC1BCD007451F8 /* UIImage++.swift in Sources */,
 				9E63BB0B2C2174DC00D5ED5B /* KeychainManager.swift in Sources */,
 				C1DF9F202C169D8900924DD9 /* AddDiaryView.swift in Sources */,
 				9E3871712BAC1BCD007451F8 /* BaseNavigationController.swift in Sources */,
+				C1C2D6C02C222D6300C68BC8 /* PostReviewBestRequestModel.swift in Sources */,
 				9E74C34A2C09562A003152A7 /* NetworkResults.swift in Sources */,
 				9E6451FB2C15DD2B0026C29D /* EmojiService.swift in Sources */,
+				C1C2D6AC2C222BEF00C68BC8 /* ReviewService.swift in Sources */,
+				C1C2D6C22C222D8900C68BC8 /* PutReviewRequestModel.swift in Sources */,
+				C1C2D6D02C22300700C68BC8 /* GetTodoDTO.swift in Sources */,
 				9E7327172C0D83310025C981 /* TabView.swift in Sources */,
 				9E386FA02BAC0C06007451F8 /* SceneDelegate.swift in Sources */,
 				9E74C3462C0955EA003152A7 /* BaseTargetType.swift in Sources */,
 				9E7326D92C0D51F20025C981 /* MonthlyReviewView.swift in Sources */,
+				C1C2D6D62C2231C000C68BC8 /* PutEmojiDTO.swift in Sources */,
 				C1482DF02BAFDAC8005177F7 /* DiaryView.swift in Sources */,
 				9E0860022C1BD6F8004E60E2 /* CustomNavigationController.swift in Sources */,
 				C1B6A0582C0EFBC3003ECA62 /* SidebarViewCell.swift in Sources */,
+				C1C2D6CB2C222F8500C68BC8 /* TodoTargetType.swift in Sources */,
+				C1C2D6AA2C222BE700C68BC8 /* ReviewTargetType.swift in Sources */,
 				9E63BB1A2C21ED9100D5ED5B /* CategoryResponseDTO.swift in Sources */,
 				C1E74B962C0F6D9F00D8E313 /* ProfileViewController.swift in Sources */,
 				C1B6A0542C0EFB49003ECA62 /* SidebarViewController.swift in Sources */,

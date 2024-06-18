@@ -60,5 +60,20 @@ class KeychainManager {
       }
    }
    
+    func createRequestClosure() -> MoyaProvider<TodoTargetType>.RequestClosure {
+        return { (endpoint: Endpoint, done: @escaping MoyaProvider.RequestResultClosure) in
+            do {
+                var request = try endpoint.urlRequest()
+                if let accessToken = self.getAccessToken() {
+                    request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+                } else {
+                    request.addValue("accessToken 없음", forHTTPHeaderField: "Authorization")
+                }
+                done(.success(request))
+            } catch {
+                done(.failure(MoyaError.underlying(error, nil)))
+            }
+        }
+    }
 }
 
