@@ -142,6 +142,9 @@ class MainViewController: BaseViewController {
       let tapGesture = UITapGestureRecognizer(target: self, action: #selector(emojiLabelTapped))
       emojiLabel.addGestureRecognizer(tapGesture)
       categoryPlusBtn.addTarget(self, action: #selector(didTapCategoryPlusBtn), for: .touchUpInside)
+      
+      checkboxView1.label.delegate = self
+      checkboxView1.label.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
    }
    
    override func setUI() {
@@ -229,8 +232,7 @@ class MainViewController: BaseViewController {
       
       checkboxView1.do {
          $0.isUserInteractionEnabled = true
-         $0.title = "수영, 산책, 달리기"
-         $0.isChecked = true
+         $0.isChecked = false
       }
       
       checkboxView2.do {
@@ -673,7 +675,11 @@ class MainViewController: BaseViewController {
          calContainer.addSubviews(calendarView, prevButton, nextButton)
          categoryContainer.addSubviews(categoryLabel, categoryPlusBtn, noCategoryContainer)
          
-         noCategoryContainer.addSubviews(emojiLabel2, noCategoryLabel)
+         emojiLabel2.removeFromSuperview()
+         noCategoryLabel.removeFromSuperview()
+         
+         
+         noCategoryContainer.addSubviews(goal1Btn, goal1TitleTextLabel, checkboxView1)
          
          sidebarButton.snp.makeConstraints {
             $0.top.equalToSuperview().offset(80)
@@ -744,18 +750,23 @@ class MainViewController: BaseViewController {
             $0.horizontalEdges.bottom.equalToSuperview().inset(10)
          }
          
-         emojiLabel2.snp.removeConstraints()
-         noCategoryLabel.snp.removeConstraints()
          
-         
-         noCategoryContainer.addSubviews(goal1Btn, goal1TitleTextLabel)
          goal1Btn.snp.makeConstraints {
             $0.top.equalToSuperview().offset(20)
+            $0.leading.equalToSuperview()
             $0.size.equalTo(40)
          }
+         
          goal1TitleTextLabel.snp.makeConstraints {
             $0.leading.equalTo(goal1Btn.snp.trailing).offset(5)
             $0.centerY.equalTo(goal1Btn)
+         }
+         
+         checkboxView1.snp.makeConstraints {
+            $0.top.equalTo(goal1TitleTextLabel.snp.bottom).offset(10)
+            $0.leading.equalTo(goal1TitleTextLabel.snp.leading)
+            $0.height.equalTo(40)
+            $0.trailing.equalToSuperview()
          }
          
       }
@@ -764,6 +775,12 @@ class MainViewController: BaseViewController {
    @objc private func didTapCategoryPlusBtn() {
       let alertVC = CategoryViewController()
       alertVC.isModalInPresentation = false
+      if categoryName1.count != 0 {
+         alertVC.reloadView1(categoryCount: 1, categoryName: UserDefaults.standard.string(forKey: "category1Name") ?? "")
+      }
+      if categoryName2.count != 0 {
+         alertVC.reloadView2(categoryCount: 2, categoryName: UserDefaults.standard.string(forKey: "category2Name") ?? "")
+      }
       alertVC.mainVC = self // self를 전달합니다.
       alertVC.categoryClosure = {
          self.updateView(count: self.allCategoryCount)
@@ -882,4 +899,54 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
       
    }
    
+}
+
+
+extension MainViewController: UITextFieldDelegate {
+   
+   // 확인 or return 버튼으로 키보드 내리기
+   internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      textField.resignFirstResponder()
+      return true
+   }
+   
+   //MARK: - @objc func
+   
+   @objc func textFieldDidChange(_ textField: UITextField) {
+      DispatchQueue.main.async { [weak self] in
+         guard let self = self else { return }
+         if textField.text?.count == 0 {
+            print("첫 번째 목표 todo 미입력")
+         } else {
+            print("첫 번째 목표 todo 입력 완료")
+         }
+      }
+   }
+   
+   @objc override func dismissKeyboard() {
+      view.endEditing(true)
+   }
+   
+   @objc func keyboardWillShow(notification: NSNotification) {
+       guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+           return
+       }
+       
+       UIView.animate(withDuration: 0.3) {
+           self.view.layoutIfNeeded()
+       }
+   }
+   
+   @objc func keyboardWillHide(notification: NSNotification) {
+      UIView.animate(withDuration: 0.3) {
+         self.view.layoutIfNeeded()
+      }
+   }
+   
+   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+      let currentText = textField.text ?? ""
+      let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
+      
+      return true
+   }
 }

@@ -12,9 +12,14 @@ import Then
 class CheckboxView: UIView {
     private let containerView = UIView()
     private let checkboxButton = UIButton(type: .custom)
-   private let label = UILabel().then {
+   let label = UITextField().then {
       $0.textColor = .white1
       $0.font = .pretendard(size: 20, weight: .medium)
+      $0.attributedPlaceholder = NSAttributedString(
+         string: "Todo를 등록해주세요!",
+         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white1]
+      )
+      $0.clearButtonMode = .whileEditing
    }
     
     var isChecked: Bool = false {
