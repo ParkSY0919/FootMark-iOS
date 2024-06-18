@@ -13,6 +13,8 @@ final class NetworkService {
    
    private init() {}
    
+   let loginServiceWithAccessToken: LoginServiceWithAccessToken = LoginServiceWithAccessToken()
    let loginService: LoginService = LoginService()
    let emojiService: EmojiService = EmojiService()
+   let mainService: MainService = MainService()
 }

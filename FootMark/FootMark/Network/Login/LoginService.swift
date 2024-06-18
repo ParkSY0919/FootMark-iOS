@@ -14,6 +14,10 @@ protocol LoginServiceProtocol {
    func postRefreshToken(refreshToken: String, completion: @escaping (NetworkResult<LoginDTO>) -> Void)
 }
 
+protocol LoginServiceProtocolWithAccessToken {
+   func getIsFirstLogin (completion: @escaping (NetworkResult<FirstLoginDTO>) -> Void)
+}
+
 final class LoginService: BaseService, LoginServiceProtocol {
    
    let moyaProvider = MoyaProvider<LoginTargetType>(plugins: [MoyaLoggingPlugin()])
@@ -50,5 +54,33 @@ final class LoginService: BaseService, LoginServiceProtocol {
       }
    }
    
+}
+
+final class LoginServiceWithAccessToken: BaseService, LoginServiceProtocolWithAccessToken {
+   
+    let moyaProvider: MoyaProvider<LoginTargetType>
+    
+    override init() {
+        self.moyaProvider = MoyaProvider<LoginTargetType>(
+         requestClosure: KeychainManager.shared.loginTargetRequestClosure(),
+            plugins: [MoyaLoggingPlugin()]
+        )
+    }
+   
+   func getIsFirstLogin(completion: @escaping (NetworkResult<FirstLoginDTO>) -> Void) {
+      moyaProvider.request(.isFirstLogin) { result in
+         switch result {
+         case .success(let result):
+            let statusCode = result.statusCode
+            let data = result.data
+            
+            let networkResult: NetworkResult<FirstLoginDTO> = self.judgeStatus(statusCode: statusCode, data: data)
+            completion(networkResult)
+            
+         case .failure:
+            completion(.networkFail)
+         }
+      }
+   }
    
 }

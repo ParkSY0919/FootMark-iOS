@@ -55,6 +55,8 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
                keychain.set(loginDTO.data.userImage, forKey: "userImage")
                keychain.set(loginDTO.data.userNickname, forKey: "userNickname")
                
+               self.isFirstLogin()
+               
                DispatchQueue.main.async {
                   let mainVC = MainViewController()
                   self.navigationController?.pushViewController(mainVC, animated: true)
@@ -74,6 +76,34 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
                print("네트워크 오류입니다")
             }
          }
+   }
+   
+   func isFirstLogin() {
+      NetworkService.shared.loginServiceWithAccessToken.getIsFirstLogin() { result in
+         switch result {
+         case .success(let data):
+            print("최초로그인 여부: \(data.data)")
+            UserDefaults.standard.set(data.data.categoryIDS[0], forKey: "감사한 일")
+            UserDefaults.standard.set(data.data.categoryIDS[1], forKey: "가장 좋았던 일")
+            
+            print(UserDefaults.standard.string(forKey: "감사한 일"))
+            print(UserDefaults.standard.string(forKey: "가장 좋았던 일"))
+            
+         case .tokenExpired(_):
+            print("refresh 토큰 만료입니다")
+         case .requestErr:
+            print("요청 오류입니다")
+         case .decodedErr:
+            print("디코딩 오류입니다")
+         case .pathErr:
+            print("경로 오류입니다")
+         case .serverErr:
+            print("서버 오류입니다")
+         case .networkFail:
+            print("네트워크 오류입니다")
+         
+         }
+      }
    }
    
    func getNewAccessToken() {

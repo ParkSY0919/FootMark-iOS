@@ -11,6 +11,7 @@ import Moya
 enum LoginTargetType {
    case socialLogin(provider: String, request: LoginRequestModel)
    case newAccessToken(refreshToken: String)
+   case isFirstLogin
 }
 
 extension LoginTargetType: BaseTargetType {
@@ -26,6 +27,9 @@ extension LoginTargetType: BaseTargetType {
          
       case .newAccessToken(_):
          return "/api/access"
+         
+      case .isFirstLogin:
+         return "/member/success"
       }
    }
    
@@ -36,6 +40,9 @@ extension LoginTargetType: BaseTargetType {
          
       case .newAccessToken:
          return .post
+         
+      case .isFirstLogin:
+         return .get
       }
    }
    
@@ -46,6 +53,9 @@ extension LoginTargetType: BaseTargetType {
          
       case .newAccessToken:
          return .requestPlain
+         
+      case .isFirstLogin:
+         return .requestPlain
       }
    }
    
@@ -55,6 +65,9 @@ extension LoginTargetType: BaseTargetType {
          return ["Content-Type": "application/json"]
          
       case .newAccessToken:
+         return ["Content-Type": "application/json"]
+         
+      case .isFirstLogin:
          return ["Content-Type": "application/json"]
          
       }
