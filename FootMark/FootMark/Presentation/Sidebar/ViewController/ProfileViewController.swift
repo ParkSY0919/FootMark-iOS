@@ -37,7 +37,7 @@ class ProfileViewController: BaseViewController {
       backButton.isHidden = true
       confirmButton.isHidden = true
       navigationController?.navigationBar.isHidden = false
-      loadImage()
+      loadData()
    }
    
    override func setAddTarget() {
@@ -85,13 +85,19 @@ class ProfileViewController: BaseViewController {
       }
    }
    
-   func loadImage() {
+   func loadData() {
       let keychain = KeychainSwift()
       let kingFisher = KingFisher()
       let image = profileView.profileImage
       let url = keychain.get("userImage")
-      let nickname = keychain.get("userNickname")
-      profileView.nicknameTextField.text = nickname
+      let keychainNickName = keychain.get("userNickname")
+      let userdefaultsNickName = UserDefaults.standard.string(forKey: "nickNameText")
+      
+      if userdefaultsNickName == Optional("")  {
+         profileView.nicknameTextField.text = keychainNickName
+      } else {
+         profileView.nicknameTextField.text = userdefaultsNickName
+      }
       kingFisher.loadProfileImage(url: url ?? "", image: image)
       print("Profile loadImage 끝~")
    }
@@ -113,10 +119,8 @@ class ProfileViewController: BaseViewController {
       profileView.profileImage.isUserInteractionEnabled = !profileView.isEditingMode
       
       if profileView.isEditingMode {
-         profileView.messageTextField.becomeFirstResponder()
+         profileView.nicknameTextField.becomeFirstResponder()
       }
-      
-      profileView.nicknameTextField.isEnabled = false
    }
    
    @objc private func backButtonTapped() {
@@ -159,6 +163,7 @@ extension ProfileViewController : UITextFieldDelegate {
    func textFieldDidEndEditing(_ textField: UITextField) {
       if textField == profileView.nicknameTextField {
          profileView.nicknameUnderlineView.backgroundColor = .gray
+         UserDefaults.standard.set(textField.text, forKey: "nickNameText")
       } else if textField == profileView.messageTextField {
          profileView.messageUnderlineView.backgroundColor = .gray
          UserDefaults.standard.set(textField.text, forKey: "messageText")

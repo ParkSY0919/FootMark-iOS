@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import KeychainSwift
 
 class ProfileView: BaseView {
    var isEditingMode: Bool = false {
@@ -13,6 +14,8 @@ class ProfileView: BaseView {
          updateViewMode()
       }
    }
+   
+   let keychain = KeychainSwift()
    
    let profileImage = UIImageView().then {
       $0.image = UIImage(resource: .backBtn).resizeImageUsingCoreGraphics(targetSize: CGSize(width: 30, height: 30))
