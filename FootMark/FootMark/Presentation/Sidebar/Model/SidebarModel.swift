@@ -16,10 +16,11 @@ extension SidebarModel {
     static func dummy() -> [[SidebarModel]]  {
         return [
          [SidebarModel(image: UIImage(resource: .swLogo), title: "FootMark")],
-            [SidebarModel(image: UIImage.systemIcon(name: "person.fill"), title: "Profile")],
-            [SidebarModel(image: UIImage.systemIcon(name: "house"), title: "Home"),
-             SidebarModel(image: UIImage.systemIcon(name: "calendar.badge.checkmark"), title: "Monthly Review"),
-             SidebarModel(image: UIImage.systemIcon(name: "server.rack"), title: "Category")],
+            [SidebarModel(image: UIImage.systemIcon(name: "person.fill"), title: "Profile"),
+            SidebarModel(image: UIImage.systemIcon(name: "house"), title: "Home"),
+             SidebarModel(image: UIImage.systemIcon(name: "calendar.badge.checkmark"), title: "Monthly Review")],
+         [],
+//             SidebarModel(image: UIImage.systemIcon(name: "server.rack"), title: "Category")],
             [SidebarModel(image: UIImage.systemIcon(name: "rectangle.portrait.and.arrow.forward", weight: .medium), title: "Logout")]
         ]
     }

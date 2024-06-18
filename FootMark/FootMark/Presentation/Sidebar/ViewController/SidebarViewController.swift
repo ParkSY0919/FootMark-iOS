@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import KeychainSwift
+import Kingfisher
 
 class SidebarViewController: BaseViewController {
     
     var sidebarView = SidebarView()
+   var sidebarViewCell = SidebarViewCell()
     let sidebarList = SidebarModel.dummy()
     
     override func viewDidLoad() {
@@ -31,7 +34,19 @@ class SidebarViewController: BaseViewController {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
         }
+       
+//       loadData()
     }
+   
+   func loadData(cell: UIImageView) {
+      let keychain = KeychainSwift()
+      let kingFisher = KingFisher()
+      let image = cell
+      let url = keychain.get("userImage")
+      
+      kingFisher.loadProfileImage(url: url ?? "", image: image)
+      print("Profile loadImage 끝~")
+   }
 }
 
 extension SidebarViewController : UITableViewDelegate, UITableViewDataSource {
@@ -53,6 +68,9 @@ extension SidebarViewController : UITableViewDelegate, UITableViewDataSource {
             withIdentifier: SidebarViewCell.identifier,
             for: indexPath) as? SidebarViewCell else { return UITableViewCell() }
         cell.dataBind(sidebarList[indexPath.section][indexPath.row])
+       if indexPath.row == [1][0] {
+          loadData(cell: cell.tableImageView)
+       }
         return cell
     }
     

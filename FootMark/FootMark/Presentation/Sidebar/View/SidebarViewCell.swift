@@ -17,6 +17,9 @@ class SidebarViewCell: UITableViewCell {
     let tableImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
         $0.tintColor = UIColor(resource: .white2)
+       $0.clipsToBounds = true
+       $0.layer.cornerRadius = 15
+       
     }
     
     let tableLabel = UILabel().then {
