@@ -229,7 +229,7 @@ class CategoryViewController: BaseViewController {
       print("카테고리 1개째")
       plusImage1.isHidden = true
       categoryLabel1.isHidden = false
-      categoryLabel1.text = "목표 1: \(categoryName)"
+      categoryLabel1.text = categoryName
       plusView1.isUserInteractionEnabled = false
    }
    
@@ -238,7 +238,7 @@ class CategoryViewController: BaseViewController {
       print("카테고리 2개째")
       plusImage2.isHidden = true
       categoryLabel2.isHidden = false
-      categoryLabel2.text = "목표 2: \(categoryName)"
+      categoryLabel2.text = categoryName
       plusView2.isUserInteractionEnabled = false
       
    }

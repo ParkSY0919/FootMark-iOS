@@ -18,13 +18,16 @@ class MonthlyReviewViewController: BaseViewController {
    private var selectedIndex = 0
    private let scrollView = UIScrollView()
    private let contentView = UIView()
-   private let totalTableView = UIImageView(image: UIImage(resource: .monthlyTotalBf))
+   private let totalTableView = UIImageView(image: UIImage(resource: .swAllMonthly))
    //   private let
-   private let items = [
+   let str1 = UserDefaults.standard.string(forKey: "category1Name")
+   let str2 = UserDefaults.standard.string(forKey: "category2Name")
+   private lazy var items = [
       "전체",
       "감사한 일",
       "가장 좋았던 일",
-      "운동"
+      str1 ?? "",
+      str2 ?? ""
    ]
    
    private lazy var num = customNavigationController.cnt
@@ -102,15 +105,15 @@ class MonthlyReviewViewController: BaseViewController {
    private func toggleScrollView(index: Int) {
       switch index {
       case 0:
-         totalTableView.image = UIImage(resource: .monthlyTotalBf)
+         totalTableView.image = UIImage(resource: .swAllMonthly)
       case 1:
-         totalTableView.image = UIImage(resource: .monthlyThanksBf)
+         totalTableView.image = UIImage(resource: .swThanksMonthly)
       case 2:
-         totalTableView.image = UIImage(resource: .monthlyBestHappyBf)
+         totalTableView.image = UIImage(resource: .swBestMonthly)
       case 3:
-         totalTableView.image = UIImage(resource: .monthlyEXBf)
+         totalTableView.image = UIImage(resource: .swHealthMonthly)
       case 4:
-         totalTableView.image = UIImage(resource: .monthlyMayTotal)
+         totalTableView.image = UIImage(resource: .swStudyMonthly)
       default:
          break
       }

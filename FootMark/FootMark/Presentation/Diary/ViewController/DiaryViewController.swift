@@ -46,9 +46,11 @@ class DiaryViewController: BaseViewController {
         setUpDelegates()
         setUpClosures()
         
-        diaryView.dateLabel.text = "2024-06-17"
+        diaryView.dateLabel.text = "2024-06-19"
         
         updateTodo()
+       self.navigationController?.isNavigationBarHidden = false
+       self.navigationController?.navigationBar.tintColor = .white
     }
     
     override func setLayout() {
@@ -67,212 +69,215 @@ class DiaryViewController: BaseViewController {
         }
 
         // dropdowncount에 따라 레이아웃 설정
-        if dropdowncount != 0 {
-            // diaryView에 scrollView와 contentView 추가
-            diaryView.addSubview(diaryView.scrollView)
-            diaryView.scrollView.addSubview(diaryView.contentView)
-            diaryView.contentView.addSubviews(
-                diaryView.emojiLabel,
-                diaryView.dateLabel,
-                diaryView.categoryButton,
-                diaryView.categoryLabel,
-                diaryView.todoLabel,
-                diaryView.todoTextView,
-                diaryView.thankfulLabel,
-                diaryView.thankfulTextView,
-                diaryView.bestLabel,
-                diaryView.bestTextView,
-                diaryView.deleteButton,
-                diaryView.editButton,
-                diaryView.backButton,
-                diaryView.saveButton
-            )
-            
-            // constraints 설정
-            diaryView.snp.makeConstraints {
-                $0.edges.equalToSuperview()
-            }
+//       if dropdowncount != 0 {
+//        }
+       
+           // diaryView에 scrollView와 contentView 추가
+           diaryView.addSubview(diaryView.scrollView)
+           diaryView.scrollView.addSubview(diaryView.contentView)
+           diaryView.contentView.addSubviews(
+               diaryView.emojiLabel,
+               diaryView.dateLabel,
+               diaryView.categoryButton,
+               diaryView.categoryLabel,
+               diaryView.todoLabel,
+               diaryView.todoTextView,
+               diaryView.thankfulLabel,
+               diaryView.thankfulTextView,
+               diaryView.bestLabel,
+               diaryView.bestTextView,
+               diaryView.deleteButton,
+               diaryView.editButton,
+               diaryView.backButton,
+               diaryView.saveButton
+           )
+           
+           // constraints 설정
+           diaryView.snp.makeConstraints {
+               $0.edges.equalToSuperview()
+           }
 
-            diaryView.emojiLabel.snp.makeConstraints {
-                $0.top.equalToSuperview()
-                $0.centerX.equalToSuperview()
-            }
-            
-            diaryView.dateLabel.snp.makeConstraints {
-                $0.top.equalTo(diaryView.emojiLabel.snp.bottom).offset(40)
-                $0.leading.trailing.equalToSuperview().inset(30)
-            }
-            
-            diaryView.categoryButton.snp.makeConstraints {
-                $0.top.equalTo(self.diaryView.emojiLabel.snp.bottom).offset(30)
-                $0.centerY.equalTo(self.diaryView.dateLabel.snp.centerY)
-                $0.trailing.equalToSuperview().offset(-30)
-                $0.width.equalTo(150)
-                $0.height.equalTo(50)
-            }
-            
-            diaryView.categoryLabel.snp.makeConstraints {
-                $0.top.equalTo(diaryView.dateLabel.snp.bottom).offset(50)
-                $0.leading.trailing.equalToSuperview().inset(30)
-            }
-            
-            diaryView.todoLabel.snp.makeConstraints {
-                $0.top.equalTo(diaryView.categoryLabel.snp.bottom).offset(10)
-                $0.leading.trailing.equalToSuperview().inset(30)
-            }
-            
-            diaryView.todoTextView.snp.makeConstraints {
-                $0.top.equalTo(diaryView.todoLabel.snp.bottom).offset(20)
-                $0.centerX.equalToSuperview().inset(30)
-                $0.width.equalTo(350)
-                $0.height.equalTo(300)
-            }
-            
-            diaryView.thankfulLabel.snp.makeConstraints {
-                $0.top.equalTo(diaryView.todoTextView.snp.bottom).offset(50)
-                $0.leading.trailing.equalToSuperview().inset(30)
-            }
-            
-            diaryView.thankfulTextView.snp.makeConstraints {
-                $0.top.equalTo(diaryView.thankfulLabel.snp.bottom).offset(20)
-                $0.centerX.equalToSuperview().inset(30)
-                $0.width.equalTo(350)
-                $0.height.equalTo(200)
-            }
-            
-            diaryView.bestLabel.snp.makeConstraints {
-                $0.top.equalTo(diaryView.thankfulTextView.snp.bottom).offset(50)
-                $0.leading.trailing.equalToSuperview().inset(30)
-            }
-            
-            diaryView.bestTextView.snp.makeConstraints {
-                $0.top.equalTo(diaryView.bestLabel.snp.bottom).offset(20)
-                $0.centerX.equalToSuperview().inset(30)
-                $0.width.equalTo(350)
-                $0.height.equalTo(200)
-            }
-            
-            diaryView.deleteButton.snp.makeConstraints {
-                $0.top.equalToSuperview().offset(10)
-                $0.leading.equalTo(diaryView.emojiLabel.snp.trailing).offset(50)
-                $0.size.equalTo(CGSize(width: 40, height: 40))
-            }
-            
-            diaryView.editButton.snp.makeConstraints {
-                $0.top.equalToSuperview().offset(10)
-                $0.leading.equalTo(diaryView.deleteButton.snp.trailing).offset(20)
-                $0.size.equalTo(CGSize(width: 40, height: 40))
-            }
-            
-            diaryView.backButton.snp.makeConstraints {
-                $0.top.equalToSuperview().offset(10)
-                $0.leading.equalToSuperview().offset(20)
-                $0.size.equalTo(CGSize(width: 44, height: 44))
-            }
-            
-            diaryView.saveButton.snp.makeConstraints {
-                $0.top.equalTo(diaryView.bestTextView.snp.bottom).offset(100)
-                $0.centerX.equalToSuperview()
-                $0.size.equalTo(CGSize(width: 350, height: 50))
-            }
-            
-            diaryView.contentView.snp.makeConstraints {
-                $0.edges.equalTo(diaryView.scrollView)
-                $0.width.equalTo(diaryView.scrollView)
-                $0.bottom.equalTo(diaryView.saveButton.snp.bottom).offset(50)
-            }
-            
-            diaryView.scrollView.snp.makeConstraints {
-                $0.edges.equalToSuperview()
-            }
-        } else {
-            diaryView.addSubview(diaryView.scrollView)
-            diaryView.scrollView.addSubview(diaryView.contentView)
-            diaryView.contentView.addSubviews(
-                diaryView.emojiLabel,
-                diaryView.dateLabel,
-                diaryView.thankfulLabel,
-                diaryView.thankfulTextView,
-                diaryView.bestLabel,
-                diaryView.bestTextView,
-                diaryView.deleteButton,
-                diaryView.editButton,
-                diaryView.backButton,
-                diaryView.saveButton
-            )
-            
-            diaryView.snp.makeConstraints {
-                $0.edges.equalToSuperview()
-            }
-            
-            diaryView.emojiLabel.snp.makeConstraints {
-                $0.top.equalToSuperview()
-                $0.centerX.equalToSuperview()
-            }
-            
-            diaryView.dateLabel.snp.makeConstraints {
-                $0.top.equalTo(diaryView.emojiLabel.snp.bottom).offset(40)
-                $0.leading.trailing.equalToSuperview().inset(30)
-            }
-            
-            diaryView.thankfulLabel.snp.makeConstraints {
-                $0.top.equalTo(diaryView.dateLabel.snp.bottom).offset(50)
-                $0.leading.trailing.equalToSuperview().inset(30)
-            }
-            
-            diaryView.thankfulTextView.snp.makeConstraints {
-                $0.top.equalTo(diaryView.thankfulLabel.snp.bottom).offset(20)
-                $0.centerX.equalToSuperview()
-                $0.width.equalTo(350)
-                $0.height.equalTo(200)
-            }
-            
-            diaryView.bestLabel.snp.makeConstraints {
-                $0.top.equalTo(diaryView.thankfulTextView.snp.bottom).offset(50)
-                $0.leading.trailing.equalToSuperview().inset(30)
-            }
-            
-            diaryView.bestTextView.snp.makeConstraints {
-                $0.top.equalTo(diaryView.bestLabel.snp.bottom).offset(20)
-                $0.centerX.equalToSuperview()
-                $0.width.equalTo(350)
-                $0.height.equalTo(200)
-            }
-            
-            diaryView.deleteButton.snp.makeConstraints {
-                $0.top.equalToSuperview().offset(10)
-                $0.leading.equalTo(diaryView.emojiLabel.snp.trailing).offset(50)
-                $0.size.equalTo(CGSize(width: 40, height: 40))
-            }
-            
-            diaryView.editButton.snp.makeConstraints {
-                $0.top.equalToSuperview().offset(10)
-                $0.leading.equalTo(diaryView.deleteButton.snp.trailing).offset(10)
-                $0.size.equalTo(CGSize(width: 40, height: 40))
-            }
-            
-            diaryView.backButton.snp.makeConstraints {
-                $0.top.equalToSuperview().offset(10)
-                $0.leading.equalToSuperview().offset(20)
-                $0.size.equalTo(CGSize(width: 44, height: 44))
-            }
-            
-            diaryView.saveButton.snp.makeConstraints {
-                $0.top.equalTo(diaryView.bestTextView.snp.bottom).offset(100)
-                $0.centerX.equalToSuperview()
-                $0.size.equalTo(CGSize(width: 350, height: 50))
-            }
-            
-            diaryView.contentView.snp.makeConstraints {
-                $0.edges.equalTo(diaryView.scrollView)
-                $0.width.equalTo(diaryView.scrollView)
-                $0.bottom.equalTo(diaryView.saveButton.snp.bottom).offset(50)
-            }
-            
-            diaryView.scrollView.snp.makeConstraints {
-                $0.edges.equalTo(view.safeAreaLayoutGuide)
-            }
-        }
+           diaryView.emojiLabel.snp.makeConstraints {
+               $0.top.equalToSuperview()
+               $0.centerX.equalToSuperview()
+           }
+           
+           diaryView.dateLabel.snp.makeConstraints {
+               $0.top.equalTo(diaryView.emojiLabel.snp.bottom).offset(40)
+               $0.leading.trailing.equalToSuperview().inset(30)
+           }
+           
+           diaryView.categoryButton.snp.makeConstraints {
+               $0.top.equalTo(self.diaryView.emojiLabel.snp.bottom).offset(30)
+               $0.centerY.equalTo(self.diaryView.dateLabel.snp.centerY)
+               $0.trailing.equalToSuperview().offset(-30)
+               $0.width.equalTo(150)
+               $0.height.equalTo(50)
+           }
+           
+           diaryView.categoryLabel.snp.makeConstraints {
+               $0.top.equalTo(diaryView.dateLabel.snp.bottom).offset(50)
+               $0.leading.trailing.equalToSuperview().inset(30)
+           }
+           
+           diaryView.todoLabel.snp.makeConstraints {
+               $0.top.equalTo(diaryView.categoryLabel.snp.bottom).offset(10)
+               $0.leading.trailing.equalToSuperview().inset(30)
+           }
+           
+           diaryView.todoTextView.snp.makeConstraints {
+               $0.top.equalTo(diaryView.todoLabel.snp.bottom).offset(20)
+               $0.centerX.equalToSuperview().inset(30)
+               $0.width.equalTo(350)
+               $0.height.equalTo(300)
+           }
+           
+           diaryView.thankfulLabel.snp.makeConstraints {
+               $0.top.equalTo(diaryView.todoTextView.snp.bottom).offset(50)
+               $0.leading.trailing.equalToSuperview().inset(30)
+           }
+           
+           diaryView.thankfulTextView.snp.makeConstraints {
+               $0.top.equalTo(diaryView.thankfulLabel.snp.bottom).offset(20)
+               $0.centerX.equalToSuperview().inset(30)
+               $0.width.equalTo(350)
+               $0.height.equalTo(200)
+           }
+           
+           diaryView.bestLabel.snp.makeConstraints {
+               $0.top.equalTo(diaryView.thankfulTextView.snp.bottom).offset(50)
+               $0.leading.trailing.equalToSuperview().inset(30)
+           }
+           
+           diaryView.bestTextView.snp.makeConstraints {
+               $0.top.equalTo(diaryView.bestLabel.snp.bottom).offset(20)
+               $0.centerX.equalToSuperview().inset(30)
+               $0.width.equalTo(350)
+               $0.height.equalTo(200)
+           }
+           
+           diaryView.deleteButton.snp.makeConstraints {
+               $0.top.equalToSuperview().offset(10)
+               $0.leading.equalTo(diaryView.emojiLabel.snp.trailing).offset(50)
+               $0.size.equalTo(CGSize(width: 40, height: 40))
+           }
+           
+           diaryView.editButton.snp.makeConstraints {
+               $0.top.equalToSuperview().offset(10)
+               $0.leading.equalTo(diaryView.deleteButton.snp.trailing).offset(20)
+               $0.size.equalTo(CGSize(width: 40, height: 40))
+           }
+           
+           diaryView.backButton.snp.makeConstraints {
+               $0.top.equalToSuperview().offset(10)
+               $0.leading.equalToSuperview().offset(20)
+               $0.size.equalTo(CGSize(width: 44, height: 44))
+           }
+           
+           diaryView.saveButton.snp.makeConstraints {
+               $0.top.equalTo(diaryView.bestTextView.snp.bottom).offset(100)
+               $0.centerX.equalToSuperview()
+               $0.size.equalTo(CGSize(width: 350, height: 50))
+           }
+           
+           diaryView.contentView.snp.makeConstraints {
+               $0.edges.equalTo(diaryView.scrollView)
+               $0.width.equalTo(diaryView.scrollView)
+               $0.bottom.equalTo(diaryView.saveButton.snp.bottom).offset(50)
+           }
+           
+           diaryView.scrollView.snp.makeConstraints {
+               $0.edges.equalToSuperview()
+           }
+       
+//       else {
+//            diaryView.addSubview(diaryView.scrollView)
+//            diaryView.scrollView.addSubview(diaryView.contentView)
+//            diaryView.contentView.addSubviews(
+//                diaryView.emojiLabel,
+//                diaryView.dateLabel,
+//                diaryView.thankfulLabel,
+//                diaryView.thankfulTextView,
+//                diaryView.bestLabel,
+//                diaryView.bestTextView,
+//                diaryView.deleteButton,
+//                diaryView.editButton,
+//                diaryView.backButton,
+//                diaryView.saveButton
+//            )
+//            
+//            diaryView.snp.makeConstraints {
+//                $0.edges.equalToSuperview()
+//            }
+//            
+//            diaryView.emojiLabel.snp.makeConstraints {
+//                $0.top.equalToSuperview()
+//                $0.centerX.equalToSuperview()
+//            }
+//            
+//            diaryView.dateLabel.snp.makeConstraints {
+//                $0.top.equalTo(diaryView.emojiLabel.snp.bottom).offset(40)
+//                $0.leading.trailing.equalToSuperview().inset(30)
+//            }
+//            
+//            diaryView.thankfulLabel.snp.makeConstraints {
+//                $0.top.equalTo(diaryView.dateLabel.snp.bottom).offset(50)
+//                $0.leading.trailing.equalToSuperview().inset(30)
+//            }
+//            
+//            diaryView.thankfulTextView.snp.makeConstraints {
+//                $0.top.equalTo(diaryView.thankfulLabel.snp.bottom).offset(20)
+//                $0.centerX.equalToSuperview()
+//                $0.width.equalTo(350)
+//                $0.height.equalTo(200)
+//            }
+//            
+//            diaryView.bestLabel.snp.makeConstraints {
+//                $0.top.equalTo(diaryView.thankfulTextView.snp.bottom).offset(50)
+//                $0.leading.trailing.equalToSuperview().inset(30)
+//            }
+//            
+//            diaryView.bestTextView.snp.makeConstraints {
+//                $0.top.equalTo(diaryView.bestLabel.snp.bottom).offset(20)
+//                $0.centerX.equalToSuperview()
+//                $0.width.equalTo(350)
+//                $0.height.equalTo(200)
+//            }
+//            
+//            diaryView.deleteButton.snp.makeConstraints {
+//                $0.top.equalToSuperview().offset(10)
+//                $0.leading.equalTo(diaryView.emojiLabel.snp.trailing).offset(50)
+//                $0.size.equalTo(CGSize(width: 40, height: 40))
+//            }
+//            
+//            diaryView.editButton.snp.makeConstraints {
+//                $0.top.equalToSuperview().offset(10)
+//                $0.leading.equalTo(diaryView.deleteButton.snp.trailing).offset(10)
+//                $0.size.equalTo(CGSize(width: 40, height: 40))
+//            }
+//            
+//            diaryView.backButton.snp.makeConstraints {
+//                $0.top.equalToSuperview().offset(10)
+//                $0.leading.equalToSuperview().offset(20)
+//                $0.size.equalTo(CGSize(width: 44, height: 44))
+//            }
+//            
+//            diaryView.saveButton.snp.makeConstraints {
+//                $0.top.equalTo(diaryView.bestTextView.snp.bottom).offset(100)
+//                $0.centerX.equalToSuperview()
+//                $0.size.equalTo(CGSize(width: 350, height: 50))
+//            }
+//            
+//            diaryView.contentView.snp.makeConstraints {
+//                $0.edges.equalTo(diaryView.scrollView)
+//                $0.width.equalTo(diaryView.scrollView)
+//                $0.bottom.equalTo(diaryView.saveButton.snp.bottom).offset(50)
+//            }
+//            
+//            diaryView.scrollView.snp.makeConstraints {
+//                $0.edges.equalTo(view.safeAreaLayoutGuide)
+//            }
+//        }
     }
     
     override func setAddTarget() {
@@ -445,8 +450,11 @@ class DiaryViewController: BaseViewController {
     
     func setupDropDown() {
         dropDown.anchorView = diaryView.categoryButton
-        dropDown.bottomOffset = CGPoint(x: 0, y: diaryView.categoryButton.bounds.height + 60)
-        dropDown.dataSource = Array(categoryTodos.keys)
+        dropDown.bottomOffset = CGPoint(x: 0, y: diaryView.categoryButton.bounds.height + 10)
+//        dropDown.dataSource = [Array(categoryTodos.keys)]
+       let str1 = UserDefaults.standard.string(forKey: "category1Name")
+       let str2 = UserDefaults.standard.string(forKey: "category2Name")
+       dropDown.dataSource = [str1 ?? "", str2 ?? ""]
         dropDown.backgroundColor = .white
         
         dropDown.textFont = UIFont.pretendard(size: 18, weight: .regular)
@@ -455,7 +463,7 @@ class DiaryViewController: BaseViewController {
             diaryView.categoryButton.setTitle(firstCategory, for: .normal)
             diaryView.categoryLabel.text = firstCategory
             diaryView.todoLabel.text = categoryTodos[firstCategory] ?? ""
-            diaryView.todoTextView.text = ""
+            diaryView.todoTextView.text = "오늘 하루 달리기로 부족한 유산소를 채웠다."
         }
         
         var beforecategorylabel = self.diaryView.categoryLabel.text
@@ -465,6 +473,12 @@ class DiaryViewController: BaseViewController {
             self?.diaryView.categoryLabel.text = item
             self?.diaryView.todoLabel.text = self?.categoryTodos[item] ?? ""
             self?.diaryView.todoTextView.text = ""
+           
+           if index == 0 {
+              self?.diaryView.todoTextView.text = "오늘 하루 달리기로 부족한 유산소를 채웠다."
+           } else {
+              self?.diaryView.todoTextView.text = "Swift 공부와 알고리즘 문제를 풀이하였다."
+           }
             
             print("현재 item: \(item)")
             print("현재 self?.diaryView.categoryLabel.text: \(self?.diaryView.categoryLabel.text)")

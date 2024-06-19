@@ -90,7 +90,7 @@ class ProfileViewController: BaseViewController {
       let kingFisher = KingFisher()
       let image = profileView.profileImage
       let url = keychain.get("userImage")
-      let userdefaultsNickName = UserDefaults.standard.string(forKey: "userNickname")
+      let userdefaultsNickName = UserDefaults.standard.string(forKey: "nickName")
       profileView.nicknameTextField.text = userdefaultsNickName
       kingFisher.loadProfileImage(url: url ?? "", image: image)
       print("Profile loadImage 끝~")
@@ -130,11 +130,11 @@ class ProfileViewController: BaseViewController {
       let nickRegEx = "^[^\\s][가-힣A-Za-z0-9\\s]{0,5}[^\\s]$"
       let nickTest = NSPredicate(format: "SELF MATCHES %@", nickRegEx)
       
-      let messageRegEx = "(?!^\\s*$)[가-힣A-Za-z0-9!@#$%^&*(),.?\":{}|<>~]{2,8}"
+      let messageRegEx = "^[^\\s][가-힣A-Za-z0-9!@#$%^&*(),.?\":{}|<>~]{2,8}[^\\s]$"
       let messageTest = NSPredicate(format: "SELF MATCHES %@", messageRegEx)
       
       if nickTest.evaluate(with: profileView.nicknameTextField.text) && messageTest.evaluate(with: profileView.messageTextField.text) {
-         UserDefaults.standard.set(profileView.nicknameTextField.text, forKey: "nickNameText")
+         UserDefaults.standard.set(profileView.nicknameTextField.text, forKey: "nickName")
          UserDefaults.standard.set(profileView.messageTextField.text, forKey: "messageText")
          profileView.isEditingMode = false
          

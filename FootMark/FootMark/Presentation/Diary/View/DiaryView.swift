@@ -25,10 +25,11 @@ class DiaryView: BaseView {
     }
     
     let contentView = UIView()
+   var todo2Content = ""
     
     let emojiLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 50, weight: .semibold)
-        $0.text = "🫥"
+        $0.text = "🤣"
         $0.isUserInteractionEnabled = true
     }
     
@@ -84,6 +85,7 @@ class DiaryView: BaseView {
         $0.layer.borderColor = UIColor.gray.cgColor
         $0.layer.borderWidth = 1.0
         $0.layer.cornerRadius = 5.0
+       $0.text = "오늘 하루 달리기로 부족한 유산소를 채웠다."
     }
     
     let thankfulLabel = UILabel().then {
@@ -100,6 +102,7 @@ class DiaryView: BaseView {
         $0.layer.borderColor = UIColor.gray.cgColor
         $0.layer.borderWidth = 1.0
         $0.layer.cornerRadius = 5.0
+       $0.text = "성공적으로 캡스톤 디자인 프로젝트를 마무리할 수 있었음에 감사합니다."
     }
     
     let bestLabel = UILabel().then {
@@ -116,6 +119,7 @@ class DiaryView: BaseView {
         $0.layer.borderColor = UIColor.gray.cgColor
         $0.layer.borderWidth = 1.0
         $0.layer.cornerRadius = 5.0
+       $0.text = "프로젝트를 끝내고 맛있는 것을 먹으니 너무 좋았습니다."
     }
     
     let saveButton = UIButton().then {

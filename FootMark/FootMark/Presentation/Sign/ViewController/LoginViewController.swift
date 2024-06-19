@@ -57,10 +57,7 @@ class LoginViewController: BaseViewController, ASAuthorizationControllerDelegate
                keychain.set(loginDTO.data.accessToken, forKey: "accessToken")
                keychain.set(loginDTO.data.refreshToken, forKey: "refreshToken")
                keychain.set(loginDTO.data.userImage, forKey: "userImage")
-               UserDefaults.standard.set(loginDTO.data.userNickname, forKey: "userNickname")
-//               keychain.set(loginDTO.data.userNickname, forKey: "userNickname")
-//               print(keychain.get("userImage"))
-//               print(keychain.get("userNickname"))
+               UserDefaults.standard.set(loginDTO.data.userNickname, forKey: "nickName")
                
                self.isFirstLogin()
                
